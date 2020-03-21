@@ -1835,7 +1835,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 /* Three image containers (use 25% for four, and 50% for two, etc) */
 .column {
-  float: left;
+  float: center;
   width: 33.33%;
   padding: 0px;
 }
@@ -1845,4 +1845,5 @@ $baseurl: '{{ site.baseurl }}/images';
   content: "";
   clear: both;
   display: table;
+  padding: 0px;
 }
