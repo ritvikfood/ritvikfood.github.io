@@ -83,7 +83,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	}
 
 	strong, b {
-		color: #000000;
+		color: #ffffff;
 		font-weight: _font(weight-bold);
 	}
 
@@ -96,7 +96,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #000000;
+		color: #fffff;
 		font-weight: _font(weight-extrabold);
 		letter-spacing: _size(letter-spacing-alt);
 		line-height: 1em;
