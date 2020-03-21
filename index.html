@@ -13,20 +13,16 @@ layout: landing
 				<!-- One -->
 					<section id="one" class="wrapper style1 special">
 						
-						<?php
-						//Columns must be a factor of 12 (1,2,3,4,6,12)
-						$numOfCols = 3;
-						$rowCount = 0;
-						$bootstrapColWidth = 9 / $numOfCols;
-						foreach ($rows as $row){
-						  if($rowCount % $numOfCols == 0) { ?> <div class="row"> <?php } 
-						    $rowCount++; ?>  
-							<div class="col-md-<?php echo $bootstrapColWidth; ?>">
-							    <div class="thumbnail">
-								<img src="images/salmon_food.jpg">
-							    </div>
-							</div>
-						<?php
-						    if($rowCount % $numOfCols == 0) { ?> </div> <?php } } ?>
+						<div class="row">
+						  <div class="column">
+						    <img src="salmon_food.jpg" alt="Snow" style="width:100%">
+						  </div>
+						  <div class="column">
+						    <img src="salmon_food.jpg" alt="Forest" style="width:100%">
+						  </div>
+						  <div class="column">
+						    <img src="salmon_food.jpg" alt="Mountains" style="width:100%">
+						  </div>
+						</div>
 						
 					</section>
