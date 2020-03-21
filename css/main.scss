@@ -515,10 +515,6 @@ $baseurl: '{{ site.baseurl }}/images';
 			border-radius: 3px;
 			display: block;
 		}
-		
-		img:hover {
-		  opacity: 1.0;
-		}
 
 		&.left {
 			float: left;
@@ -1836,10 +1832,6 @@ $baseurl: '{{ site.baseurl }}/images';
 	}
 
 img {
-  opacity: 0.5;
-}
-
-img:hover {
   opacity: 1.0;
 }
 
