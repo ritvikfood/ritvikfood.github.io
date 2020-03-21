@@ -1856,10 +1856,11 @@ $baseurl: '{{ site.baseurl }}/images';
   color: white;
   font-size: 18px;
   padding: 8px 16px;
+  opacity: 1;
 }
 
 .container:hover .topleft {
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 .row {
@@ -1868,7 +1869,6 @@ $baseurl: '{{ site.baseurl }}/images';
   padding: 0 0px;
 }
 
-/* Create four equal columns that sits next to each other */
 .column {
   flex: 33.33%;
   max-width: 33.33%;
