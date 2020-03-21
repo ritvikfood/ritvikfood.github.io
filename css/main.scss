@@ -1852,14 +1852,14 @@ $baseurl: '{{ site.baseurl }}/images';
 }
 
 .text {
-  background-color: #4CAF50;
+  background-color: #cfc9c8;
   color: white;
-  font-size: 16px;
-  padding: 16px 32px;
+  font-size: 18px;
+  padding: 8px 16px;
 }
 
 .container:hover .topleft {
-  opacity: 1;
+  opacity: 0.7;
 }
 
 .row {
