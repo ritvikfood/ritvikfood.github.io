@@ -5,17 +5,13 @@
 title: rk food
 description: |
   a catalog of my creations
-owner: Your Name # or company name
+owner: Ritvik Kharkar # or company name
 first_published: 2020 # if migrating another site, the year of your first publish
 email: ritvikmathematics@gmail.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 social:
-  twitter: https://twitter.com/<username>
-  github: https://github.com/<username>
-  linkedin-square: https://linkedin.com/in/<username>
-  facebook-official: https://facebook.com/<username>
-  google-plus-square: https://plus.google.com/u/0/+<username>
+  #google-plus-square: https://plus.google.com/u/0/+<username>
   #email: /contact/
   #flickr:
   #instagram:
