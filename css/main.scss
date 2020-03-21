@@ -1841,6 +1841,7 @@ $baseurl: '{{ site.baseurl }}/images';
 .image {
   transition: .5s ease;
   backface-visibility: hidden;
+  border: 2px solid black;
 }
 
 .topleft {
