@@ -50,7 +50,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	}
 
 	body, input, select, textarea {
-		color: #ffffff;
+		color: _palette(fg);
 		font-family: _font(family);
 		font-size: 15pt;
 		font-weight: _font(weight);
@@ -72,7 +72,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	}
 
 	a {
-		@include vendor('transition', ('color #000000 ease', 'border-bottom-color #000000 ease'));
+		@include vendor('transition', ('color #{_duration(transitions)} ease', 'border-bottom-color #{_duration(transitions)} ease'));
 		border-bottom: dotted 1px;
 		color: inherit;
 		text-decoration: none;
@@ -83,7 +83,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	}
 
 	strong, b {
-		color: #ffffff;
+		color: _palette(fg-bold);
 		font-weight: _font(weight-bold);
 	}
 
@@ -96,7 +96,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #ffffff;
+		color: _palette(fg-bold);
 		font-weight: _font(weight-extrabold);
 		letter-spacing: _size(letter-spacing-alt);
 		line-height: 1em;
@@ -219,7 +219,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 	header {
 		p {
-			color: #000000;
+			color: _palette(fg-light);
 			position: relative;
 			top: -0.25em;
 		}
@@ -254,7 +254,7 @@ $baseurl: '{{ site.baseurl }}/images';
 			}
 
 			p {
-				color: #000000;
+				color: _palette(fg);
 				top: 0;
 			}
 
@@ -277,7 +277,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	}
 
 	label {
-		color: #000000;
+		color: _palette(fg-bold);
 		display: block;
 		font-size: 0.9em;
 		font-weight: _font(weight-bold);
@@ -316,7 +316,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 		&:before {
 			@include vendor('pointer-events', 'none');
-			color: #ffffff;
+			color: _palette(border);
 			content: '\f078';
 			display: block;
 			height: _size(element-height);
@@ -356,7 +356,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 		& + label {
 			@include icon;
-			color: #000000;
+			color: _palette(fg);
 			cursor: pointer;
 			display: inline-block;
 			font-size: 1em;
@@ -382,8 +382,8 @@ $baseurl: '{{ site.baseurl }}/images';
 
 		&:checked + label {
 			&:before {
-				background: #000000;
-				color: #000000;
+				background: _palette(bg);
+				color: _palette(fg-bold);
 				content: '\f00c';
 			}
 		}
@@ -491,15 +491,15 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 
 		&.style1 {
-			color: #000000;
+			color: _palette(accent2, bg);
 		}
 
 		&.style2 {
-			color: #000000;
+			color: _palette(accent3, bg);
 		}
 
 		&.style3 {
-			color: #000000;
+			color: _palette(accent4, bg);
 		}
 	}
 
@@ -742,7 +742,7 @@ $baseurl: '{{ site.baseurl }}/images';
 				border-right: 0;
 
 				&:nth-child(2n + 1) {
-					background-color: #000000;
+					background-color: _palette(border-bg);
 				}
 			}
 		}
@@ -752,7 +752,7 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 
 		th {
-			color: #000000;
+			color: _palette(fg-bold);
 			font-size: 0.9em;
 			font-weight: _font(weight-bold);
 			padding: 0 0.75em 0.75em 0.75em;
@@ -858,7 +858,7 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 
 		&.special {
-			background-color: #000000;
+			background-color: _palette(accent6, bg);
 			box-shadow: none !important;
 			color: _palette(accent6, fg-bold) !important;
 
@@ -910,7 +910,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 			&:before {
 				display: block;
-				color: #000000;
+				color: _palette(accent2, bg);
 				position: absolute;
 				left: 1.75em;
 				top: 2.75em;
@@ -1092,24 +1092,24 @@ $baseurl: '{{ site.baseurl }}/images';
 
 			.select-wrapper {
 				&:before {
-					color: #000000;
+					color: _palette($p, border);
 				}
 			}
 
 			input[type="checkbox"],
 			input[type="radio"], {
 				& + label {
-					color: #000000;
+					color: _palette($p, fg);
 
 					&:before {
-						background: #000000;
+						background: _palette($p, border-bg);
 					}
 				}
 
 				&:checked + label {
 					&:before {
-						background: #000000;
-						color: #000000;
+						background: _palette($p, fg-bold);
+						color: _palette($p, bg);
 					}
 				}
 			}
@@ -1220,6 +1220,8 @@ $baseurl: '{{ site.baseurl }}/images';
 	}
 
 	.wrapper {
+		@include padding(6em, 0);
+
 		> .inner {
 			width: 60em;
 			margin: 0 auto;
@@ -1673,7 +1675,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	#main {
 		> header {
 			@include padding(12em, 0);
-			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/salmon_food.jpg")'));
+			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/banner.jpg")'));
 			background-attachment: fixed;
 			background-position: center center;
 			background-repeat: no-repeat;
@@ -1798,7 +1800,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 	body.landing {
 		#page-wrapper {
-			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/salmon_food.jpg")'));
+			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/banner.jpg")'));
 			background-attachment: fixed;
 			background-position: center center;
 			background-repeat: no-repeat;
@@ -1819,7 +1821,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 			#banner,
 			.wrapper.style4 {
-				@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/salmon_food.jpg")'));
+				@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/banner.jpg")'));
 				background-position: center center;
 				background-repeat: no-repeat;
 				background-size: cover;
@@ -1831,9 +1833,6 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 	}
 
-img {
-  opacity: 1.0;
-}
 
 .row {
   display: flex;
