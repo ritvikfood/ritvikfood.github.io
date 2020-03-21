@@ -1837,7 +1837,6 @@ $baseurl: '{{ site.baseurl }}/images';
 .column {
   float: center;
   width: 33.33%;
-  padding: 0px;
 }
 
 /* Clear floats after image containers */
@@ -1845,5 +1844,4 @@ $baseurl: '{{ site.baseurl }}/images';
   content: "";
   clear: both;
   display: table;
-  padding: 0px;
 }
