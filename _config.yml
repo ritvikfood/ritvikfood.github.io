@@ -2,14 +2,12 @@
 #
 
 # Site settings
-title: Spectral
+title: rkfood
 description: |
-  Another fine responsive  
-  site template freebie  
-  crafted by [HTML5 UP](http://html5up.net)
+  a catalog of my creations
 owner: Your Name # or company name
-first_published: 2016 # if migrating another site, the year of your first publish
-email: your-email@domain.com
+first_published: 2020 # if migrating another site, the year of your first publish
+email: ritvikmathematics@gmail.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 social:
