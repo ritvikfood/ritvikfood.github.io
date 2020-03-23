@@ -18,7 +18,14 @@ layout: landing
 	    <div class="column" id="imgCol2"></div>
 	    <div class="column" id="imgCol3"></div>
 	</div>
+	
+	{% for image in site.static_files %}
+	    {% if image.path contains 'images/IMG' %}
+		<img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+	    {% endif %}
+	{% endfor %}
 
+	<!-->
 	<script>
 		var count = 0
 		
@@ -36,5 +43,6 @@ layout: landing
 		}
 
 	</script>
+	<!-->
 
 </section>
