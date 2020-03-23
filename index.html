@@ -20,7 +20,7 @@ layout: landing
 	{% for image in site.static_files %}
 	    <div class="column">
 	    {% if image.path contains 'images/IMG' %}
-		{% assign count = count + 1 %}
+		{% assign count = count | plus: 1 %}
 		{% if count % 3 == 0 %}
 		    <div class="container">
 			  <img src="{{ site.baseurl }}{{ image.path }}">
@@ -37,7 +37,7 @@ layout: landing
 	{% for image in site.static_files %}
 	    <div class="column">
 	    {% if image.path contains 'images/IMG' %}
-		{% assign count = count + 1 %}
+		{% assign count = count | plus: 1 %}
 		{% if count % 3 == 1 %}
 		    <div class="container">
 			  <img src="{{ site.baseurl }}{{ image.path }}">
@@ -54,7 +54,7 @@ layout: landing
 	{% for image in site.static_files %}
 	    <div class="column">
 	    {% if image.path contains 'images/IMG' %}
-		{% assign count = count + 1 %}
+		{% assign count = count | plus: 1 %}
 		{% if count % 3 == 2 %}
 		    <div class="container">
 			  <img src="{{ site.baseurl }}{{ image.path }}">
