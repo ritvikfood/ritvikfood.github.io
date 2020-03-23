@@ -25,24 +25,6 @@ layout: landing
 	    {% endif %}
 	{% endfor %}
 
-	<!-->
-	<script>
-		var count = 0
-		
-		var images = ["IMG_20191230_094141__01", "IMG_20191230_094141__01", "IMG_20191230_094141__01", "IMG_20191230_094141__01", "IMG_20191230_094141__01", "IMG_20191230_094141__01", "IMG_20191230_094141__01", "IMG_20191230_094141__01", "IMG_20191230_094141__01"];
-
-		//extract only the name of the file without the extension and save in an array named $find
-		for (let src of images){
-		    var chosenCol = "imgCol" + (count % 3 + 1);
-		    count = count + 1;
-		    var imgPath = "images/" + src + ".jpg";
-		
-		    var img = document.createElement("img");
-		    img.src = imgPath;
-		    document.getElementById(chosenCol).appendChild(img);
-		}
-
-	</script>
-	<!-->
+	
 
 </section>
