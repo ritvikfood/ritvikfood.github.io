@@ -22,7 +22,12 @@ layout: landing
 	    {% if image.path contains 'images/IMG' %}
 		{% assign count = count + 1 %}
 		{% if count % 3 == 0 %}
-		    <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+		    <div class="container">
+			  <img src="{{ site.baseurl }}{{ image.path }}">
+			  <div class="topleft">
+			    <div class="text">{count}</div>
+			  </div>
+		    </div>
 		{% endif %}
 	    {% endif %}
 	    </div>
@@ -34,7 +39,12 @@ layout: landing
 	    {% if image.path contains 'images/IMG' %}
 		{% assign count = count + 1 %}
 		{% if count % 3 == 1 %}
-		    <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+		    <div class="container">
+			  <img src="{{ site.baseurl }}{{ image.path }}">
+			  <div class="topleft">
+			    <div class="text">{count}</div>
+			  </div>
+		    </div>
 		{% endif %}
 	    {% endif %}
 	    </div>
@@ -46,7 +56,12 @@ layout: landing
 	    {% if image.path contains 'images/IMG' %}
 		{% assign count = count + 1 %}
 		{% if count % 3 == 2 %}
-		    <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+		    <div class="container">
+			  <img src="{{ site.baseurl }}{{ image.path }}">
+			  <div class="topleft">
+			    <div class="text">{count}</div>
+			  </div>
+		    </div>
 		{% endif %}
 	    {% endif %}
 	    </div>
