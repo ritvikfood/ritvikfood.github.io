@@ -13,14 +13,21 @@ layout: landing
 				<!-- Pics -->
 					<section id="pics">
 						
-						<div class="row">
-						    foreach ($rows as $row){
-						    {
-							<div class="col-md-4">
-							    <img src="images/IMG_20191230_094141__01.jpg">
+						<?php
+						//Columns must be a factor of 12 (1,2,3,4,6,12)
+						$numOfCols = 3;
+						$rowCount = 0;
+						$bootstrapColWidth = 9 / $numOfCols;
+						foreach ($rows as $row){
+						  if($rowCount % $numOfCols == 0) { ?> <div class="row"> <?php } 
+						    $rowCount++; ?>  
+							<div class="col-md-<?php echo $bootstrapColWidth; ?>">
+							    <div class="thumbnail">
+								<img src="images/IMG_20191230_094141__01.jpg">
+							    </div>
 							</div>
-						    }
-						</div>
+						<?php
+						    if($rowCount % $numOfCols == 0) { ?> </div> <?php } } ?>
 
 						<!--->
 						<div class="row">
