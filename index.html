@@ -21,7 +21,8 @@ layout: landing
 	    <div class="column">
 	    {% if image.path contains 'images/IMG' %}
 		{% assign count = count | plus: 1 %}
-		{% if count % 3 == 0 %}
+		{% assign mod = count | modulo: 3 %}
+		{% if mod == 0 %}
 		    <div class="container">
 			  <img src="{{ site.baseurl }}{{ image.path }}">
 			  <div class="topleft">
@@ -38,7 +39,8 @@ layout: landing
 	    <div class="column">
 	    {% if image.path contains 'images/IMG' %}
 		{% assign count = count | plus: 1 %}
-		{% if count % 3 == 1 %}
+		{% assign mod = count | modulo: 3 %}
+		{% if mod == 1 %}
 		    <div class="container">
 			  <img src="{{ site.baseurl }}{{ image.path }}">
 			  <div class="topleft">
@@ -55,7 +57,8 @@ layout: landing
 	    <div class="column">
 	    {% if image.path contains 'images/IMG' %}
 		{% assign count = count | plus: 1 %}
-		{% if count % 3 == 2 %}
+		{% assign mod = count | modulo: 3 %}
+		{% if mod == 2 %}
 		    <div class="container">
 			  <img src="{{ site.baseurl }}{{ image.path }}">
 			  <div class="topleft">
