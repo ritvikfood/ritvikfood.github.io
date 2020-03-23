@@ -14,13 +14,17 @@ layout: landing
 					<section id="pics">
 						
 						var items = [
-						    1, 2, 3, 4, 5, 6, 7, 8
+						    "images/IMG_20200102_192753__01.jpg", 
+						    "images/IMG_20200102_192753__01.jpg", 
+						    "images/IMG_20200102_192753__01.jpg", 
+						    "images/IMG_20200102_192753__01.jpg", 
+						    "images/IMG_20200102_192753__01.jpg"
 						]
 						
 						<div class="row">
 
 						    {% for item in items %}
-						    <div class="col-md-3">{{ item }}</div>
+						    <div class="col-md-3"><img src={{item}}></div>
 
 							<!-- if last column in row -->
 							{% if forloop.counter | divisibleby:"4" and not forloop.last %}
