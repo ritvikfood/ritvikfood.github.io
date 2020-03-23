@@ -2,27 +2,40 @@
 layout: landing
 ---
 <!-- Banner -->
-	<section id="banner">
-		<div class="inner">
-			<h2>{{ site.title }}</h2>
-			<p>{{ site.description | markdownify }}</p>
-		</div>
-		<a class="more scrolly">Creations</a>
-	</section>
+<section id="banner">
+	<div class="inner">
+		<h2>{{ site.title }}</h2>
+		<p>{{ site.description | markdownify }}</p>
+	</div>
+	<a class="more scrolly">Creations</a>
+</section>
 
 <!-- Pics -->
-	<section id="pics">
+<section id="pics">
 
-		<div id="photos">
+	<div class="row" id="imgRow">
+	    <div class="col" id="imgCol1"></div>
+	    <div class="col" id="imgCol2"></div>
+	    <div class="col" id="imgCol3"></div>
+	</div>
 
-		</div>
+	<script>
+		var count = 0
+		
+		$dir = "images/IMG*.jpg";
+		//get the list of all files with .jpg extension in the directory and safe it in an array named $images
+		$images = glob($dir);
 
-		<script>
-			var img = new Image(); 
+		//extract only the name of the file without the extension and save in an array named $find
+		foreach( $images as $image ):
+		    count = count + 1;
+		    echo "$image";
+		    img = Image(image);
+		    chosenCol = count % 3 + 1
+		    document.getElementById("imgCol$chosenCol").append(img)
+		endforeach;
 
-			img.src = "/images/IMG_20200215_122330__01.jpg";
+		document.getElementById('photos').append(img)
+	</script>
 
-			document.pics.photos.appendChild(img);
-		</script>
-
-	</section>
+</section>
