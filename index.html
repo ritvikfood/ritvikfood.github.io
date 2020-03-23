@@ -29,7 +29,10 @@ layout: landing
 		    var chosenCol = "imgCol" + (count % 3 + 1);
 		    count = count + 1;
 		    var imgPath = "images/" + src + ".jpg";
-		    document.getElementById(chosenCol).append(<img src="$imgPath">);
+		
+		    var img = document.createElement("img");
+		    img.src = imgPath;
+		    document.getElementById(chosenCol).appendChild(img);
 		}
 
 	</script>
