@@ -17,8 +17,8 @@ layout: landing
 	<div class="row" id="imgRow">
 
 	{% assign count = 0 %}
+	<div class="column">
 	{% for image in site.static_files %}
-	    <div class="column">
 	    {% if image.path contains 'images/IMG' %}
 		{% assign count = count | plus: 1 %}
 		{% assign mod = count | modulo: 3 %}
@@ -31,12 +31,12 @@ layout: landing
 		    </div>
 		{% endif %}
 	    {% endif %}
-	    </div>
 	{% endfor %}
+	</div>
 
 	{% assign count = 0 %}
+	<div class="column">
 	{% for image in site.static_files %}
-	    <div class="column">
 	    {% if image.path contains 'images/IMG' %}
 		{% assign count = count | plus: 1 %}
 		{% assign mod = count | modulo: 3 %}
@@ -49,12 +49,12 @@ layout: landing
 		    </div>
 		{% endif %}
 	    {% endif %}
-	    </div>
 	{% endfor %}
+	</div>
 
 	{% assign count = 0 %}
+	<div class="column">
 	{% for image in site.static_files %}
-	    <div class="column">
 	    {% if image.path contains 'images/IMG' %}
 		{% assign count = count | plus: 1 %}
 		{% assign mod = count | modulo: 3 %}
@@ -67,8 +67,8 @@ layout: landing
 		    </div>
 		{% endif %}
 	    {% endif %}
-	    </div>
 	{% endfor %}
+	</div>
 
 	</div>
 	
