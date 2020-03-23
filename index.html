@@ -13,29 +13,6 @@ layout: landing
 				<!-- Pics -->
 					<section id="pics">
 						
-						var {
-							items = [
-							    "images/IMG_20200102_192753__01.jpg", 
-							    "images/IMG_20200102_192753__01.jpg", 
-							    "images/IMG_20200102_192753__01.jpg", 
-							    "images/IMG_20200102_192753__01.jpg", 
-							    "images/IMG_20200102_192753__01.jpg"
-							]
-						}
-						
-						<div class="row">
+						<script src="js/image_grid.js"></script>
 
-						    {% for item in items %}
-						    <div class="col-md-3"><img src={{item}}></div>
-
-							<!-- if last column in row -->
-							{% if forloop.counter | divisibleby:"4" and not forloop.last %}
-							</div><div class="row">
-							{% endif %}
-
-						    {% endfor %}
-
-						</div>
-
-						
 					</section>
