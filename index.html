@@ -13,63 +13,31 @@ layout: landing
 <!-- Pics -->
 
 <section id="pics">
+	
+	{% assign pics = site.static_files | where "path" contains 'images/IMG' %}
 
-	<div class="row" id="imgRow">
-
-	{% assign count = 0 %}
-	<div class="column">
-	{% for image in site.static_files %}
-	    {% if image.path contains 'images/IMG' %}
-		{% assign count = count | plus: 1 %}
-		{% assign mod = count | modulo: 3 %}
-		{% if mod == 0 %}
-		    <div class="container">
-			  <img src="{{ site.baseurl }}{{ image.path }}">
+	<div class="row">
+		
+	{% assign numPics = pics.size %}
+	{% assign picsPerCol = numPics | divided_by: 3 %}
+		
+	{% for i in (1..numPics) %}
+		{% assign divResult = i | divided_by: 3 %}
+		{% assign mod = i | modulo: 3 %}
+		{% assign currPic = divResult | plus: mod %}
+		
+		<div class="column">
+		    {% if i < picsPerCol %}
+			<div class="container">
+			  <img src="{{ site.baseurl }}{{ pics[currPic].path }}">
 			  <div class="topleft">
 			    <div class="text">{{mod}}</div>
 			  </div>
-		    </div>
-		{% endif %}
-	    {% endif %}
-	{% endfor %}
-	</div>
-
-	{% assign count = 0 %}
-	<div class="column">
-	{% for image in site.static_files %}
-	    {% if image.path contains 'images/IMG' %}
-		{% assign count = count | plus: 1 %}
-		{% assign mod = count | modulo: 3 %}
-		{% if mod == 1 %}
-		    <div class="container">
-			  <img src="{{ site.baseurl }}{{ image.path }}">
-			  <div class="topleft">
-			    <div class="text">{{mod}}</div>
-			  </div>
-		    </div>
-		{% endif %}
-	    {% endif %}
-	{% endfor %}
-	</div>
-
-	{% assign count = 0 %}
-	<div class="column">
-	{% for image in site.static_files %}
-	    {% if image.path contains 'images/IMG' %}
-		{% assign count = count | plus: 1 %}
-		{% assign mod = count | modulo: 3 %}
-		{% if mod == 2 %}
-		    <div class="container">
-			  <img src="{{ site.baseurl }}{{ image.path }}">
-			  <div class="topleft">
-			    <div class="text">{{mod}}</div>
-			  </div>
-		    </div>
-		{% endif %}
-	    {% endif %}
-	{% endfor %}
-	</div>
-
+		    	</div>
+		    {% endif %}
+		</div>
+	
 	</div>
 	
+		
 </section>
