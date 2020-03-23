@@ -12,25 +12,43 @@ layout: landing
 
 <!-- Pics -->
 
-{% assign count = 0 %}
-{% for image in site.static_files %}
-    {% if image.path contains 'images/IMG' %}
-        {%assign count = count + 1}
-    {% endif %}
-{% endfor %}
-
-<div class="row" id="imgRow">
-{% for image in site.static_files %}
-    {% if image.path contains 'images/IMG' %}
-        <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
-    {% endif %}
-{% endfor %}
-</div>
-
 <section id="pics">
+
 	<div class="row" id="imgRow">
-	    <div class="column" id="imgCol1"></div>
-	    <div class="column" id="imgCol2"></div>
-	    <div class="column" id="imgCol3"></div>
+
+	{% for image in site.static_files %}
+	    <div class="column">
+	    {% if image.path contains 'images/IMG' %}
+		{% increment count %}
+		{% if count % 3 == 0 %}
+		    <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+		{% endif %}
+	    {% endif %}
+	    </div>
+	{% endfor %}
+
+	{% for image in site.static_files %}
+	    <div class="column">
+	    {% if image.path contains 'images/IMG' %}
+		{% increment count %}
+		{% if count % 3 == 1 %}
+		    <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+		{% endif %}
+	    {% endif %}
+	    </div>
+	{% endfor %}
+
+	{% for image in site.static_files %}
+	    <div class="column">
+	    {% if image.path contains 'images/IMG' %}
+		{% increment count %}
+		{% if count % 3 == 2 %}
+		    <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+		{% endif %}
+	    {% endif %}
+	    </div>
+	{% endfor %}
+
 	</div>
+	
 </section>
