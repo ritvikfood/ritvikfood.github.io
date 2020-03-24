@@ -32,6 +32,8 @@ layout: landing
 	{% for i in (1..picsPerCol) %}
 		{% assign timesResult = i | times: 3 %}
 		{% assign currPic = timesResult | plus: 0 %}
+		
+		{{ pics[currPic] }}
 
 		<div class="column">
 			<div class="container">
