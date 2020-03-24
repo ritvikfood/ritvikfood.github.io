@@ -15,7 +15,8 @@ layout: landing
 <section id="pics">
 	
 	{% assign pics = '' %}
-	{% for file in site.static_files reversed %}
+	{% assign name_sorted_files = site.static_files | sort: "path" | reverse %}
+	{% for file in name_sorted_files %}
 	    {% assign fileName = file.path %}
 	    {% if fileName contains 'images/IMG' %}
 	        {% assign pics = pics | append: fileName %}
