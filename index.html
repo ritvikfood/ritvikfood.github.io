@@ -32,7 +32,8 @@ layout: landing
 		{% assign currPic = timesResult | plus: 0 %}
 		
 		<div class="column">
-			{{ pics[currPic] }}
+			{{ pics }}
+			{{ currPic }}
 			<div class="container">
 			  <img src="{{ site.baseurl }}{{ pics[currPic] }}">
 			  <div class="topleft">
