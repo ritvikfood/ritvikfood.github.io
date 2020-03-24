@@ -27,7 +27,7 @@ layout: landing
 	{% assign numPics = pics.size %}
 	{% assign picsPerCol = numPics | divided_by: 3 %}
 		
-	{% for i in range(1..picsPerCol) %}
+	{% for i in (1..2) %}
 		{% assign divResult = i | times: 3 %}
 		{% assign currPic = divResult | plus: 0 %}
 		
