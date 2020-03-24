@@ -31,19 +31,20 @@ layout: landing
 	{% assign numPics = pics.size %}
 	{% assign picsPerCol = numPics | divided_by: 3 %}
 		
-		
-	{% for i in (1..picsPerCol) %}
-		{% assign decOne = i | minus: 1 %}
-		{% assign timesResult = decOne | times: 3 %}
-		{% assign currPic = timesResult | plus: 0 %}
-
+	{% for c in (0..2) %}	
 		<div class="column">
+		{% for i in (1..picsPerCol) %}
+			{% assign decOne = i | minus: 1 %}
+			{% assign timesResult = decOne | times: 3 %}
+			{% assign currPic = timesResult | plus: c %}
+
 			<div class="container">
 			  <img src="{{ site.baseurl }}{{ pics[currPic] }}">
 			  <div class="topleft">
 			    <div class="text">{{currPic}}</div>
 			  </div>
 			</div>
+		{% endfor %}
 		</div>
 	{% endfor %}
 		
