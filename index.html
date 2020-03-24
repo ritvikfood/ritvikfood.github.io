@@ -24,7 +24,22 @@ layout: landing
 	
 	<div class="row">
 		
-	ABCDEF
+	{% assign numPics = pics.size %}
+	{% assign picsPerCol = numPics | divided_by: 3 %}
+		
+	{% for i in range(1..picsPerCol) %}
+		{% assign divResult = i | times: 3 %}
+		{% assign currPic = divResult | plus: 0 %}
+		
+		<div class="column">
+			<div class="container">
+			  <img src="{{ site.baseurl }}{{ pics[currPic].path }}">
+			  <div class="topleft">
+			    <div class="text">{{currPic}}</div>
+			  </div>
+			</div>
+		</div>
+	{% endfor %}
 	
 	</div>
 
