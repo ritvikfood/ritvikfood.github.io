@@ -16,8 +16,8 @@ layout: landing
 	
 	{% assign pics = '' | split: '' %}
 	{% for file in site.static_files %}
-	    {% assign fileName = file.path | split: '_' | first | split: '' %}
-	    {% if fileName contains 'IMG/' %}
+	    {% assign fileName = file.path %}
+	    {% if fileName contains 'images/IMG' %}
 	        {% assign pics = pics | concat: fileName %}
 	    {% endif %}
 	{% endfor %}
