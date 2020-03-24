@@ -14,15 +14,17 @@ layout: landing
 
 <section id="pics">
 	
-	{% assign pics = '' | split: '' %}
+	{% assign pics = '' %}
 	{% for file in site.static_files %}
 	    {% assign fileName = file.path %}
 	    {% if fileName contains 'images/IMG' %}
-	        {% assign pics = pics | concat: fileName %}
-	        {% assign pics = pics | concat: '|' %}
+	        {% assign pics = pics | append: fileName %}
+	        {% assign pics = pics | append: "|" %}
 	    {% endif %}
 	{% endfor %}
 	
+	
+	{% assign pics = pics | split: "|" %}
 	
 	
 	<div class="row">
