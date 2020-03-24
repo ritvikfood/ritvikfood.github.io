@@ -35,7 +35,7 @@ layout: landing
 		
 	{% for c in (0..2) %}	
 		<div class="column">
-		{% for i in (1..2) %}
+		{% for i in (1..picsPerCol) %}
 			{% assign decOne = i | minus: 1 %}
 			{% assign timesResult = decOne | times: 3 %}
 			{% assign currPicIndex = timesResult | plus: c %}
