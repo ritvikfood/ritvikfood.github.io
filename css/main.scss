@@ -1866,6 +1866,10 @@ $baseurl: '{{ site.baseurl }}/images';
   opacity: 0.9;
 }
 
+.container:hover .bottomRight {
+  opacity: 0.9;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
