@@ -42,9 +42,9 @@ layout: landing
 			
 			{% if currImage %}	
 			        {% assign foodInfo = currImage | split: "_" %}
-			        {% assign date = foodInfo[0] %}
-			        {% assign foodName = foodInfo[1] %}
-			        {% assign ingredients = foodInfo[2] %}
+			        {% assign date = foodInfo[1] %}
+			        {% assign foodName = foodInfo[2] %}
+			        {% assign ingredients = foodInfo[3] %}
 			
 				<div class="container">
 				  <img src="{{ site.baseurl }}{{ currImage }}">
