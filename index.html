@@ -14,9 +14,13 @@ layout: landing
 
 <section id="pics">
 	
-	{% assign pics = site.static_files | where "path" contains 'images/IMG' %}
-	
-	{{pics}}
+	{% assign pics = '' | split: '' %}
+	{% for file in site.static_files %}
+	    {% assign fileName = file.path | split: '_' | first | split: '' %}
+	    {% if fileName contains 'IMG/' %}
+	        {% assign pics = pics | concat: fileName %}
+	    {% endif %}
+	{% endfor %}
 
 	<div class="row">
 		
