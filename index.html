@@ -46,9 +46,11 @@ layout: landing
 			        {% assign foodName = foodInfo[2] %}
 			        {% assign ingredients = foodInfo[3] %}
 			
+			        {% assign ingredients = ingredients | split: "." %}
+			        {% assign ingredients = ingredients[0] %}
 			        {% assign ingredients = ingredients | split: "-" %}
 
-                                {{ ingredients | join: " &middot " }}
+                                {% assign ingredients = ingredients | join: " &middot " %}
 			
 				<div class="container">
 				  <img src="{{ site.baseurl }}{{ currImage }}">
