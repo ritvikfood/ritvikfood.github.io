@@ -42,11 +42,16 @@ layout: landing
 	    let date = parts[2];
 	    let foodName = parts[3];
 	    let ingredients = parts[4];
-	    ingredients = ingredients.split('.')[0].split('-');
-		
+	    let height = parts[5];
+	    let width = parts[6];
+	    
+            ingredients = ingredients.split('-');	
 	    ingredients = ingredients.join(" &middot ");
 		
-	    let newElement = '<div class="container"> <img loading="lazy" src="'+src+'"/> <div class="topleft"> <div class="text">'+foodName+'<br/>'+date+'</div> </div> <div class="bottomRight"> <div class="text">'+ingredients+'</div> </div> </div>';
+	    let newElement = '\
+		<div class="container"> <img loading="lazy" src="'+src+'" height="'+height+'" width="'+width+'"> \
+		<div class="topleft"> <div class="text">'+foodName+'<br/>'+date+'</div> </div> \
+		<div class="bottomRight"> <div class="text">'+ingredients+'</div> </div> </div>';
 		
 	    document.getElementById(chosenCol).innerHTML += newElement
 	}
