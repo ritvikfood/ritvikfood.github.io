@@ -41,9 +41,9 @@ layout: landing
 	    let width = parts[6];
 		
 	    let newElement = '\
-	    <div class="container"> <img id="image'+count+'" loading="lazy" height="'+height+'" width="'+width+'"> \
-	    <div class="topleft"> <div class="text" id="TL'+count+'"></div> </div> \
-	    <div class="topleft"> <div class="text" id="BR'+count+'"></div> </div>;
+	    <div class="container"> <img id="image${count}" loading="lazy" height="${height}" width="${width}"> \
+	    <div class="topleft"> <div class="text" id="TL${count}"></div></div> \
+	    <div class="bottomRight"> <div class="text" id="BR${count}"></div></div>;
 		
 	    document.getElementById(chosenCol).innerHTML += newElement
 	}
