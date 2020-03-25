@@ -1900,12 +1900,6 @@ $baseurl: '{{ site.baseurl }}/images';
   height: 100%;
 }
 
-.column div {
-  width: 100%;
-  background-color: red;
-  padding-top: 25%;
-}
-
 /* Responsive layout - one column */
 @media screen and (max-width: 600px) {
   .column {
