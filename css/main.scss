@@ -1893,6 +1893,12 @@ $baseurl: '{{ site.baseurl }}/images';
   height: 100%;
 }
 
+.column div {
+  max-width: 100%;
+  max-height: 100%;
+  background-color: red;
+}
+
 .lcolumn img {
   margin-bottom: 15px;
   vertical-align: middle;
