@@ -1881,9 +1881,9 @@ $baseurl: '{{ site.baseurl }}/images';
 }
 
 .lcolumn {
-  flex: 28%;
-  max-width: 28%;
-  padding: 0px 10px;
+  flex: 33.33%;
+  max-width: 33.33%;
+  padding: 0px 10px 0px 20px;
 }
 
 .column img {
