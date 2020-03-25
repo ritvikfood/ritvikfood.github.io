@@ -43,7 +43,7 @@ layout: landing
 	    let foodName = parts[3];
 	    let ingredients = parts[4];
 	    let height = parts[5];
-	    let width = parts[6];
+	    let width = parts[6].split('.')[0];
 	    
             ingredients = ingredients.split('-');	
 	    ingredients = ingredients.join(" &middot ");
