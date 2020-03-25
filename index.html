@@ -27,63 +27,27 @@ layout: landing
 	
 	{% assign pics = pics | split: "|" %}
 	
-	
-	<div class="row">
 	{% assign numPics = pics.size %}
 	{% assign picsPerCol = numPics | divided_by: 3 %}
 	{% assign picsPerCol = picsPerCol | plus: 1 %}
-		
-	{% for c in (0..2) %}
-		
-		{% if c == 0 %}
-		<div class="lcolumn" id="abc">
-		{% else %}
-		<div class="column">
-		{% endif %}
-
-		{% for i in (1..2) %}
-			{% assign decOne = i | minus: 1 %}
-			{% assign timesResult = decOne | times: 3 %}
-			{% assign currPicIndex = timesResult | plus: c %}
-			{% assign currImage = pics[currPicIndex] %}
-			
-			{% if currImage %}	
-			        {% assign foodInfo = currImage | split: "_" %}
-			        {% assign date = foodInfo[2] %}
-			        {% assign foodName = foodInfo[3] %}
-			        {% assign ingredients = foodInfo[4] %}
-			
-			        {% assign ingredients = ingredients | split: "." %}
-			        {% assign ingredients = ingredients[0] %}
-			        {% assign ingredients = ingredients | split: "-" %}
-
-                                {% assign ingredients = ingredients | join: " &middot " %}
-			
-			        <script>
-				var img = document.createElement("img");
-		    		img.src = {{ site.baseurl }}{{ currImage }};
-		    		document.getElementById("abc").appendChild(img);
-			        </script>
-			
-				<div class="container">
-				  <img src="{{ site.baseurl }}{{ currImage }}" loading="lazy" alt="Loading..">
-				  <div class="topleft">
-				    <div class="text">{{foodName}}<br/>{{date}}</div>
-				  </div>
-				  <div class="bottomRight">
-				    <div class="text">{{ingredients}}</div>
-				  </div>
-				</div>
-			{% endif %}
-		{% endfor %}
-		</div>
-	{% endfor %}
-		
 	
 	
+	<div class="row">
+		<div class="column" id="col1"></div>
+		<div class="column" id="col2"></div>
+		<div class="rcolumn" id="col3"></div>
 	</div>
+	
+	<script>
+	let count = 0;
+	for (let src of pics){
+	    var chosenCol = "col" + (count % 3 + 1);
+	    count = count + 1;
 
-	
-	
-		
+	    var img = document.createElement("img");
+	    img.src = {{ site.baseurl }} + src;
+	    document.getElementById(chosenCol).appendChild(img);
+	}
+	</script>
+			
 </section>
