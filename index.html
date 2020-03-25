@@ -40,6 +40,8 @@ layout: landing
 	    
 	    var img = document.createElement("img");
 	    img.src = src;
+	    img.loading = "lazy";
+            img.alt = "Loading..."
 	    document.getElementById(chosenCol).appendChild(img);
 	}
 
