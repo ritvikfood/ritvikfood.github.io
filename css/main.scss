@@ -1894,9 +1894,9 @@ $baseurl: '{{ site.baseurl }}/images';
 }
 
 .box {
-  max-width: 100%;
+  width: 100%;
   background-color: red;
-  padding-top: 56.25%;
+  padding-top: 25%;
 }
 
 .lcolumn img {
