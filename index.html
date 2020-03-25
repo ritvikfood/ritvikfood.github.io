@@ -32,8 +32,7 @@ layout: landing
 	
 	<script>
 	let count = 0;
-	console.log({{ pics }})
-	let picsArray = toString({{ pics }}).split('|')
+	let picsArray = toString({ pics }).split('|')
 	for (let src of picsArray){
 	    var chosenCol = "col" + (count % 3 + 1);
 	    count = count + 1;
