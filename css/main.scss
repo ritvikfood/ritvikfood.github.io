@@ -1911,5 +1911,10 @@ $baseurl: '{{ site.baseurl }}/images';
     max-width: 100%;
     padding: 0px 10px 10px 30px;
   }
+  .lcolumn {
+    flex: 100%;
+    max-width: 100%;
+    padding: 0px 10px 10px 30px;
+}
 }
 
