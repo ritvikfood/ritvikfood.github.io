@@ -46,7 +46,7 @@ layout: landing
 		
 	    ingredients = ingredients.join(" &middot ");
 		
-	    let newElement = '<div class="container"> <img data-src="'+src+'" class="lazy"> <div class="topleft"> <div class="text">'+foodName+'<br/>'+date+'</div> </div> <div class="bottomRight"> <div class="text">'+ingredients+'</div> </div> </div>';
+	    let newElement = '<div class="container"> <img class="lazy" data-src="'+src+'"/> <div class="topleft"> <div class="text">'+foodName+'<br/>'+date+'</div> </div> <div class="bottomRight"> <div class="text">'+ingredients+'</div> </div> </div>';
 		
 	    document.getElementById(chosenCol).innerHTML += newElement
 	}
