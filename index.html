@@ -44,13 +44,14 @@ layout: landing
 	    let ingredients = parts[4];
 	    let height = parts[5];
 	    let width = parts[6].split('.')[0];
+	    let aspectRatio = parseInt(height / width * 100);
 	    
             ingredients = ingredients.split('-');	
 	    ingredients = ingredients.join(" &middot ");
 		
 	    let greyBox = `\
 		<div class="container"> \
-		<div class="placeholder" style="width:${width}px; height:${height}px;"></div>
+		<div class="placeholder" style="width:100%; height:${aspectRatio}%;"></div>
 		</div>`;
 	    document.getElementById(chosenCol).innerHTML += greyBox
 	    
