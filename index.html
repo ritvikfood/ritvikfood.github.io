@@ -33,16 +33,8 @@ layout: landing
 	<script>
 	let count = 0;
 	let picsArray = toString({ pics }).split('|')
-	for (let src of picsArray){
-	    var chosenCol = "col" + (count % 3 + 1);
-	    count = count + 1;
-		
-	    console.log(src)
-	    
-	    var img = document.createElement("img");
-	    img.src = {{ site.baseurl }} + src;
-	    document.getElementById(chosenCol).appendChild(img);
-	}
+	console.log(picsArray)
+	
 	</script>
 			
 </section>
