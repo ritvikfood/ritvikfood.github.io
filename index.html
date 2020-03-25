@@ -49,7 +49,7 @@ layout: landing
 	    ingredients = ingredients.join(" &middot ");
 		
 	    let newElement = `\
-		<div class="container"> <img id=image${count} loading="lazy" src="${src}" style="width:${width}px;height:${height}px;"> \
+		<div class="container"> <img id=image${count} loading="lazy" src="${src}" width=${width} height=${height}"> \
 		<div class="topleft"> <div class="text">${foodName}<br/>${date}</div> </div> \
 		<div class="bottomRight"> <div class="text">${ingredients}</div> </div> </div>`;
 		
