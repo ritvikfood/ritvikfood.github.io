@@ -36,10 +36,21 @@ layout: landing
 	picsArray  = picsArray.pop();
 		
 	for (let src of picsArray){
+	    console.log(src)
 	    var chosenCol = "col" + (count % 3 + 1);
 	    count = count + 1;
+	    let parts = src.split('_');
+	    console.log(parts);
+	    let date = parts[2];
+	    let foodName = parts[3];
+	    let ingredients = parts[4];
+	    ingredients = ingredients.split('.')[0].split('-');
+	    console.log(ingredients);
 		
-	    let newElement = '<div class="container"> <img src="'+src+'" loading="lazy" alt="Loading.."> <div class="topleft"> <div class="text">{{foodName}}<br/>{{date}}</div> </div> <div class="bottomRight"> <div class="text">{{ingredients}}</div> </div> </div>';
+	    ingredients = ingredients.join(" &middot ");
+	    console.log(ingredients);
+		
+	    let newElement = '<div class="container"> <img src="'+src+'" loading="lazy" alt="Loading.."> <div class="topleft"> <div class="text">'+foodName+'<br/>'+date+'</div> </div> <div class="bottomRight"> <div class="text">'+ingredients+'</div> </div> </div>';
 		
 	    document.getElementById(chosenCol).innerHTML += newElement
 	}
