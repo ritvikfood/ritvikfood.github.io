@@ -24,14 +24,6 @@ layout: landing
 	    {% endif %}
 	{% endfor %}
 	
-	
-	{% assign pics = pics | split: "|" %}
-	
-	{% assign numPics = pics.size %}
-	{% assign picsPerCol = numPics | divided_by: 3 %}
-	{% assign picsPerCol = picsPerCol | plus: 1 %}
-	
-	
 	<div class="row">
 		<div class="column" id="col1"></div>
 		<div class="column" id="col2"></div>
@@ -40,12 +32,12 @@ layout: landing
 	
 	<script>
 	let count = 0;
-	for (let src of {{ pics }}){
+	let picsArray = {{pics}}.split('|')
+	for (let src of picsArray){
 	    var chosenCol = "col" + (count % 3 + 1);
 	    count = count + 1;
 		
 	    console.log(src)
-	    console.log({{ site.baseurl }})
 	    
 	    var img = document.createElement("img");
 	    img.src = {{ site.baseurl }} + src;
