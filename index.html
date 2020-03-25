@@ -48,9 +48,11 @@ layout: landing
             ingredients = ingredients.split('-');	
 	    ingredients = ingredients.join(" &middot ");
 		
-	    let greyBox = `<div width=${width} height=${height} style="background-color:lightblue">`
+	    let greyBox = `\
+		<div class="container"> \
+		<div width=${width} height=${height} style="background-color:lightblue">
+		</div>`;
 	    document.getElementById(chosenCol).innerHTML += greyBox
-		
 	    
 	}
 
