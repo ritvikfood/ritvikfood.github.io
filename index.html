@@ -32,36 +32,27 @@ layout: landing
 	
 	<script>
 	let count = 0;
-	let picsArray = "{{pics}}".split('|');
-	picsArray.pop();
-	let data = [[],[],[]];
-		
 	for (let src of picsArray){
 	    var chosenCol = "col" + (count % 3 + 1);
 	    count = count + 1;
 	    let parts = src.split('_');
-		
 	    let date = parts[2];
-	    data[0].push(date);
-		
 	    let foodName = parts[3];
-	    data[1].push(foodName);
-		
 	    let ingredients = parts[4];
-	    ingredients = ingredients.split('-');	
-	    ingredients = ingredients.join(" &middot ");
-	    data[2].push(ingredients);
-		
 	    let height = parts[5];
-	    let width = parts[6].split('.')[0];
+	    let width = parts[6];
+	    
+            ingredients = ingredients.split('-');	
+	    ingredients = ingredients.join(" &middot ");
 		
 	    let newElement = `\
-	    <div class="container"> <img src="images/greypatch.png" id="image${count}" height="${height}" width="${width}"> \
-	    <div class="topleft"> <div class="text" id="TL${count}"></div></div> \
-	    <div class="bottomRight"> <div class="text" id="BR${count}"></div></div>`;
+		<div class="container"> <img id=image${count} loading="lazy" src="${src}" height="${height}" width="${width}"> \
+		<div class="topleft"> <div class="text">${foodName}<br/>${date}</div> </div> \
+		<div class="bottomRight"> <div class="text">${ingredients}</div> </div> </div>`;
 		
 	    document.getElementById(chosenCol).innerHTML += newElement
 	}
+
 	</script>
 			
 </section>
