@@ -46,12 +46,42 @@ layout: landing
 		
 	    ingredients = ingredients.join(" &middot ");
 		
-	    let newElement = '<div class="container"> <img src="'+src+'" loading="lazy" alt="Loading.."> <div class="topleft"> <div class="text">'+foodName+'<br/>'+date+'</div> </div> <div class="bottomRight"> <div class="text">'+ingredients+'</div> </div> </div>';
+	    let newElement = '<div class="container"> <img data-src="'+src+'" class="lazy"> <div class="topleft"> <div class="text">'+foodName+'<br/>'+date+'</div> </div> <div class="bottomRight"> <div class="text">'+ingredients+'</div> </div> </div>';
 		
 	    document.getElementById(chosenCol).innerHTML += newElement
 	}
-
+	</script>
 	
+	<script>
+	  document.addEventListener("DOMContentLoaded", function() {
+	  var lazyloadImages = document.querySelectorAll("img.lazy");    
+	  var lazyloadThrottleTimeout;
+
+	  function lazyload () {
+	    if(lazyloadThrottleTimeout) {
+	      clearTimeout(lazyloadThrottleTimeout);
+	    }    
+
+	    lazyloadThrottleTimeout = setTimeout(function() {
+		var scrollTop = window.pageYOffset;
+		lazyloadImages.forEach(function(img) {
+		    if(img.offsetTop < (window.innerHeight + scrollTop)) {
+		      img.src = img.dataset.src;
+		      img.classList.remove('lazy');
+		    }
+		});
+		if(lazyloadImages.length == 0) { 
+		  document.removeEventListener("scroll", lazyload);
+		  window.removeEventListener("resize", lazyload);
+		  window.removeEventListener("orientationChange", lazyload);
+		}
+	    }, 20);
+	  }
+
+	  document.addEventListener("scroll", lazyload);
+	  window.addEventListener("resize", lazyload);
+	  window.addEventListener("orientationChange", lazyload);
+	});
 	</script>
 			
 </section>
