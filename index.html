@@ -38,12 +38,10 @@ layout: landing
 	for (let src of picsArray){
 	    var chosenCol = "col" + (count % 3 + 1);
 	    count = count + 1;
-	    
-	    var img = document.createElement("img");
-	    img.src = src;
-	    img.loading = "lazy";
-            img.alt = "Loading..."
-	    document.getElementById(chosenCol).appendChild(img);
+		
+	    let newElement = '<div class="container"> <img src="'+src+'" loading="lazy" alt="Loading.."> <div class="topleft"> <div class="text">{{foodName}}<br/>{{date}}</div> </div> <div class="bottomRight"> <div class="text">{{ingredients}}</div> </div> </div>';
+		
+	    document.getElementById(chosenCol).innerHTML += newElement
 	}
 
 	
