@@ -36,12 +36,12 @@ layout: landing
 	{% for c in (0..2) %}
 		
 		{% if c == 0 %}
-		<div class="lcolumn">
+		<div class="lcolumn" id="abc">
 		{% else %}
 		<div class="column">
 		{% endif %}
 
-		{% for i in (1..picsPerCol) %}
+		{% for i in (1..2) %}
 			{% assign decOne = i | minus: 1 %}
 			{% assign timesResult = decOne | times: 3 %}
 			{% assign currPicIndex = timesResult | plus: c %}
@@ -58,6 +58,12 @@ layout: landing
 			        {% assign ingredients = ingredients | split: "-" %}
 
                                 {% assign ingredients = ingredients | join: " &middot " %}
+			
+			        <script>
+				var img = document.createElement("img");
+		    		img.src = {{ site.baseurl }}{{ currImage }};
+		    		document.getElementById("abc").appendChild(img);
+			        </script>
 			
 				<div class="container">
 				  <img src="{{ site.baseurl }}{{ currImage }}" loading="lazy" alt="Loading..">
