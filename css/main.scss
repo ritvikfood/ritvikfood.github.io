@@ -1877,14 +1877,12 @@ $baseurl: '{{ site.baseurl }}/images';
 .column {
   flex: 33.33%;
   max-width: 33.33%;
-  padding: 0 0px;
+  padding: 0px 10px;
 }
 
 .column img {
   margin-top: 10px;
-  margin-left: 10px;
   margin-bottom: 10px;
-  margin-right: 10px;
   vertical-align: middle;
   horizontal-align: middle;
   width: 100%;
