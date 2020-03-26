@@ -46,8 +46,8 @@ layout: landing
 	    let greyBox = `<div class="container" id=container${count}><div style="width: 10000px; background-color:#7f7f7f; max-width:100%; padding-top:${aspectRatio}%; margin-bottom:15px"></div></div>`;
 	    document.getElementById(chosenCol).innerHTML += greyBox
 	}
-	/*	
-	let count = 0;
+		
+	count = 0;
 	for (let src of picsArray){
 	    count = count + 1;
 	    let parts = src.split('_');
@@ -59,14 +59,14 @@ layout: landing
 	    ingredients = ingredients.join(" &middot ");
 		
 	    let newElement = `\
-		<div class="container"> <img id=image${count} loading="lazy" src="${src}"> \
+		<img id=image${count} loading="lazy" src="${src}"> \
 		<div class="topleft"> <div class="text">${foodName}<br/>${date}</div> </div> \
-		<div class="bottomRight"> <div class="text">${ingredients}</div> </div> </div>`;
+		<div class="bottomRight"> <div class="text">${ingredients}</div></div>`;
 		
 	    document.getElementById('container'+count).innerHTML = newElement
 	    
 	    
-	}*/
+	}
 
 	</script>
 			
