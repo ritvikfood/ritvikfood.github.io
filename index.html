@@ -42,9 +42,13 @@ layout: landing
 	    let height = parts[5];
 	    let width = parts[6].split('.')[0];
 	    let aspectRatio = parseInt(height / width * 100);
+	    
+	    let containerId = 'container'+count;
+	    let containerItem = `<div class="container" id=${containerId}></div>`;
+	    document.getElementById(chosenCol).innerHTML += containerItem
 		
-	    let greyBox = `<div class="container" id=container${count}><div style="width: 10000px; background-color:#7f7f7f; max-width:100%; padding-top:${aspectRatio}%; margin-bottom:15px"></div></div>`;
-	    document.getElementById(chosenCol).innerHTML += greyBox
+	    let greyBox = `<div style="width: 10000px; background-color:#7f7f7f; max-width:100%; padding-top:${aspectRatio}%; margin-bottom:15px"></div>`;
+	    document.getElementById(containerId).innerHTML = greyBox
 	}
         
 	count = 0;
