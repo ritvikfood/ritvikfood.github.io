@@ -42,30 +42,11 @@ layout: landing
 	    let height = parts[5];
 	    let width = parts[6].split('.')[0];
 	    let aspectRatio = parseInt(height / width * 100);
-	
-	    //
-	    let date = parts[2];
-	    let foodName = parts[3];
-	    let ingredients = parts[4];
-	    
-            ingredients = ingredients.split('-');	
-	    ingredients = ingredients.join(" &middot ");
-	    //
 		
 	    let greyBox = `<div class="container" id=container${count}><div style="width: 10000px; background-color:#7f7f7f; max-width:100%; padding-top:${aspectRatio}%; margin-bottom:15px"></div></div>`;
 	    document.getElementById(chosenCol).innerHTML += greyBox
-		
-	    //
-	    let newElement = `\
-		<img id=image${count} loading="lazy" src="${src}"> \
-		<div class="topleft"> <div class="text">${foodName}<br/>${date}</div> </div> \
-		<div class="bottomRight"> <div class="text">${ingredients}</div></div>`;
-		
-	    document.getElementById('container'+count).innerHTML = newElement
-	    //
-		
 	}
-        /*
+        
 	count = 0;
 	for (let src of picsArray){
 	    count = count + 1;
@@ -85,7 +66,7 @@ layout: landing
 	    document.getElementById('container'+count).innerHTML = newElement
 	    
 	}
-	*/
+	
 
 	</script>
 			
