@@ -44,10 +44,11 @@ layout: landing
 	    let aspectRatio = parseInt(height / width * 100);
 	    
 	    let containerId = 'container'+count;
+	    let innerDivId = 'innerDiv'+count;
 	    let containerItem = `<div class="container" id=${containerId}></div>`;
 	    document.getElementById(chosenCol).innerHTML += containerItem
 		
-	    let greyBox = `<div style="width: 10000px; background-color:#7f7f7f; max-width:100%; padding-top:${aspectRatio}%; margin-bottom:15px"></div>`;
+	    let greyBox = `<div id=${innerDivId} style="width: 10000px; background-color:#7f7f7f; max-width:100%; padding-top:${aspectRatio}%; margin-bottom:15px"></div>`;
 	    document.getElementById(containerId).innerHTML = greyBox
 	}
         
@@ -62,12 +63,16 @@ layout: landing
             ingredients = ingredients.split('-');	
 	    ingredients = ingredients.join(" &middot ");
 		
+	    let innerDivId = 'innerDiv'+count;
+	    let containerId = 'container'+count;
+		
 	    let newElement = `\
 		<img id=image${count} loading="lazy" src="${src}"> \
 		<div class="topleft"> <div class="text">${foodName}<br/>${date}</div> </div> \
 		<div class="bottomRight"> <div class="text">${ingredients}</div></div>`;
 		
-	    document.getElementById('container'+count).innerHTML = newElement
+	    document.getElementById(innerDivId).style.width = "0px";
+	    document.getElementById(containerId).innerHTML += newElement
 	    
 	}
 	
