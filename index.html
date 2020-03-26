@@ -47,12 +47,15 @@ layout: landing
 	    document.getElementById(chosenCol).innerHTML += greyBox
 	}
 		
-	var check = function(){
-	    setTimeout(check, 10000); // check again in a second
+	function sleep(milliseconds) {
+	  const date = Date.now();
+	  let currentDate = null;
+	  do {
+	    currentDate = Date.now();
+	  } while (currentDate - date < milliseconds);
 	}
+	sleep(2000);
 
-	check();
-		
 	count = 0;
 	for (let src of picsArray){
 	    count = count + 1;
