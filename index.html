@@ -46,13 +46,13 @@ layout: landing
 	    let ingredients = parts[4];
 	    let height = parts[5];
 	    let width = parts[6].split('.')[0];
-	    let aspectRatio = parseInt(height / width * 100);
+	    let aspectRatio = height / width;
 	    let picHeight = aspectRatio * colSize;
 	    
             ingredients = ingredients.split('-');	
 	    ingredients = ingredients.join(" &middot ");
 		
-	    let greyBox = `<div style="width: ${colSize}; height: ${picHeight};"></div>`;
+	    let greyBox = `<div style="width: ${colSize}px; height: ${picHeight}px;"></div>`;
 	    document.getElementById(chosenCol).innerHTML += greyBox
 	    
 	}
