@@ -35,6 +35,8 @@ layout: landing
 	let picsArray = "{{pics}}".split('|');
 	picsArray.pop();
 		
+	let colSize = parseInt(screen.width / 3);
+		
 	for (let src of picsArray){
 	    var chosenCol = "col" + (count % 3 + 1);
 	    count = count + 1;
@@ -45,11 +47,12 @@ layout: landing
 	    let height = parts[5];
 	    let width = parts[6].split('.')[0];
 	    let aspectRatio = parseInt(height / width * 100);
+	    let picHeight = aspectRatio * colSize;
 	    
             ingredients = ingredients.split('-');	
 	    ingredients = ingredients.join(" &middot ");
 		
-	    let greyBox = `<div></div>`;
+	    let greyBox = `<div style="width: ${colSize}; height: ${picHeight};"></div>`;
 	    document.getElementById(chosenCol).innerHTML += greyBox
 	    
 	}
