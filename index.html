@@ -46,15 +46,6 @@ layout: landing
 	    let greyBox = `<div class="container" id=container${count}><div style="width: 10000px; background-color:#7f7f7f; max-width:100%; padding-top:${aspectRatio}%; margin-bottom:15px"></div></div>`;
 	    document.getElementById(chosenCol).innerHTML += greyBox
 	}
-		
-	function sleep(milliseconds) {
-	  const date = Date.now();
-	  let currentDate = null;
-	  do {
-	    currentDate = Date.now();
-	  } while (currentDate - date < milliseconds);
-	}
-	sleep(15000);
 
 	count = 0;
 	for (let src of picsArray){
@@ -74,6 +65,11 @@ layout: landing
 		
 	    document.getElementById('container'+count).innerHTML = newElement
 	    
+	    function sleep(ms) {
+  		return new Promise(resolve => setTimeout(resolve, ms));
+	    }
+
+	    sleep(1000).then(() => { ; });
 	    
 	}
 
