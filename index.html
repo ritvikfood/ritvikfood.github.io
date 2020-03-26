@@ -47,6 +47,12 @@ layout: landing
 	    document.getElementById(chosenCol).innerHTML += greyBox
 	}
 		
+	var check = function(){
+	    setTimeout(check, 5000); // check again in a second
+	}
+
+	check();
+		
 	count = 0;
 	for (let src of picsArray){
 	    count = count + 1;
