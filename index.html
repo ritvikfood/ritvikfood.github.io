@@ -49,6 +49,7 @@ layout: landing
 
 	count = 0;
 	for (let src of picsArray){
+	    if (count === 2){break;}
 	    count = count + 1;
 	    let parts = src.split('_');
 	    let date = parts[2];
