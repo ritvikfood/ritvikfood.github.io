@@ -46,10 +46,13 @@ layout: landing
 	    let greyBox = `<div class="container" id=container${count}><div style="width: 10000px; background-color:#7f7f7f; max-width:100%; padding-top:${aspectRatio}%; margin-bottom:15px"></div></div>`;
 	    document.getElementById(chosenCol).innerHTML += greyBox
 	}
+		
+	function sleep(ms) {
+	    return new Promise(resolve => setTimeout(resolve, ms));
+        }
 
 	count = 0;
 	for (let src of picsArray){
-	    if (count === 2){break;}
 	    count = count + 1;
 	    let parts = src.split('_');
 	    let date = parts[2];
@@ -65,12 +68,8 @@ layout: landing
 		<div class="bottomRight"> <div class="text">${ingredients}</div></div>`;
 		
 	    document.getElementById('container'+count).innerHTML = newElement
-	    
-	    function sleep(ms) {
-  		return new Promise(resolve => setTimeout(resolve, ms));
-	    }
 
-	    sleep(1000).then(() => { ; });
+	    sleep(2000).then(() => { ; });
 	    
 	}
 
