@@ -53,7 +53,14 @@ layout: landing
 	    ingredients = ingredients.join(" &middot ");
 		
 	    let greyBox = `<div style="width: 1000px; height: 2000px; background-color:red;"></div>`;
-	    document.getElementById(chosenCol).innerHTML += greyBox
+	    #document.getElementById(chosenCol).innerHTML += greyBox
+		
+	    let newElement = `\
+		<div class="container"> <img id=image${count} loading="lazy" src="${src}" width=${width} height=${height}"> \
+		<div class="topleft"> <div class="text">${foodName}<br/>${date}</div> </div> \
+		<div class="bottomRight"> <div class="text">${ingredients}</div> </div> </div>`;
+		
+	    document.getElementById(chosenCol).innerHTML += newElement
 	    
 	}
 
