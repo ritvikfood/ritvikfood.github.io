@@ -63,7 +63,6 @@ layout: landing
             ingredients = ingredients.split('-');	
 	    ingredients = ingredients.join(" &middot ");
 		
-	    let innerDivId = 'innerDiv'+count;
 	    let containerId = 'container'+count;
 		
 	    let newElement = `\
@@ -71,9 +70,7 @@ layout: landing
 		<div class="topleft"> <div class="text">${foodName}<br/>${date}</div> </div> \
 		<div class="bottomRight"> <div class="text">${ingredients}</div></div>`;
 		
-	    document.getElementById(innerDivId).style.width = "0px";
-	    document.getElementById(innerDivId).style.padding = "0%";
-	    document.getElementById(containerId).innerHTML += newElement
+	    document.getElementById(containerId).innerHTML = newElement
 	    
 	}
 	
