@@ -1888,7 +1888,7 @@ $baseurl: '{{ site.baseurl }}/images';
 }
 
 //small window
-
+/*
 @media only screen and (max-width: 600px) and  (min-device-width: 850px) {
   .column {
     flex: 100%;
@@ -1901,6 +1901,7 @@ $baseurl: '{{ site.baseurl }}/images';
     padding: 0px 10px 0px 30px;
   }
 }
+*/
 
 
 //phone portrait
