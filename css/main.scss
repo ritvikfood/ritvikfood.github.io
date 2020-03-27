@@ -1804,7 +1804,8 @@ $baseurl: '{{ site.baseurl }}/images';
 				background-repeat: no-repeat;
 				background-size: cover;
 				padding-top: 0;
-				width: 100%;
+				max-width: 100%;
+				width: 1000000px;
 			}
 		}
 
