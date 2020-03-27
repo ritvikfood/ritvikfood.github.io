@@ -1802,7 +1802,7 @@ $baseurl: '{{ site.baseurl }}/images';
 				background-attachment: fixed;
 				background-position: center center;
 				background-repeat: no-repeat;
-				background-size: cover;
+				background-size: 100% 100%;
 				padding-top: 0;
 			}
 
@@ -1906,4 +1906,3 @@ $baseurl: '{{ site.baseurl }}/images';
 	}
     }
 }
-
