@@ -1903,10 +1903,6 @@ $baseurl: '{{ site.baseurl }}/images';
   body.landing {
     #page-wrapper {
         background: url("#{$baseurl}/salmon_food_mobile.jpg") no-repeat center center fixed;
-        -webkit-background-size: 100%;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
 	}
     }
 }
