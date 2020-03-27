@@ -1889,7 +1889,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 //small window
 
-@media only screen and (max-width: 600px) and  (min-device-width: 800px) {
+@media only screen and (max-width: 600px) and  (min-device-width: 850px) {
   .column {
     flex: 100%;
     max-width: 100%;
@@ -1904,7 +1904,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 
 //phone portrait
-@media only screen and ( max-device-width: 720px ) and ( orientation: portrait ){
+@media only screen and ( max-device-width: 850px ) and ( orientation: portrait ){
   .column {
     flex: 100%;
     max-width: 100%;
@@ -1935,7 +1935,7 @@ $baseurl: '{{ site.baseurl }}/images';
 }
 
 //phone landscape
-@media only screen and ( max-device-width: 720px ) and ( orientation: landscape ){
+@media only screen and ( max-device-width: 850px ) and ( orientation: landscape ){
   body.landing {
 	#page-wrapper {
 		/*
