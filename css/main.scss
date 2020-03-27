@@ -1881,11 +1881,6 @@ $baseurl: '{{ site.baseurl }}/images';
   z-index: 5;
 }
 
-#bk_img {
-    width: 100%;
-    height: auto;
-}
-
 @media screen and (max-width: 600px) {
   .column {
     flex: 100%;
@@ -1900,15 +1895,6 @@ $baseurl: '{{ site.baseurl }}/images';
   body.landing {
     #page-wrapper {
 	background-color: red;
-	}
-    }
-}
-
-@media screen and (max-width: 600px) and (orientation: portrait){
- body.landing {
-    #page-wrapper img {
-	width: 100%;
-	height: auto;
 	}
     }
 }
