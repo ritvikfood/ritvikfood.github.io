@@ -1898,11 +1898,11 @@ $baseurl: '{{ site.baseurl }}/images';
   }
   body.landing {
 	#page-wrapper {
-		@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/salmon_food.jpg")'));
+		background-image: url("#{$baseurl}/salmon_food.jpg");
 		background-attachment: fixed;
 		background-position: center center;
 		background-repeat: no-repeat;
-		background-size: cover;
+		background-size: 100%;
 		padding-top: 0;
 	}
     }
@@ -1922,7 +1922,6 @@ $baseurl: '{{ site.baseurl }}/images';
   }
   body.landing {
 	#page-wrapper {
-		@include vendor(
 		background: linear-gradient(-45deg, rgba(109,109,109,1) 0%, rgba(41,41,41,1) 100%);
 	}
     }
