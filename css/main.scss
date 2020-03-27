@@ -1818,7 +1818,7 @@ $baseurl: '{{ site.baseurl }}/images';
   position: absolute;
   top: 10px;
   left: 10px;
-  z-index: 9;
+  z-index: 8;
 }
 
 .bottomRight {
@@ -1827,7 +1827,7 @@ $baseurl: '{{ site.baseurl }}/images';
   position: absolute;
   bottom: 10px;
   right: 10px;
-  z-index: 9;
+  z-index: 8;
 }
 
 .text {
@@ -1934,6 +1934,7 @@ $baseurl: '{{ site.baseurl }}/images';
 		position: fixed;
 		top: 0;
 		left: 0;
+		z-index: 9;
 		padding-top: 0;
 	}
     }
