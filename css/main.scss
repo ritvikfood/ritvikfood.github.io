@@ -1899,7 +1899,7 @@ $baseurl: '{{ site.baseurl }}/images';
 }
 
 //phone portrait
-@media only screen and ( max-device-width: 736px ) and ( orientation: portrait ){
+@media only screen and ( max-device-width: 768px ) and ( orientation: portrait ){
   body.landing {
 	#page-wrapper {
 		@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/salmon_food.jpg")'));
