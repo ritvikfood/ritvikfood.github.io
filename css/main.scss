@@ -1810,6 +1810,26 @@ $baseurl: '{{ site.baseurl }}/images';
 			}
 		}
 
+	body.is-mobile {
+			&.landing {
+				#page-wrapper {
+					background: none;
+				}
+
+				#banner,
+				.wrapper.style4 {
+					@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/salmon_food_mobile.jpg")'));
+					background-position: center center;
+					background-repeat: no-repeat;
+					background-size: cover;
+				}
+
+				#footer {
+					background-color: darken(_palette(bg), 8);
+				}
+			}
+		}
+
 .container {
   position: relative;
   width: 100%;
