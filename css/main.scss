@@ -1798,7 +1798,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 	body.landing {
 			#page-wrapper {
-				@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/salmon_food_mobile.jpg")'));
+				@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/salmon_food.jpg")'));
 				background-attachment: fixed;
 				background-position: center center;
 				background-repeat: no-repeat;
@@ -1888,7 +1888,6 @@ $baseurl: '{{ site.baseurl }}/images';
   z-index: 5;
 }
 
-/* Responsive layout - one column */
 @media screen and (max-width: 600px) {
   .column {
     flex: 100%;
@@ -1900,9 +1899,18 @@ $baseurl: '{{ site.baseurl }}/images';
     max-width: 100%;
     padding: 0px 10px 0px 30px;
   }
-  body.landing {
+}
+
+@media screen and (max-width: 600px) and (orientation: portrait){
+ body.landing {
     #page-wrapper {
-        background: url("#{$baseurl}/salmon_food_mobile.jpg") no-repeat center center fixed;
+        background: rgb(109,109,109);
+	background: -moz-linear-gradient(-45deg, rgba(109,109,109,1) 0%, rgba(41,41,41,1) 100%);
+	background: -webkit-linear-gradient(-45deg, rgba(109,109,109,1) 0%, rgba(41,41,41,1) 100%);
+	background: linear-gradient(-45deg, rgba(109,109,109,1) 0%, rgba(41,41,41,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6d6d6d",endColorstr="#292929",GradientType=1);
 	}
     }
 }
+
+
