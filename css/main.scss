@@ -1804,8 +1804,6 @@ $baseurl: '{{ site.baseurl }}/images';
 				background-repeat: no-repeat;
 				background-size: cover;
 				padding-top: 0;
-				max-width: 100%;
-				width: 1000000px;
 			}
 		}
 
@@ -1887,6 +1885,19 @@ $baseurl: '{{ site.baseurl }}/images';
 }
 
 @media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+    padding: 0px 10px 0px 30px;
+  }
+  .lcolumn {
+    flex: 100%;
+    max-width: 100%;
+    padding: 0px 10px 0px 30px;
+  }
+}
+
+@media only screen and ( max-device-width: 736px ) {
   .column {
     flex: 100%;
     max-width: 100%;
