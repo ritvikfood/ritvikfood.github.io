@@ -1899,14 +1899,18 @@ $baseurl: '{{ site.baseurl }}/images';
     max-width: 100%;
     padding: 0px 10px 0px 30px;
   }
+  body.landing {
+    #page-wrapper {
+	background-color: red;
+	}
+    }
 }
 
 @media screen and (max-width: 600px) and (orientation: portrait){
  body.landing {
     #page-wrapper {
 	background-image: url("#{$baseurl}/salmon_food.jpg");
-	width: 100%;
-	height: auto;
+	background-size: cover;
 	}
     }
 }
