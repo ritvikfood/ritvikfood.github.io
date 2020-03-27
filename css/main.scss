@@ -1902,7 +1902,11 @@ $baseurl: '{{ site.baseurl }}/images';
   }
   body.landing {
     #page-wrapper {
-        background: linear-gradient(-45deg, rgba(109,109,109,1) 0%, rgba(41,41,41,1) 100%);
+        background: url("#{$baseurl}/salmon_food_mobile.jpg") no-repeat center center fixed;
+        -webkit-background-size: 100%;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
 	}
     }
 }
