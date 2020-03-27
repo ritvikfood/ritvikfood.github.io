@@ -1844,6 +1844,7 @@ $baseurl: '{{ site.baseurl }}/images';
   position: absolute;
   top: 10px;
   left: 10px;
+  z-index: 9;
 }
 
 .bottomRight {
@@ -1852,6 +1853,7 @@ $baseurl: '{{ site.baseurl }}/images';
   position: absolute;
   bottom: 20px;
   right: 10px;
+  z-index: 9;
 }
 
 .text {
@@ -1860,7 +1862,6 @@ $baseurl: '{{ site.baseurl }}/images';
   font-size: 16px;
   padding: 4px 8px;
   opacity: 1;
-  z-index: 10;
 }
 
 .container:hover .topleft {
@@ -1895,7 +1896,7 @@ $baseurl: '{{ site.baseurl }}/images';
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 9;
+  z-index: 5;
 }
 
 .lcolumn img {
@@ -1906,7 +1907,7 @@ $baseurl: '{{ site.baseurl }}/images';
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 9;
+  z-index: 5;
 }
 
 /* Responsive layout - one column */
