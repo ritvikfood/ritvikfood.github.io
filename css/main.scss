@@ -1905,7 +1905,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 
 //phone portrait
-@media screen and ( max-device-width: 850px ) and ( orientation: portrait ){
+@media screen and ( orientation: portrait ){
   .column {
     flex: 100%;
     max-width: 100%;
@@ -1936,7 +1936,7 @@ $baseurl: '{{ site.baseurl }}/images';
 }
 
 //phone landscape
-@media screen and ( max-device-width: 850px ) and ( orientation: landscape ){
+@media screen and ( orientation: landscape ){
   body.landing {
 	#page-wrapper {
 		/*
