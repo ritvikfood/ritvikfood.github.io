@@ -1916,6 +1916,7 @@ $baseurl: '{{ site.baseurl }}/images';
 		top: 0;
 		left: 0;
 		padding-top: 0;
+		z-index: -1;
 	}
     }
 }
@@ -1946,6 +1947,7 @@ $baseurl: '{{ site.baseurl }}/images';
 		top: 0;
 		left: 0;
 		padding-top: 0;
+		z-index: -1;
 	}
     }
 }
