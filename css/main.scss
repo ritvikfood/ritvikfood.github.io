@@ -1904,7 +1904,7 @@ $baseurl: '{{ site.baseurl }}/images';
 @media only screen and (min-aspect-ratio: 4/3) and (max-device-width: 1000px) {
   body.landing {
 	#page-wrapper {
-		background: linear-gradient(-90deg, rgba(175,173,173,1) 0%, rgba(57,57,57,1) 100%);
+		background: linear-gradient(-90deg, rgba(146,146,146,1) 0%, rgba(57,57,57,1) 100%);
 	}
     }
 }
@@ -1923,7 +1923,7 @@ $baseurl: '{{ site.baseurl }}/images';
   }
   body.landing {
 	#page-wrapper {
-		background: linear-gradient(-90deg, rgba(175,173,173,1) 0%, rgba(57,57,57,1) 100%);
+		background: linear-gradient(-90deg, rgba(146,146,146,1) 0%, rgba(57,57,57,1) 100%);
 	}
     }
 }
