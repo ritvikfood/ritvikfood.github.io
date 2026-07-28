@@ -56,29 +56,34 @@ h1 em { color: var(--tomato); font-weight: inherit; }
 .hero-stats dd { margin: 5px 0 0; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .09em; }
 
 .hero-visual { min-height: 610px; position: relative; }
-.hero-card { position: absolute; margin: 0; z-index: 1; }
-.hero-card-main { width: min(76%, 480px); right: 7%; top: 0; transform: rotate(2.5deg); }
+.hero-card {
+  position: absolute;
+  margin: 0;
+  padding: 9px 9px 13px;
+  z-index: 1;
+  background: var(--white);
+  box-shadow: 0 28px 70px rgba(63,45,30,.22);
+}
+.hero-card-main { width: min(76%, 480px); right: 7%; top: 0; z-index: 2; transform: rotate(2.5deg); }
 .hero-card-small { width: min(41%, 250px); z-index: 2; }
-.hero-card-left { left: -1%; bottom: 14px; transform: rotate(-7deg); }
+.hero-card-left { left: -1%; bottom: 14px; z-index: 1; transform: rotate(-7deg); }
 .hero-card-right { width: min(34%, 210px); right: -2%; top: 88px; z-index: 3; transform: rotate(8deg); }
-.hero-card .image-shell { box-shadow: 0 28px 70px rgba(63,45,30,.22); border: 9px solid var(--white); }
+.hero-card .image-shell { box-shadow: none; border: 0; }
 .hero-card-main .image-shell { aspect-ratio: 4 / 5; }
 .hero-card-small .image-shell { aspect-ratio: 1 / 1.15; }
 .hero-card figcaption {
-  width: fit-content;
-  max-width: 90%;
-  margin: -3px 0 0 13%;
-  padding: 5px 13px 8px;
-  position: relative;
-  z-index: 4;
+  width: 100%;
+  max-width: none;
+  margin: 8px 0 0;
+  padding: 0 6px;
   color: var(--sage);
-  background: rgba(255,253,248,.92);
-  box-shadow: 0 7px 18px rgba(63,45,30,.12);
+  background: transparent;
   font-family: var(--hand);
   font-size: clamp(20px, 2vw, 30px);
   font-weight: 600;
-  line-height: 1;
-  transform: rotate(-2deg);
+  line-height: 1.05;
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 .hero-card figcaption time {
   color: var(--muted);
@@ -86,8 +91,7 @@ h1 em { color: var(--tomato); font-weight: inherit; }
   font-weight: 500;
   white-space: nowrap;
 }
-.hero-card-left figcaption { margin-left: 4%; transform: rotate(4deg); }
-.hero-card-right figcaption { margin-left: 18%; transform: rotate(-5deg); font-size: clamp(18px, 1.7vw, 25px); }
+.hero-card-right figcaption { font-size: clamp(18px, 1.7vw, 25px); }
 .image-shell { overflow: hidden; background: linear-gradient(135deg, #d8b482, #a5503e 52%, #506a57); }
 .image-shell img { height: 100%; object-fit: cover; transition: transform .55s ease, opacity .3s; }
 .image-shell img[src=""], .image-shell img:not([src]) { opacity: 0; }
