@@ -118,7 +118,9 @@
       const shell = card.querySelector(".image-shell");
       shell.style.background = gradientFor(item);
       shell.innerHTML = imageMarkup(item, true);
-      card.querySelector("[data-feature-label]").textContent = item.name;
+      const label = card.querySelector("[data-feature-label]");
+      const machineDate = parseDate(item.date).toISOString().slice(0, 10);
+      label.innerHTML = `${escapeHtml(item.name)} <time datetime="${machineDate}">· ${escapeHtml(displayDate(item.date))}</time>`;
     });
     const years = catalog.map((item) => parseDate(item.date).getFullYear()).filter((year) => year > 1970);
     document.querySelector("[data-total-count]").textContent = catalog.length;

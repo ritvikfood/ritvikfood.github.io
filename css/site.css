@@ -65,7 +65,7 @@ h1 em { color: var(--tomato); font-weight: inherit; }
 .hero-card-main .image-shell { aspect-ratio: 4 / 5; }
 .hero-card-small .image-shell { aspect-ratio: 1 / 1.15; }
 .hero-card figcaption {
-  width: max-content;
+  width: fit-content;
   max-width: 90%;
   margin: -3px 0 0 13%;
   padding: 5px 13px 8px;
@@ -79,6 +79,12 @@ h1 em { color: var(--tomato); font-weight: inherit; }
   font-weight: 600;
   line-height: 1;
   transform: rotate(-2deg);
+}
+.hero-card figcaption time {
+  color: var(--muted);
+  font-size: .72em;
+  font-weight: 500;
+  white-space: nowrap;
 }
 .hero-card-left figcaption { margin-left: 4%; transform: rotate(4deg); }
 .hero-card-right figcaption { margin-left: 18%; transform: rotate(-5deg); font-size: clamp(18px, 1.7vw, 25px); }
