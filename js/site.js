@@ -11,6 +11,17 @@
   const search = document.querySelector("[data-search]");
   const dialog = document.querySelector("[data-dialog]");
   const formatter = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" });
+  const mobileQuery = window.matchMedia("(max-width: 760px), (hover: none) and (pointer: coarse)");
+
+  function updateDeviceMode() {
+    document.documentElement.classList.toggle("is-mobile", mobileQuery.matches);
+    document.documentElement.dataset.device = mobileQuery.matches ? "mobile" : "desktop";
+    const searchInput = document.querySelector("[data-search]");
+    if (searchInput) searchInput.placeholder = mobileQuery.matches ? "Search the archive…" : "Search dishes or ingredients…";
+  }
+
+  updateDeviceMode();
+  mobileQuery.addEventListener?.("change", updateDeviceMode);
 
   const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
@@ -88,7 +99,7 @@
   }
 
   function setImageFallbacks(container = document) {
-    container.querySelectorAll(".image-shell img").forEach((image) => {
+    container.querySelectorAll('.image-shell img[src]:not([src=""])').forEach((image) => {
       if (image.complete && image.naturalWidth === 0) {
         image.remove();
         return;
@@ -182,6 +193,11 @@
   document.querySelector("[data-search-focus]").addEventListener("click", () => {
     search.focus();
     document.querySelector("#archive").scrollIntoView({ behavior: "smooth" });
+  });
+
+  document.querySelector("[data-mobile-search]").addEventListener("click", () => {
+    document.querySelector("#archive").scrollIntoView({ behavior: "smooth" });
+    window.setTimeout(() => search.focus({ preventScroll: true }), 450);
   });
 
   document.addEventListener("keydown", (event) => {
