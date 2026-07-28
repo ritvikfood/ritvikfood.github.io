@@ -15,8 +15,8 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 92px; }
-body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.55; }
+html { scroll-behavior: smooth; scroll-padding-top: 92px; overflow-x: clip; overscroll-behavior-x: none; }
+body { margin: 0; overflow-x: clip; overscroll-behavior-x: none; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.55; }
 body.dialog-open { overflow: hidden; }
 img { display: block; width: 100%; }
 a { color: inherit; }
@@ -147,12 +147,12 @@ footer p { margin: 0; }
 footer p:last-child { text-align: right; }
 .footer-brand { color: var(--ink); }
 
-.dish-dialog { width: min(980px, calc(100% - 32px)); max-height: min(760px, calc(100vh - 32px)); padding: 0; border: 0; border-radius: 24px; background: var(--paper); color: var(--ink); overflow: hidden; box-shadow: 0 30px 100px rgba(20,15,12,.35); }
+.dish-dialog { width: min(980px, calc(100% - 32px)); max-height: min(760px, calc(100vh - 32px)); padding: 0; border: 0; border-radius: 24px; background: var(--paper); color: var(--ink); overflow: hidden; overscroll-behavior: none; touch-action: pan-y; box-shadow: 0 30px 100px rgba(20,15,12,.35); }
 .dish-dialog::backdrop { background: rgba(27,23,19,.68); backdrop-filter: blur(7px); }
 .dish-dialog[open] { display: block; }
-.dialog-stage { min-height: 620px; display: grid; grid-template-columns: 1.05fr .95fr; background: var(--paper); will-change: transform, opacity; }
-.dialog-image { min-height: 620px; }
-.dialog-copy { padding: clamp(35px, 6vw, 72px); display: flex; flex-direction: column; }
+.dialog-stage { min-height: 620px; display: grid; grid-template-columns: 1.05fr .95fr; background: var(--paper); touch-action: pan-y; will-change: transform, opacity; }
+.dialog-image { min-height: 620px; touch-action: pan-y; -webkit-user-drag: none; }
+.dialog-copy { padding: clamp(35px, 6vw, 72px); display: flex; flex-direction: column; touch-action: pan-y; overscroll-behavior-x: none; }
 .dialog-copy h2 { font-size: clamp(45px, 6vw, 70px); }
 .dialog-close { position: absolute; z-index: 2; top: 16px; right: 16px; width: 42px; aspect-ratio: 1; border: 0; border-radius: 50%; background: rgba(255,253,248,.9); cursor: pointer; font-size: 25px; }
 .dialog-label { margin: 42px 0 12px; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; }
@@ -257,7 +257,7 @@ footer p:last-child { text-align: right; }
   .dish-dialog[open] { display: block; }
   .dialog-stage { min-height: 0; height: 100%; grid-template-columns: 1fr; grid-template-rows: minmax(220px, 40%) minmax(0, 1fr); overflow: hidden; }
   .dialog-image { min-height: 230px; height: auto; }
-  .dialog-copy { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 28px var(--mobile-gutter) calc(10px + env(safe-area-inset-bottom)); }
+  .dialog-copy { min-height: 0; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; padding: 28px var(--mobile-gutter) calc(10px + env(safe-area-inset-bottom)); }
   .dialog-copy h2 { padding-right: 30px; font-size: clamp(40px, 12vw, 58px); }
   .dialog-label { margin-top: 28px; }
   .dialog-close { top: 12px; right: 12px; width: 46px; box-shadow: 0 5px 20px rgba(20,15,12,.16); }
