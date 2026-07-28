@@ -118,6 +118,7 @@
       const shell = card.querySelector(".image-shell");
       shell.style.background = gradientFor(item);
       shell.innerHTML = imageMarkup(item, true);
+      card.querySelector("[data-feature-label]").textContent = item.name;
     });
     const years = catalog.map((item) => parseDate(item.date).getFullYear()).filter((year) => year > 1970);
     document.querySelector("[data-total-count]").textContent = catalog.length;

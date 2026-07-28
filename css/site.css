@@ -11,6 +11,7 @@
   --radius: 18px;
   --serif: "DM Serif Display", Georgia, serif;
   --sans: "DM Sans", system-ui, sans-serif;
+  --hand: "Caveat", "Bradley Hand", cursive;
 }
 
 * { box-sizing: border-box; }
@@ -63,6 +64,24 @@ h1 em { color: var(--tomato); font-weight: inherit; }
 .hero-card .image-shell { box-shadow: 0 28px 70px rgba(63,45,30,.22); border: 9px solid var(--white); }
 .hero-card-main .image-shell { aspect-ratio: 4 / 5; }
 .hero-card-small .image-shell { aspect-ratio: 1 / 1.15; }
+.hero-card figcaption {
+  width: max-content;
+  max-width: 90%;
+  margin: -3px 0 0 13%;
+  padding: 5px 13px 8px;
+  position: relative;
+  z-index: 4;
+  color: var(--sage);
+  background: rgba(255,253,248,.92);
+  box-shadow: 0 7px 18px rgba(63,45,30,.12);
+  font-family: var(--hand);
+  font-size: clamp(20px, 2vw, 30px);
+  font-weight: 600;
+  line-height: 1;
+  transform: rotate(-2deg);
+}
+.hero-card-left figcaption { margin-left: 4%; transform: rotate(4deg); }
+.hero-card-right figcaption { margin-left: 18%; transform: rotate(-5deg); font-size: clamp(18px, 1.7vw, 25px); }
 .image-shell { overflow: hidden; background: linear-gradient(135deg, #d8b482, #a5503e 52%, #506a57); }
 .image-shell img { height: 100%; object-fit: cover; transition: transform .55s ease, opacity .3s; }
 .image-shell img[src=""], .image-shell img:not([src]) { opacity: 0; }
