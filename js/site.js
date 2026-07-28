@@ -12,6 +12,9 @@
   const dialog = document.querySelector("[data-dialog]");
   const formatter = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" });
   const mobileQuery = window.matchMedia("(max-width: 760px), (hover: none) and (pointer: coarse)");
+  const imagePreloads = new Map();
+  let dishRequest = 0;
+  let swipeStart = null;
 
   function updateDeviceMode() {
     document.documentElement.classList.toggle("is-mobile", mobileQuery.matches);
@@ -139,21 +142,60 @@
     setImageFallbacks();
   }
 
-  function openDish(id) {
+  function preloadDishImage(item) {
+    if (imagePreloads.has(item.src)) return imagePreloads.get(item.src);
+    const promise = new Promise((resolve) => {
+      const preload = new Image();
+      preload.onload = async () => {
+        try {
+          if (preload.decode) await preload.decode();
+        } catch (_) {
+          // A loaded image is still safe to display if decode() is unavailable.
+        }
+        resolve(true);
+      };
+      preload.onerror = () => resolve(false);
+      preload.src = encodeURI(item.src);
+    });
+    imagePreloads.set(item.src, promise);
+    return promise;
+  }
+
+  function preloadNeighbors(id) {
+    const items = filteredItems();
+    const index = items.findIndex((item) => item.id === Number(id));
+    if (index < 0 || items.length < 2) return;
+    preloadDishImage(items[(index - 1 + items.length) % items.length]);
+    preloadDishImage(items[(index + 1) % items.length]);
+  }
+
+  async function openDish(id) {
     const item = catalog.find((entry) => entry.id === Number(id));
     if (!item) return;
-    state.activeId = item.id;
+    const request = ++dishRequest;
+    dialog.classList.add("is-loading");
+    dialog.setAttribute("aria-busy", "true");
+    if (!dialog.open) {
+      document.body.classList.add("dialog-open");
+      dialog.showModal();
+    }
+    const loaded = await preloadDishImage(item);
+    if (request !== dishRequest) return;
+
     const image = dialog.querySelector("[data-dialog-image]");
-    image.src = encodeURI(item.src);
+    if (loaded) image.src = encodeURI(item.src);
+    else image.removeAttribute("src");
     image.alt = `${item.name}${item.ingredients.length ? ` with ${item.ingredients.join(", ")}` : ""}`;
     dialog.querySelector(".dialog-image").style.background = gradientFor(item);
     dialog.querySelector("[data-dialog-title]").textContent = item.name;
     dialog.querySelector("[data-dialog-date]").textContent = displayDate(item.date);
     dialog.querySelector("[data-dialog-ingredients]").innerHTML = (item.ingredients.length ? item.ingredients : ["A kitchen experiment"])
       .map((ingredient) => `<li>${escapeHtml(ingredient)}</li>`).join("");
+    state.activeId = item.id;
     setImageFallbacks(dialog);
-    document.body.classList.add("dialog-open");
-    dialog.showModal();
+    dialog.classList.remove("is-loading");
+    dialog.setAttribute("aria-busy", "false");
+    preloadNeighbors(item.id);
   }
 
   function stepDialog(direction) {
@@ -161,6 +203,12 @@
     const index = items.findIndex((item) => item.id === state.activeId);
     if (index < 0) return;
     openDish(items[(index + direction + items.length) % items.length].id);
+  }
+
+  function resetSwipe() {
+    dialog.classList.remove("is-swiping");
+    dialog.style.removeProperty("--swipe-x");
+    swipeStart = null;
   }
 
   document.querySelector("[data-filter-bar]").addEventListener("click", (event) => {
@@ -207,6 +255,14 @@
       document.querySelector("#archive").scrollIntoView({ behavior: "smooth" });
     }
     if (event.key === "Escape" && dialog.open) dialog.close();
+    if (dialog.open && event.key === "ArrowLeft") {
+      event.preventDefault();
+      stepDialog(-1);
+    }
+    if (dialog.open && event.key === "ArrowRight") {
+      event.preventDefault();
+      stepDialog(1);
+    }
   });
 
   document.addEventListener("click", (event) => {
@@ -238,10 +294,37 @@
   dialog.querySelector("[data-dialog-close]").addEventListener("click", () => dialog.close());
   dialog.querySelector("[data-dialog-prev]").addEventListener("click", () => stepDialog(-1));
   dialog.querySelector("[data-dialog-next]").addEventListener("click", () => stepDialog(1));
+  dialog.addEventListener("pointerdown", (event) => {
+    if (event.pointerType === "mouse" || event.target.closest("button")) return;
+    swipeStart = { x: event.clientX, y: event.clientY, pointerId: event.pointerId };
+    dialog.setPointerCapture?.(event.pointerId);
+  });
+  dialog.addEventListener("pointermove", (event) => {
+    if (!swipeStart || event.pointerId !== swipeStart.pointerId) return;
+    const x = event.clientX - swipeStart.x;
+    const y = event.clientY - swipeStart.y;
+    if (Math.abs(x) < Math.abs(y)) return;
+    dialog.classList.add("is-swiping");
+    dialog.style.setProperty("--swipe-x", `${Math.max(-110, Math.min(110, x))}px`);
+  });
+  dialog.addEventListener("pointerup", (event) => {
+    if (!swipeStart || event.pointerId !== swipeStart.pointerId) return;
+    const x = event.clientX - swipeStart.x;
+    const y = event.clientY - swipeStart.y;
+    resetSwipe();
+    if (Math.abs(x) >= 55 && Math.abs(x) > Math.abs(y) * 1.15) stepDialog(x < 0 ? 1 : -1);
+  });
+  dialog.addEventListener("pointercancel", resetSwipe);
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) dialog.close();
   });
-  dialog.addEventListener("close", () => document.body.classList.remove("dialog-open"));
+  dialog.addEventListener("close", () => {
+    dishRequest += 1;
+    dialog.classList.remove("is-loading");
+    dialog.setAttribute("aria-busy", "false");
+    resetSwipe();
+    document.body.classList.remove("dialog-open");
+  });
 
   const header = document.querySelector("[data-header]");
   const updateHeader = () => header.classList.toggle("stuck", window.scrollY > 50);
