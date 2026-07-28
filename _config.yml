@@ -1,53 +1,13 @@
-# Welcome to Jekyll!
-#
-
-# Site settings
-title: ritvikfood
-description: |
-  a culinary catalog
-owner: Ritvik Kharkar # or company name
-first_published: 2020 # if migrating another site, the year of your first publish
+title: Ritvik Food
+description: A personal culinary archive—cooked, baked, mixed, and loved.
+owner: Ritvik Kharkar
+first_published: 2017
 email: ritvikmathematics@gmail.com
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-social:
-  #google-plus-square: https://plus.google.com/u/0/+<username>
-  #email: /contact/
-  #flickr:
-  #instagram:
-  #youtube-square:
-  #spotify:
-  #stack-overflow:
-  #vimeo:
-  #reddit:
-  #stubleupon:
-  #delicious:
-  #pied-piper:
-  #digg:
-  #soundcloud:
-  #deviantart:
-  #angellist:
-  #tumblr-square:
-  #stackexchange:
-  #weibo:
-  #trello:
-  #foursquare:
-  #linux:
-  #bitbucket-square:
-  #vk:
-  #slack:
-  #vine:
-  #weixin:
-  #yelp:
-  #skyatlas:
-  #leanpub:
-  #connectdevelop:
-  #ils:
-  #forumbee:
-  #tripadvisor:
-  #amazon:
-
-# Build settings
+url: "https://ritvikfood.com"
+baseurl: ""
+timezone: America/Los_Angeles
 markdown: kramdown
-#sass:
-#  style: compressed
+sass:
+  style: compressed
+exclude:
+  - README.txt
