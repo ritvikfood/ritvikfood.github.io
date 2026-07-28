@@ -1,0 +1,37 @@
+name: Add uploaded images to catalog
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "images/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: image-catalog-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+
+      - name: Add new images to the catalog
+        run: node scripts/sync-catalog.mjs
+
+      - name: Commit the updated catalog
+        run: |
+          if git diff --quiet -- js/catalog.js; then
+            echo "No new catalog entries needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add js/catalog.js
+          git commit -m "Add uploaded images to catalog"
+          git push

@@ -59,3 +59,16 @@ Credits:
 		Misc. Sass functions (@HugoGiraudel)
 		Respond.js (j.mp/respondjs)
 		Skel (skel.io)
+ADDING NEW DISHES
+-----------------
+
+Upload a new image into the images/ folder and commit it to the master branch.
+The "Add uploaded images to catalog" GitHub Action automatically adds it to
+js/catalog.js and publishes it with the temporary category "all".
+
+For the best metadata, use this filename structure:
+
+IMG_YYYYMMDD_Day Mon YYYY_Dish Name_ingredient-one-ingredient-two_HEIGHT_WIDTH.jpg
+
+Ordinary filenames also work. Their filename becomes the dish name, their
+upload date becomes the dish date, and ingredients remain empty.
