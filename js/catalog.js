@@ -3275,5 +3275,17 @@ window.RITVIK_CATALOG = [
     "width": 3024,
     "height": 4032,
     "category": "drinks"
+  },
+  {
+    "id": 237,
+    "src": "/images/IMG_20260214_14 Feb 2026_Baby Shower Cake_love and family_4032_3024.jpg",
+    "name": "Baby Shower Cake",
+    "date": "14 Feb 2026",
+    "ingredients": [
+      "love and family"
+    ],
+    "width": 3024,
+    "height": 4032,
+    "category": "all"
   }
 ];
