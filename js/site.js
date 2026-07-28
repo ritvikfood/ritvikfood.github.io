@@ -28,11 +28,11 @@
 
   function gradientFor(item) {
     const palettes = [
-      ["#9d3e2e", "#d69a5b", "#455e4c"],
-      ["#385e59", "#bd7a50", "#e2b878"],
-      ["#6d2f29", "#c7683f", "#edc687"],
-      ["#4c6143", "#9b4d38", "#d8a65f"],
-      ["#72503c", "#c38350", "#4c6a66"]
+      ["#385e59", "#d1ab72", "#536f5e"],
+      ["#435f50", "#b99b70", "#e0c492"],
+      ["#60745a", "#c7a36c", "#36584f"],
+      ["#4c6143", "#aa875f", "#728679"],
+      ["#536b61", "#c6a97c", "#405c51"]
     ];
     const palette = palettes[item.id % palettes.length];
     return `linear-gradient(${120 + item.id % 45}deg, ${palette[0]}, ${palette[1]} 52%, ${palette[2]})`;
@@ -102,14 +102,22 @@
   function renderFeatures() {
     const ordered = [...catalog].sort((a, b) => parseDate(b.date) - parseDate(a.date));
     latestGrid.innerHTML = ordered.slice(0, 4).map((item) => cardMarkup(item, "latest")).join("");
+    const latest = ordered[0];
+    const randomPool = ordered.slice(1);
+    const firstRandomIndex = Math.floor(Math.random() * randomPool.length);
+    let secondRandomIndex = Math.floor(Math.random() * randomPool.length);
+    if (secondRandomIndex === firstRandomIndex) secondRandomIndex = (secondRandomIndex + 1) % randomPool.length;
+    const featured = {
+      latest,
+      "random-one": randomPool[firstRandomIndex],
+      "random-two": randomPool[secondRandomIndex]
+    };
     document.querySelectorAll("[data-feature-card]").forEach((card) => {
-      const item = ordered[Number(card.dataset.featureCard)] || catalog[0];
+      const item = featured[card.dataset.featureCard] || catalog[0];
       if (!item) return;
       const shell = card.querySelector(".image-shell");
       shell.style.background = gradientFor(item);
       shell.innerHTML = imageMarkup(item, true);
-      const title = card.querySelector("strong");
-      if (title) title.textContent = item.name;
     });
     const years = catalog.map((item) => parseDate(item.date).getFullYear()).filter((year) => year > 1970);
     document.querySelector("[data-total-count]").textContent = catalog.length;

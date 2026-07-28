@@ -223,7 +223,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "other"
+    "category": "seafood"
   },
   {
     "id": 17,
@@ -322,7 +322,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2660,
     "height": 3764,
-    "category": "drinks"
+    "category": "other"
   },
   {
     "id": 24,
@@ -393,7 +393,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 29,
@@ -476,7 +476,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "drinks"
+    "category": "other"
   },
   {
     "id": 35,
@@ -625,7 +625,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4730,
     "height": 2660,
-    "category": "vegetarian"
+    "category": "other"
   },
   {
     "id": 46,
@@ -640,7 +640,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 47,
@@ -654,7 +654,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2662,
     "height": 2660,
-    "category": "drinks"
+    "category": "other"
   },
   {
     "id": 48,
@@ -724,7 +724,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4245,
     "height": 2419,
-    "category": "drinks"
+    "category": "other"
   },
   {
     "id": 53,
@@ -752,7 +752,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4094,
     "height": 2660,
-    "category": "drinks"
+    "category": "other"
   },
   {
     "id": 55,
@@ -823,7 +823,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4420,
     "height": 2660,
-    "category": "vegetarian"
+    "category": "other"
   },
   {
     "id": 60,
@@ -894,7 +894,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2560,
     "height": 1440,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 65,
@@ -948,7 +948,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4352,
     "height": 3264,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 69,
@@ -1005,7 +1005,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "vegetarian"
+    "category": "other"
   },
   {
     "id": 73,
@@ -1019,7 +1019,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 2680,
-    "category": "other"
+    "category": "seafood"
   },
   {
     "id": 74,
@@ -1061,7 +1061,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4381,
     "height": 3132,
-    "category": "other"
+    "category": "seafood"
   },
   {
     "id": 77,
@@ -1105,7 +1105,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "other"
+    "category": "seafood"
   },
   {
     "id": 80,
@@ -1256,7 +1256,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "vegetarian"
+    "category": "other"
   },
   {
     "id": 91,
@@ -1354,7 +1354,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4505,
     "height": 2625,
-    "category": "other"
+    "category": "vegetarian"
   },
   {
     "id": 98,
@@ -1365,9 +1365,9 @@ window.RITVIK_CATALOG = [
       "garlic",
       "ginger"
     ],
-    "width": 4608,
-    "height": 3456,
-    "category": "drinks"
+    "width": 3456,
+    "height": 0,
+    "category": "other"
   },
   {
     "id": 99,
@@ -1421,7 +1421,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3850,
     "height": 3279,
-    "category": "vegetarian"
+    "category": "seafood"
   },
   {
     "id": 103,
@@ -1505,7 +1505,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 109,
@@ -1531,7 +1531,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3264,
     "height": 3264,
-    "category": "other"
+    "category": "drinks"
   },
   {
     "id": 111,
@@ -1615,7 +1615,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1675,
-    "category": "drinks"
+    "category": "baking"
   },
   {
     "id": 117,
@@ -1630,7 +1630,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1500,
-    "category": "vegetarian"
+    "category": "other"
   },
   {
     "id": 118,
@@ -1659,7 +1659,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1153,
-    "category": "other"
+    "category": "vegetarian"
   },
   {
     "id": 120,
@@ -1673,7 +1673,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 2037,
-    "category": "vegetarian"
+    "category": "seafood"
   },
   {
     "id": 121,
@@ -1742,7 +1742,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 2128,
-    "category": "vegetarian"
+    "category": "baking"
   },
   {
     "id": 126,
@@ -1814,7 +1814,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1219,
-    "category": "vegetarian"
+    "category": "other"
   },
   {
     "id": 131,
@@ -1857,7 +1857,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4042,
     "height": 3176,
-    "category": "vegetarian"
+    "category": "other"
   },
   {
     "id": 134,
@@ -1883,7 +1883,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1129,
-    "category": "vegetarian"
+    "category": "other"
   },
   {
     "id": 136,
@@ -2035,7 +2035,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1125,
     "height": 1500,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 147,
@@ -2049,7 +2049,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1125,
-    "category": "vegetarian"
+    "category": "other"
   },
   {
     "id": 148,
@@ -2078,7 +2078,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1146,
-    "category": "vegetarian"
+    "category": "other"
   },
   {
     "id": 150,
@@ -2118,7 +2118,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 2000,
-    "category": "drinks"
+    "category": "other"
   },
   {
     "id": 153,
@@ -2280,7 +2280,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 828,
-    "category": "drinks"
+    "category": "other"
   },
   {
     "id": 165,
@@ -2389,7 +2389,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1095,
-    "category": "drinks"
+    "category": "seafood"
   },
   {
     "id": 173,
@@ -2403,7 +2403,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3393,
     "height": 3126,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 174,
@@ -2417,7 +2417,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3456,
     "height": 3456,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 175,
@@ -2487,7 +2487,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3389,
     "height": 2636,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 180,
@@ -2516,7 +2516,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 182,
@@ -2530,7 +2530,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3456,
     "height": 3760,
-    "category": "vegetarian"
+    "category": "other"
   },
   {
     "id": 183,
@@ -2559,7 +2559,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "vegetarian"
+    "category": "other"
   },
   {
     "id": 185,
@@ -2573,7 +2573,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3057,
     "height": 2495,
-    "category": "other"
+    "category": "vegetarian"
   },
   {
     "id": 186,
@@ -2615,7 +2615,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1522,
     "height": 1028,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 189,
@@ -2643,7 +2643,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4500,
     "height": 3456,
-    "category": "other"
+    "category": "vegetarian"
   },
   {
     "id": 191,
@@ -2685,7 +2685,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1616,
     "height": 1080,
-    "category": "drinks"
+    "category": "baking"
   },
   {
     "id": 194,
@@ -2699,7 +2699,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1055,
     "height": 1571,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 195,
@@ -2713,7 +2713,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1616,
     "height": 1055,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 196,
@@ -2740,7 +2740,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1207,
     "height": 991,
-    "category": "baking"
+    "category": "vegetarian"
   },
   {
     "id": 198,
@@ -2768,7 +2768,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3275,
     "height": 3937,
-    "category": "drinks"
+    "category": "other"
   },
   {
     "id": 200,
@@ -2782,7 +2782,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3344,
     "height": 3230,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 201,
@@ -2852,7 +2852,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2794,
     "height": 2794,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 206,
@@ -2867,7 +2867,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3114,
     "height": 4461,
-    "category": "drinks"
+    "category": "other"
   },
   {
     "id": 207,
@@ -2880,7 +2880,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4122,
     "height": 3185,
-    "category": "drinks"
+    "category": "other"
   },
   {
     "id": 208,
@@ -2992,7 +2992,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3931,
     "height": 3239,
-    "category": "vegetarian"
+    "category": "other"
   },
   {
     "id": 216,
@@ -3006,7 +3006,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3035,
     "height": 4608,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 217,
@@ -3019,7 +3019,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3456,
     "height": 4012,
-    "category": "other"
+    "category": "vegetarian"
   },
   {
     "id": 218,
@@ -3045,7 +3045,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1144,
     "height": 1026,
-    "category": "vegetarian"
+    "category": "other"
   },
   {
     "id": 220,
@@ -3070,7 +3070,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3619,
     "height": 3225,
-    "category": "other"
+    "category": "vegetarian"
   },
   {
     "id": 222,
@@ -3084,7 +3084,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2792,
     "height": 2792,
-    "category": "drinks"
+    "category": "vegetarian"
   },
   {
     "id": 223,
@@ -3098,7 +3098,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1170,
     "height": 840,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 224,
@@ -3138,7 +3138,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1170,
     "height": 740,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 227,
@@ -3152,7 +3152,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1170,
     "height": 845,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 228,
@@ -3165,7 +3165,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3024,
     "height": 4032,
-    "category": "other"
+    "category": "drinks"
   },
   {
     "id": 229,
@@ -3207,7 +3207,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3739,
     "height": 2493,
-    "category": "other"
+    "category": "baking"
   },
   {
     "id": 232,
@@ -3219,7 +3219,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2959,
     "height": 2858,
-    "category": "other"
+    "category": "vegetarian"
   },
   {
     "id": 233,
@@ -3232,7 +3232,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3024,
     "height": 3528,
-    "category": "other"
+    "category": "vegetarian"
   },
   {
     "id": 234,
@@ -3260,7 +3260,7 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1170,
     "height": 1317,
-    "category": "other"
+    "category": "drinks"
   },
   {
     "id": 236,
