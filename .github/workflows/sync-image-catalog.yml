@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the site
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Add new images to the catalog
         run: node scripts/sync-catalog.mjs
