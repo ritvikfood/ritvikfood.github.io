@@ -10,11 +10,14 @@
   const empty = document.querySelector("[data-empty]");
   const search = document.querySelector("[data-search]");
   const dialog = document.querySelector("[data-dialog]");
+  const dialogStage = dialog.querySelector("[data-dialog-stage]");
   const formatter = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" });
   const mobileQuery = window.matchMedia("(max-width: 760px), (hover: none) and (pointer: coarse)");
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   const imagePreloads = new Map();
   let dishRequest = 0;
   let swipeStart = null;
+  let dishTransitioning = false;
 
   function updateDeviceMode() {
     document.documentElement.classList.toggle("is-mobile", mobileQuery.matches);
@@ -198,16 +201,60 @@
     preloadNeighbors(item.id);
   }
 
-  function stepDialog(direction) {
+  async function stageAnimation(keyframes, options) {
+    const finalFrame = keyframes[keyframes.length - 1];
+    if (reducedMotionQuery.matches || !dialogStage.animate) {
+      if (finalFrame.transform) dialogStage.style.transform = finalFrame.transform;
+      if (finalFrame.opacity !== undefined) dialogStage.style.opacity = finalFrame.opacity;
+      return;
+    }
+    const animation = dialogStage.animate(keyframes, options);
+    await animation.finished.catch(() => {});
+    if (finalFrame.transform) dialogStage.style.transform = finalFrame.transform;
+    if (finalFrame.opacity !== undefined) dialogStage.style.opacity = finalFrame.opacity;
+    animation.cancel();
+  }
+
+  async function stepDialog(direction, startingX = 0) {
+    if (dishTransitioning) return;
     const items = filteredItems();
     const index = items.findIndex((item) => item.id === state.activeId);
     if (index < 0) return;
-    openDish(items[(index + direction + items.length) % items.length].id);
+    const next = items[(index + direction + items.length) % items.length];
+    dishTransitioning = true;
+    const distance = Math.max(dialog.getBoundingClientRect().width, 320);
+    const outgoingX = direction > 0 ? -distance : distance;
+    const incomingX = direction > 0 ? distance * .42 : distance * -.42;
+
+    await stageAnimation([
+      { transform: `translate3d(${startingX}px, 0, 0) scale(1)`, opacity: 1 },
+      { transform: `translate3d(${outgoingX}px, 0, 0) scale(.97)`, opacity: .15 }
+    ], { duration: 210, easing: "cubic-bezier(.4, 0, 1, 1)", fill: "forwards" });
+
+    dialogStage.style.opacity = "0";
+    dialogStage.style.transform = `translate3d(${incomingX}px, 0, 0) scale(.985)`;
+    await openDish(next.id);
+
+    await stageAnimation([
+      { transform: `translate3d(${incomingX}px, 0, 0) scale(.985)`, opacity: .2 },
+      { transform: "translate3d(0, 0, 0) scale(1)", opacity: 1 }
+    ], { duration: 300, easing: "cubic-bezier(.16, 1, .3, 1)", fill: "forwards" });
+
+    dialogStage.style.removeProperty("opacity");
+    dialogStage.style.removeProperty("transform");
+    dishTransitioning = false;
   }
 
-  function resetSwipe() {
-    dialog.classList.remove("is-swiping");
-    dialog.style.removeProperty("--swipe-x");
+  function resetSwipe(animate = false) {
+    const currentX = swipeStart?.currentX || 0;
+    if (animate && currentX) {
+      stageAnimation([
+        { transform: `translate3d(${currentX}px, 0, 0) scale(.99)`, opacity: Math.max(.72, 1 - Math.abs(currentX) / 500) },
+        { transform: "translate3d(0, 0, 0) scale(1)", opacity: 1 }
+      ], { duration: 240, easing: "cubic-bezier(.16, 1, .3, 1)" });
+    }
+    dialogStage.style.removeProperty("transform");
+    dialogStage.style.removeProperty("opacity");
     swipeStart = null;
   }
 
@@ -295,8 +342,8 @@
   dialog.querySelector("[data-dialog-prev]").addEventListener("click", () => stepDialog(-1));
   dialog.querySelector("[data-dialog-next]").addEventListener("click", () => stepDialog(1));
   dialog.addEventListener("pointerdown", (event) => {
-    if (event.pointerType === "mouse" || event.target.closest("button")) return;
-    swipeStart = { x: event.clientX, y: event.clientY, pointerId: event.pointerId };
+    if (event.pointerType === "mouse" || event.target.closest("button") || dishTransitioning) return;
+    swipeStart = { x: event.clientX, y: event.clientY, currentX: 0, pointerId: event.pointerId };
     dialog.setPointerCapture?.(event.pointerId);
   });
   dialog.addEventListener("pointermove", (event) => {
@@ -304,17 +351,25 @@
     const x = event.clientX - swipeStart.x;
     const y = event.clientY - swipeStart.y;
     if (Math.abs(x) < Math.abs(y)) return;
-    dialog.classList.add("is-swiping");
-    dialog.style.setProperty("--swipe-x", `${Math.max(-110, Math.min(110, x))}px`);
+    const resistedX = Math.sign(x) * Math.min(Math.abs(x), 145);
+    swipeStart.currentX = resistedX;
+    dialogStage.style.transform = `translate3d(${resistedX}px, 0, 0) scale(${1 - Math.abs(resistedX) / 7000})`;
+    dialogStage.style.opacity = `${Math.max(.72, 1 - Math.abs(resistedX) / 500)}`;
   });
   dialog.addEventListener("pointerup", (event) => {
     if (!swipeStart || event.pointerId !== swipeStart.pointerId) return;
     const x = event.clientX - swipeStart.x;
     const y = event.clientY - swipeStart.y;
-    resetSwipe();
-    if (Math.abs(x) >= 55 && Math.abs(x) > Math.abs(y) * 1.15) stepDialog(x < 0 ? 1 : -1);
+    const startingX = swipeStart.currentX;
+    const committed = Math.abs(x) >= 55 && Math.abs(x) > Math.abs(y) * 1.15;
+    if (committed) {
+      swipeStart = null;
+      stepDialog(x < 0 ? 1 : -1, startingX);
+    } else {
+      resetSwipe(true);
+    }
   });
-  dialog.addEventListener("pointercancel", resetSwipe);
+  dialog.addEventListener("pointercancel", () => resetSwipe(true));
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) dialog.close();
   });
@@ -323,6 +378,7 @@
     dialog.classList.remove("is-loading");
     dialog.setAttribute("aria-busy", "false");
     resetSwipe();
+    dishTransitioning = false;
     document.body.classList.remove("dialog-open");
   });
 

@@ -156,22 +156,24 @@
 
     <dialog class="dish-dialog" data-dialog aria-labelledby="dialog-title">
       <button class="dialog-close" type="button" data-dialog-close aria-label="Close dish details">×</button>
-      <div class="dialog-image image-shell"><img alt="" data-dialog-image></div>
-      <div class="dialog-copy">
-        <p class="eyebrow" data-dialog-date></p>
-        <h2 id="dialog-title" data-dialog-title></h2>
-        <p class="dialog-label">Made with</p>
-        <ul class="ingredient-list" data-dialog-ingredients></ul>
-        <div class="dialog-nav">
-          <button type="button" data-dialog-prev>← Previous</button>
-          <span class="swipe-hint">Swipe to browse</span>
-          <button type="button" data-dialog-next>Next →</button>
+      <div class="dialog-stage" data-dialog-stage>
+        <div class="dialog-image image-shell"><img alt="" data-dialog-image></div>
+        <div class="dialog-copy">
+          <p class="eyebrow" data-dialog-date></p>
+          <h2 id="dialog-title" data-dialog-title></h2>
+          <p class="dialog-label">Made with</p>
+          <ul class="ingredient-list" data-dialog-ingredients></ul>
+          <div class="dialog-nav">
+            <button type="button" data-dialog-prev>← Previous</button>
+            <span class="swipe-hint">Swipe to browse</span>
+            <button type="button" data-dialog-next>Next →</button>
+          </div>
         </div>
       </div>
       <div class="dialog-loading" aria-live="polite"><span></span><span class="sr-only">Loading dish</span></div>
     </dialog>
 
     <script src="js/catalog.js?v=20260728-3"></script>
-    <script src="js/site.js?v=20260728-5"></script>
+    <script src="js/site.js?v=20260728-6"></script>
   </body>
 </html>
