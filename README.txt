@@ -72,3 +72,11 @@ IMG_YYYYMMDD_Day Mon YYYY_Dish Name_ingredient-one-ingredient-two_HEIGHT_WIDTH.j
 
 Ordinary filenames also work. Their filename becomes the dish name, their
 upload date becomes the dish date, and ingredients remain empty.
+
+For a guided local workflow, place new images in the repository root and run:
+
+python3 add_dishes.py
+
+The browser form previews each image and collects its dish name, ingredients,
+date, and category. Submitting moves the formatted image into images/ and adds
+the complete entry to js/catalog.js.
