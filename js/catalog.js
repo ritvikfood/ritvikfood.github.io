@@ -3287,5 +3287,31 @@ window.RITVIK_CATALOG = [
     "width": 3024,
     "height": 4032,
     "category": "all"
+  },
+  {
+    "id": 238,
+    "src": "/images/IMG_20251028_28 Oct 2025_Pizookie_homemade cereal milk ice cream-cookie-frosted flakes_3024_4032.jpeg",
+    "name": "Pizookie",
+    "date": "28 Oct 2025",
+    "ingredients": [
+      "homemade cereal milk ice cream",
+      "cookie",
+      "frosted flakes"
+    ],
+    "category": "baking",
+    "width": 4032,
+    "height": 3024
+  },
+  {
+    "id": 239,
+    "src": "/images/IMG_20241224_24 Dec 2024_Holiday Cookie Box_assorted homemade holiday cookies_2545_3024.jpeg",
+    "name": "Holiday Cookie Box",
+    "date": "24 Dec 2024",
+    "ingredients": [
+      "assorted homemade holiday cookies"
+    ],
+    "category": "baking",
+    "width": 3024,
+    "height": 2545
   }
 ];
