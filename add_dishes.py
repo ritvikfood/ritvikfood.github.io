@@ -316,6 +316,26 @@ def selected_catalog(base: list[dict], current: list[dict], files: list[str]) ->
     return result
 
 
+def sync_sparse_index_to_head(files: list[str]) -> None:
+    """Update committed image entries in the normal sparse index."""
+    for path in files:
+        tree_entry = run_git("ls-tree", "-z", "HEAD", "--", path).stdout.rstrip("\0")
+        if not tree_entry:
+            run_git("update-index", "--force-remove", "--", path)
+            continue
+        metadata, _ = tree_entry.split("\t", 1)
+        mode, object_type, object_id = metadata.split()
+        if object_type != "blob":
+            raise RuntimeError(f"Unexpected Git object for {path}.")
+        run_git(
+            "update-index",
+            "--add",
+            "--cacheinfo",
+            f"{mode},{object_id},{path}",
+        )
+        run_git("update-index", "--skip-worktree", "--", path)
+
+
 def publish_changes(commit_message: str, selected_files: list[str]) -> str:
     message = re.sub(r"\s+", " ", commit_message).strip() or "Add food creations"
     if len(message) > 120:
@@ -344,7 +364,7 @@ def publish_changes(commit_message: str, selected_files: list[str]) -> str:
             temporary_env["GIT_INDEX_FILE"] = index_name
             try:
                 run_git("read-tree", "HEAD", env=temporary_env)
-                run_git("add", "--", *selected, env=temporary_env)
+                run_git("add", "--sparse", "--", *selected, env=temporary_env)
                 if publish_catalog != base_catalog:
                     write_catalog(publish_catalog)
                     try:
@@ -360,7 +380,8 @@ def publish_changes(commit_message: str, selected_files: list[str]) -> str:
                 Path(index_name).unlink(missing_ok=True)
 
             # Bring only the committed paths in the normal index up to the new HEAD.
-            run_git("reset", "--quiet", "HEAD", "--", *selected, "js/catalog.js")
+            sync_sparse_index_to_head(selected)
+            run_git("reset", "--quiet", "HEAD", "--", "js/catalog.js")
         elif not ahead:
             raise ValueError("Select at least one image to publish.")
 
