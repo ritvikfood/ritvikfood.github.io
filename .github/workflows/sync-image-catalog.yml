@@ -26,12 +26,12 @@ jobs:
 
       - name: Commit the updated catalog
         run: |
-          if git diff --quiet -- js/catalog.js; then
-            echo "No new catalog entries needed."
+          if git diff --quiet -- js/catalog.js index.html; then
+            echo "No catalog or social preview updates needed."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add js/catalog.js
-          git commit -m "Add uploaded images to catalog"
+          git add js/catalog.js index.html
+          git commit -m "Sync food catalog and social preview"
           git push

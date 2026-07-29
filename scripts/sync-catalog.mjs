@@ -4,6 +4,8 @@ import { basename, extname } from "node:path";
 import vm from "node:vm";
 
 const CATALOG_PATH = "js/catalog.js";
+const INDEX_PATH = "index.html";
+const SITE_ORIGIN = "https://ritvikfood.com";
 const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif"]);
 const NON_DISH_IMAGES = new Set([
   "images/banner.jpg",
@@ -67,6 +69,42 @@ function metadataFromPath(path) {
   };
 }
 
+function syncSocialImage(catalog) {
+  const latest = [...catalog]
+    .filter((item) => item?.src && item?.date)
+    .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+  if (!latest) return false;
+
+  const imageUrl = new URL(latest.src, SITE_ORIGIN).href;
+  const imageAlt = String(latest.name || "Latest Ritvik Food creation")
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+  const original = readFileSync(INDEX_PATH, "utf8");
+  let updated = original
+    .replace(
+      /<meta property="og:image" content="[^"]*">/,
+      `<meta property="og:image" content="${imageUrl}">`
+    )
+    .replace(
+      /<meta property="og:image:alt" content="[^"]*">/,
+      `<meta property="og:image:alt" content="${imageAlt}">`
+    )
+    .replace(
+      /<meta name="twitter:image" content="[^"]*">/,
+      `<meta name="twitter:image" content="${imageUrl}">`
+    )
+    .replace(
+      /<meta name="twitter:image:alt" content="[^"]*">/,
+      `<meta name="twitter:image:alt" content="${imageAlt}">`
+    );
+
+  if (updated === original) return false;
+  writeFileSync(INDEX_PATH, updated);
+  return true;
+}
+
 const catalog = loadCatalog();
 const knownSources = new Set(catalog.map((item) => item.src.replace(/^\/?/, "/")));
 let nextId = Math.max(0, ...catalog.map((item) => Number(item.id) || 0)) + 1;
@@ -74,12 +112,17 @@ const additions = trackedImages()
   .filter((path) => !knownSources.has(`/${path}`))
   .map((path) => ({ id: nextId++, ...metadataFromPath(path) }));
 
-if (!additions.length) {
+if (additions.length) {
+  catalog.push(...additions);
+  writeFileSync(CATALOG_PATH, `window.RITVIK_CATALOG = ${JSON.stringify(catalog, null, 2)};\n`);
+  console.log(`Added ${additions.length} image${additions.length === 1 ? "" : "s"} to the catalog:`);
+  for (const item of additions) console.log(`- ${item.name} (${item.src})`);
+} else {
   console.log("Catalog is already synchronized.");
-  process.exit(0);
 }
 
-catalog.push(...additions);
-writeFileSync(CATALOG_PATH, `window.RITVIK_CATALOG = ${JSON.stringify(catalog, null, 2)};\n`);
-console.log(`Added ${additions.length} image${additions.length === 1 ? "" : "s"} to the catalog:`);
-for (const item of additions) console.log(`- ${item.name} (${item.src})`);
+if (syncSocialImage(catalog)) {
+  console.log("Updated the social sharing image to the latest creation.");
+} else {
+  console.log("Social sharing image is already synchronized.");
+}
