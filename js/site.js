@@ -288,7 +288,21 @@
   });
 
   function focusArchiveSearch() {
-    // Keep focus inside the user's tap so mobile browsers open the keyboard.
+    if (mobileQuery.matches) {
+      // Position first, then focus within the same tap so iOS opens the keyboard
+      // without competing against a smooth scroll while the viewport resizes.
+      search.scrollIntoView({ behavior: "instant", block: "center" });
+      search.focus({ preventScroll: true });
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener("resize", () => {
+          window.requestAnimationFrame(() => {
+            search.scrollIntoView({ behavior: "instant", block: "center" });
+          });
+        }, { once: true });
+      }
+      return;
+    }
+
     search.focus({ preventScroll: true });
     search.scrollIntoView({ behavior: reducedMotionQuery.matches ? "auto" : "smooth", block: "center" });
   }
