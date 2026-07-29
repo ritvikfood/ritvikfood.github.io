@@ -79,4 +79,6 @@ python3 add_dishes.py
 
 The browser form previews each image and collects its dish name, ingredients,
 date, and category. Submitting moves the formatted image into images/ and adds
-the complete entry to js/catalog.js.
+the complete entry to js/catalog.js. When everything looks right, use the
+"Commit & push" button to stage the images and catalog, create a commit, and
+push the current branch.

@@ -30,6 +30,7 @@ IMAGE_EXTENSIONS = {
 }
 CATEGORIES = ("Seafood", "Baking", "Drinks", "Vegetarian", "All")
 CATALOG_PREFIX = "window.RITVIK_CATALOG = "
+PUBLISH_LOCK = threading.Lock()
 
 
 def root_images() -> list[Path]:
@@ -237,6 +238,47 @@ def default_date(path: Path) -> str:
     return datetime.fromtimestamp(path.stat().st_mtime).date().isoformat()
 
 
+def run_git(*arguments: str, check: bool = True) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        ["git", *arguments],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        check=check,
+        text=True,
+    )
+
+
+def pending_publish_changes() -> list[str]:
+    result = run_git("status", "--porcelain", "--", "images", "js/catalog.js")
+    return [line for line in result.stdout.splitlines() if line.strip()]
+
+
+def publish_changes(commit_message: str) -> str:
+    message = re.sub(r"\s+", " ", commit_message).strip() or "Add food creations"
+    if len(message) > 120:
+        raise ValueError("The commit message must be 120 characters or fewer.")
+
+    with PUBLISH_LOCK:
+        run_git("add", "--", "images", "js/catalog.js")
+        staged = run_git(
+            "diff", "--cached", "--quiet", "--", "images", "js/catalog.js",
+            check=False,
+        )
+        if staged.returncode == 0:
+            return "There are no pending image changes to publish."
+        if staged.returncode != 1:
+            raise RuntimeError(staged.stderr.strip() or "Could not inspect staged changes.")
+
+        commit = run_git("commit", "-m", message, "--", "images", "js/catalog.js")
+        branch = run_git("branch", "--show-current").stdout.strip()
+        if not branch:
+            raise RuntimeError("Git is not currently on a named branch.")
+        pushed = run_git("push", "origin", branch)
+        summary = commit.stdout.splitlines()[0] if commit.stdout.strip() else message
+        push_summary = pushed.stderr.strip() or pushed.stdout.strip()
+        return f"Published successfully: {summary}. {push_summary}".strip()
+
+
 def page_template(
     images: list[Path],
     selected: Path | None,
@@ -304,6 +346,17 @@ def page_template(
         """
         navigation = "<div class='review-nav'><span>0 images waiting</span></div>"
 
+    try:
+        pending_count = len(pending_publish_changes())
+        publish_status = (
+            f"{pending_count} pending change{'s' if pending_count != 1 else ''} "
+            "in images/ and the catalog"
+        )
+        publish_disabled = "" if pending_count else " disabled"
+    except (OSError, subprocess.CalledProcessError):
+        publish_status = "Git status is unavailable"
+        publish_disabled = " disabled"
+
     document = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -349,6 +402,14 @@ def page_template(
     .note {{ margin:0; color:var(--muted); font-size:12px; line-height:1.5; }}
     .notice {{ margin:0 0 18px; padding:12px 15px; border-radius:12px; color:#284b38; background:#dce9df; }}
     .notice.error {{ color:#7b2d26; background:#f2deda; }}
+    .publish-bar {{ display:flex; align-items:center; justify-content:space-between; gap:18px; margin:0 0 18px; padding:15px; border:1px solid var(--line); border-radius:16px; background:rgba(255,253,248,.7); }}
+    .publish-copy {{ min-width:0; }}
+    .publish-copy strong {{ display:block; margin-bottom:2px; }}
+    .publish-copy span {{ color:var(--muted); font-size:12px; }}
+    .publish-form {{ display:flex; flex:1; justify-content:flex-end; gap:9px; padding:0; }}
+    .publish-form input {{ max-width:260px; padding:10px 12px; }}
+    .publish-button {{ white-space:nowrap; border:0; border-radius:11px; padding:11px 15px; color:white; background:var(--sage); font-weight:750; cursor:pointer; }}
+    .publish-button:disabled {{ cursor:not-allowed; opacity:.45; }}
     .empty {{ grid-column:1/-1; min-height:520px; display:grid; place-items:center; align-content:center; text-align:center; padding:50px; }}
     .empty>div {{ width:64px; height:64px; display:grid; place-items:center; border-radius:50%; color:white; background:var(--sage); font-size:30px; }}
     .empty h2 {{ margin:22px 0 7px; font:45px var(--serif); }}
@@ -362,6 +423,8 @@ def page_template(
       .panel {{ grid-template-columns:1fr; }}
       .preview-wrap {{ min-height:380px; }}
       form {{ min-height:570px; }}
+      .publish-bar, .publish-form {{ align-items:stretch; flex-direction:column; }}
+      .publish-form input {{ max-width:none; }}
     }}
   </style>
 </head>
@@ -377,6 +440,16 @@ def page_template(
     </div>
     {f'<p class="notice">{html.escape(message)}</p>' if message else ''}
     {f'<p class="notice error">{html.escape(error)}</p>' if error else ''}
+    <aside class="publish-bar">
+      <div class="publish-copy">
+        <strong>Ready to publish?</strong>
+        <span>{html.escape(publish_status)}</span>
+      </div>
+      <form class="publish-form" method="post" action="/publish">
+        <input name="commit_message" maxlength="120" value="Add food creations" aria-label="Commit message">
+        <button class="publish-button" type="submit"{publish_disabled}>Commit &amp; push</button>
+      </form>
+    </aside>
     <section class="panel">{form_content}</section>
   </main>
 </body>
@@ -434,7 +507,8 @@ class IntakeHandler(BaseHTTPRequestHandler):
         self.send_bytes(page_template(images, selected, message=message, error=error), "text/html; charset=utf-8")
 
     def do_POST(self) -> None:
-        if urllib.parse.urlparse(self.path).path != "/submit":
+        route = urllib.parse.urlparse(self.path).path
+        if route not in {"/submit", "/publish"}:
             self.send_error(HTTPStatus.NOT_FOUND)
             return
         try:
@@ -445,6 +519,11 @@ class IntakeHandler(BaseHTTPRequestHandler):
                 self.rfile.read(content_length).decode("utf-8"),
                 keep_blank_values=True,
             )
+            if route == "/publish":
+                result = publish_changes(form.get("commit_message", [""])[0])
+                self.redirect(f"/?message={urllib.parse.quote(result)}")
+                return
+
             source_name = form.get("source", [""])[0]
             source = REPO_ROOT / source_name
             if source.name != source_name:
@@ -456,8 +535,18 @@ class IntakeHandler(BaseHTTPRequestHandler):
             destination = add_dish(source, dish_name, ingredients, made_on, category)
             message = urllib.parse.quote(f"Added {dish_name.strip()} as images/{destination.name}")
             self.redirect(f"/?message={message}")
-        except (OSError, ValueError, json.JSONDecodeError) as exc:
-            error = urllib.parse.quote(str(exc))
+        except (
+            OSError,
+            RuntimeError,
+            ValueError,
+            json.JSONDecodeError,
+            subprocess.CalledProcessError,
+        ) as exc:
+            if isinstance(exc, subprocess.CalledProcessError):
+                detail = exc.stderr.strip() or exc.stdout.strip() or str(exc)
+            else:
+                detail = str(exc)
+            error = urllib.parse.quote(detail)
             self.redirect(f"/?error={error}")
 
 
