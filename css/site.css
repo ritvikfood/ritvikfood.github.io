@@ -151,9 +151,10 @@ footer p:last-child { text-align: right; }
 .dish-dialog { width: min(980px, calc(100% - 32px)); max-height: min(760px, calc(100vh - 32px)); padding: 0; border: 0; border-radius: 24px; background: var(--paper); color: var(--ink); overflow: hidden; overscroll-behavior: none; touch-action: pan-y; box-shadow: 0 30px 100px rgba(20,15,12,.35); }
 .dish-dialog::backdrop { background: rgba(27,23,19,.68); backdrop-filter: blur(7px); }
 .dish-dialog[open] { display: block; }
-.dialog-stage { min-height: 620px; display: grid; grid-template-columns: 1.05fr .95fr; background: var(--paper); touch-action: pan-y; will-change: transform, opacity; }
+.dialog-stage { min-height: 620px; display: grid; grid-template-columns: 1.05fr .95fr; background: var(--paper); touch-action: pan-y; }
 .dialog-image { min-height: 620px; touch-action: pan-y; -webkit-user-drag: none; }
 .dialog-copy { padding: clamp(35px, 6vw, 72px); display: flex; flex-direction: column; touch-action: pan-y; overscroll-behavior-x: none; }
+.dialog-details { min-height: 0; will-change: transform, opacity; }
 .dialog-copy h2 { font-size: clamp(45px, 6vw, 70px); }
 .dialog-close { position: absolute; z-index: 2; top: 16px; right: 16px; width: 42px; aspect-ratio: 1; border: 0; border-radius: 50%; background: rgba(255,253,248,.9); cursor: pointer; font-size: 25px; }
 .dialog-label { margin: 42px 0 12px; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; }
@@ -166,8 +167,8 @@ footer p:last-child { text-align: right; }
 .dialog-loading { position: absolute; z-index: 3; inset: 0; display: none; place-items: center; pointer-events: none; }
 .dialog-loading > span:first-child { width: 42px; aspect-ratio: 1; border: 3px solid rgba(255,253,248,.55); border-top-color: var(--sage); border-radius: 50%; animation: dialog-spin .7s linear infinite; filter: drop-shadow(0 2px 7px rgba(20,15,12,.2)); }
 .dish-dialog.is-loading .dialog-loading, .dish-dialog.is-preparing .dialog-loading { display: grid; }
-.dish-dialog.is-loading .dialog-stage { opacity: .55; }
-.dish-dialog.is-preparing .dialog-stage { opacity: .88; }
+.dish-dialog.is-loading [data-dialog-animated] { opacity: .55; }
+.dish-dialog.is-preparing [data-dialog-animated] { opacity: .88; }
 @keyframes dialog-spin { to { transform: rotate(360deg); } }
 
 @media (max-width: 1100px) {

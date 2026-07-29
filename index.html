@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/site.css?v=20260728-9">
+    <link rel="stylesheet" href="css/site.css?v=20260728-10">
     <script type="application/ld+json">
       {"@context":"https://schema.org","@type":"WebSite","name":"Ritvik Food","url":"https://ritvikfood.com/","description":"A personal culinary archive by Ritvik Kharkar","author":{"@type":"Person","name":"Ritvik Kharkar"}}
     </script>
@@ -157,12 +157,14 @@
     <dialog class="dish-dialog" data-dialog aria-labelledby="dialog-title">
       <button class="dialog-close" type="button" data-dialog-close aria-label="Close dish details">×</button>
       <div class="dialog-stage" data-dialog-stage>
-        <div class="dialog-image image-shell"><img alt="" data-dialog-image></div>
+        <div class="dialog-image image-shell" data-dialog-animated><img alt="" data-dialog-image></div>
         <div class="dialog-copy">
-          <p class="eyebrow" data-dialog-date></p>
-          <h2 id="dialog-title" data-dialog-title></h2>
-          <p class="dialog-label">Made with</p>
-          <ul class="ingredient-list" data-dialog-ingredients></ul>
+          <div class="dialog-details" data-dialog-animated>
+            <p class="eyebrow" data-dialog-date></p>
+            <h2 id="dialog-title" data-dialog-title></h2>
+            <p class="dialog-label">Made with</p>
+            <ul class="ingredient-list" data-dialog-ingredients></ul>
+          </div>
           <div class="dialog-nav">
             <button type="button" data-dialog-prev>← Previous</button>
             <button type="button" data-dialog-next>Next →</button>
@@ -173,6 +175,6 @@
     </dialog>
 
     <script src="js/catalog.js?v=20260728-3"></script>
-    <script src="js/site.js?v=20260728-8"></script>
+    <script src="js/site.js?v=20260728-9"></script>
   </body>
 </html>

@@ -10,7 +10,7 @@
   const empty = document.querySelector("[data-empty]");
   const search = document.querySelector("[data-search]");
   const dialog = document.querySelector("[data-dialog]");
-  const dialogStage = dialog.querySelector("[data-dialog-stage]");
+  const dialogAnimated = [...dialog.querySelectorAll("[data-dialog-animated]")];
   const formatter = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" });
   const mobileQuery = window.matchMedia("(max-width: 760px), (hover: none) and (pointer: coarse)");
   const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -204,16 +204,20 @@
 
   async function stageAnimation(keyframes, options) {
     const finalFrame = keyframes[keyframes.length - 1];
-    if (reducedMotionQuery.matches || !dialogStage.animate) {
-      if (finalFrame.transform) dialogStage.style.transform = finalFrame.transform;
-      if (finalFrame.opacity !== undefined) dialogStage.style.opacity = finalFrame.opacity;
+    if (reducedMotionQuery.matches || !dialogAnimated.every((element) => element.animate)) {
+      dialogAnimated.forEach((element) => {
+        if (finalFrame.transform) element.style.transform = finalFrame.transform;
+        if (finalFrame.opacity !== undefined) element.style.opacity = finalFrame.opacity;
+      });
       return;
     }
-    const animation = dialogStage.animate(keyframes, options);
-    await animation.finished.catch(() => {});
-    if (finalFrame.transform) dialogStage.style.transform = finalFrame.transform;
-    if (finalFrame.opacity !== undefined) dialogStage.style.opacity = finalFrame.opacity;
-    animation.cancel();
+    const animations = dialogAnimated.map((element) => element.animate(keyframes, options));
+    await Promise.all(animations.map((animation) => animation.finished.catch(() => {})));
+    dialogAnimated.forEach((element) => {
+      if (finalFrame.transform) element.style.transform = finalFrame.transform;
+      if (finalFrame.opacity !== undefined) element.style.opacity = finalFrame.opacity;
+    });
+    animations.forEach((animation) => animation.cancel());
   }
 
   async function stepDialog(direction) {
@@ -237,8 +241,10 @@
       { transform: `translate3d(${outgoingX}px, 0, 0) scale(.975)`, opacity: .12 }
     ], { duration: 190, easing: "cubic-bezier(.4, 0, 1, 1)", fill: "forwards" });
 
-    dialogStage.style.opacity = "0";
-    dialogStage.style.transform = `translate3d(${incomingX}px, 0, 0) scale(.985)`;
+    dialogAnimated.forEach((element) => {
+      element.style.opacity = "0";
+      element.style.transform = `translate3d(${incomingX}px, 0, 0) scale(.985)`;
+    });
     await openDish(next.id);
 
     await stageAnimation([
@@ -246,8 +252,10 @@
       { transform: "translate3d(0, 0, 0) scale(1)", opacity: 1 }
     ], { duration: 300, easing: "cubic-bezier(.16, 1, .3, 1)", fill: "forwards" });
 
-    dialogStage.style.removeProperty("opacity");
-    dialogStage.style.removeProperty("transform");
+    dialogAnimated.forEach((element) => {
+      element.style.removeProperty("opacity");
+      element.style.removeProperty("transform");
+    });
     dialog.setAttribute("aria-busy", "false");
     dishTransitioning = false;
   }
@@ -279,21 +287,19 @@
     setImageFallbacks(gallery);
   });
 
-  document.querySelector("[data-search-focus]").addEventListener("click", () => {
-    search.focus();
-    document.querySelector("#archive").scrollIntoView({ behavior: "smooth" });
-  });
+  function focusArchiveSearch() {
+    // Keep focus inside the user's tap so mobile browsers open the keyboard.
+    search.focus({ preventScroll: true });
+    search.scrollIntoView({ behavior: reducedMotionQuery.matches ? "auto" : "smooth", block: "center" });
+  }
 
-  document.querySelector("[data-mobile-search]").addEventListener("click", () => {
-    document.querySelector("#archive").scrollIntoView({ behavior: "smooth" });
-    window.setTimeout(() => search.focus({ preventScroll: true }), 450);
-  });
+  document.querySelector("[data-search-focus]").addEventListener("click", focusArchiveSearch);
+  document.querySelector("[data-mobile-search]").addEventListener("click", focusArchiveSearch);
 
   document.addEventListener("keydown", (event) => {
     if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
       event.preventDefault();
-      search.focus();
-      document.querySelector("#archive").scrollIntoView({ behavior: "smooth" });
+      focusArchiveSearch();
     }
     if (event.key === "Escape" && dialog.open) dialog.close();
     if (dialog.open && event.key === "ArrowLeft") {
@@ -342,8 +348,10 @@
     dishRequest += 1;
     dialog.classList.remove("is-loading", "is-preparing");
     dialog.setAttribute("aria-busy", "false");
-    dialogStage.style.removeProperty("transform");
-    dialogStage.style.removeProperty("opacity");
+    dialogAnimated.forEach((element) => {
+      element.style.removeProperty("transform");
+      element.style.removeProperty("opacity");
+    });
     dishTransitioning = false;
     document.body.classList.remove("dialog-open");
   });
