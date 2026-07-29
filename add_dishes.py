@@ -238,44 +238,138 @@ def default_date(path: Path) -> str:
     return datetime.fromtimestamp(path.stat().st_mtime).date().isoformat()
 
 
-def run_git(*arguments: str, check: bool = True) -> subprocess.CompletedProcess[str]:
+def run_git(
+    *arguments: str,
+    check: bool = True,
+    env: dict[str, str] | None = None,
+) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
         ["git", *arguments],
         cwd=REPO_ROOT,
         capture_output=True,
         check=check,
+        env=env,
         text=True,
     )
 
 
-def pending_publish_changes() -> list[str]:
-    result = run_git("status", "--porcelain", "--", "images", "js/catalog.js")
-    return [line for line in result.stdout.splitlines() if line.strip()]
+def nul_paths(result: subprocess.CompletedProcess[str]) -> set[str]:
+    return {path for path in result.stdout.split("\0") if path}
 
 
-def publish_changes(commit_message: str) -> str:
+def pending_image_files() -> list[str]:
+    """List image paths whose working content differs from the current commit."""
+    changed = nul_paths(run_git("diff", "--name-only", "-z", "HEAD", "--", "images"))
+    untracked = nul_paths(
+        run_git("ls-files", "--others", "--exclude-standard", "-z", "--", "images")
+    )
+    return sorted(
+        path for path in changed | untracked
+        if Path(path).suffix.lower() in IMAGE_EXTENSIONS
+    )
+
+
+def committed_unpushed_images() -> list[str]:
+    upstream = run_git(
+        "rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{upstream}",
+        check=False,
+    )
+    if upstream.returncode != 0:
+        return []
+    result = run_git(
+        "diff", "--name-only", "-z", f"{upstream.stdout.strip()}..HEAD",
+        "--", "images",
+    )
+    return sorted(
+        path for path in nul_paths(result)
+        if Path(path).suffix.lower() in IMAGE_EXTENSIONS
+    )
+
+
+def catalog_from_text(text: str) -> list[dict]:
+    stripped = text.strip()
+    if not stripped.startswith(CATALOG_PREFIX) or not stripped.endswith(";"):
+        raise ValueError("Unexpected catalog format.")
+    catalog = json.loads(stripped[len(CATALOG_PREFIX):-1])
+    if not isinstance(catalog, list):
+        raise ValueError("Catalog data is not a list.")
+    return catalog
+
+
+def selected_catalog(base: list[dict], current: list[dict], files: list[str]) -> list[dict]:
+    selected_sources = {f"/{path}" for path in files}
+    current_by_source = {item.get("src"): item for item in current}
+    base_sources = {item.get("src") for item in base}
+    result: list[dict] = []
+
+    for item in base:
+        source = item.get("src")
+        if source not in selected_sources:
+            result.append(item)
+        elif (REPO_ROOT / str(source).lstrip("/")).exists():
+            result.append(current_by_source.get(source, item))
+
+    for item in current:
+        source = item.get("src")
+        if source in selected_sources and source not in base_sources:
+            result.append(item)
+    return result
+
+
+def publish_changes(commit_message: str, selected_files: list[str]) -> str:
     message = re.sub(r"\s+", " ", commit_message).strip() or "Add food creations"
     if len(message) > 120:
         raise ValueError("The commit message must be 120 characters or fewer.")
 
     with PUBLISH_LOCK:
-        run_git("add", "--", "images", "js/catalog.js")
-        staged = run_git(
-            "diff", "--cached", "--quiet", "--", "images", "js/catalog.js",
-            check=False,
-        )
-        if staged.returncode == 0:
-            return "There are no pending image changes to publish."
-        if staged.returncode != 1:
-            raise RuntimeError(staged.stderr.strip() or "Could not inspect staged changes.")
+        available = set(pending_image_files())
+        selected = list(dict.fromkeys(selected_files))
+        invalid = [path for path in selected if path not in available]
+        if invalid:
+            raise ValueError("The selected file list is stale. Refresh and try again.")
 
-        commit = run_git("commit", "-m", message, "--", "images", "js/catalog.js")
+        ahead = committed_unpushed_images()
+        commit_summary = ""
+        if selected:
+            base_catalog = catalog_from_text(
+                run_git("show", "HEAD:js/catalog.js").stdout
+            )
+            current_catalog = load_catalog()
+            publish_catalog = selected_catalog(base_catalog, current_catalog, selected)
+
+            descriptor, index_name = tempfile.mkstemp(prefix="ritvik-food-index-")
+            os.close(descriptor)
+            os.unlink(index_name)
+            temporary_env = os.environ.copy()
+            temporary_env["GIT_INDEX_FILE"] = index_name
+            try:
+                run_git("read-tree", "HEAD", env=temporary_env)
+                run_git("add", "--", *selected, env=temporary_env)
+                if publish_catalog != base_catalog:
+                    write_catalog(publish_catalog)
+                    try:
+                        run_git("add", "--", "js/catalog.js", env=temporary_env)
+                    finally:
+                        write_catalog(current_catalog)
+
+                commit = run_git("commit", "-m", message, env=temporary_env)
+                commit_summary = (
+                    commit.stdout.splitlines()[0] if commit.stdout.strip() else message
+                )
+            finally:
+                Path(index_name).unlink(missing_ok=True)
+
+            # Bring only the committed paths in the normal index up to the new HEAD.
+            run_git("reset", "--quiet", "HEAD", "--", *selected, "js/catalog.js")
+        elif not ahead:
+            raise ValueError("Select at least one image to publish.")
+
         branch = run_git("branch", "--show-current").stdout.strip()
         if not branch:
             raise RuntimeError("Git is not currently on a named branch.")
         pushed = run_git("push", "origin", branch)
-        summary = commit.stdout.splitlines()[0] if commit.stdout.strip() else message
         push_summary = pushed.stderr.strip() or pushed.stdout.strip()
+        summary = commit_summary or "Previously committed image changes"
         return f"Published successfully: {summary}. {push_summary}".strip()
 
 
@@ -347,14 +441,30 @@ def page_template(
         navigation = "<div class='review-nav'><span>0 images waiting</span></div>"
 
     try:
-        pending_count = len(pending_publish_changes())
+        pending_files = pending_image_files()
+        ahead_files = committed_unpushed_images()
         publish_status = (
-            f"{pending_count} pending change{'s' if pending_count != 1 else ''} "
-            "in images/ and the catalog"
+            f"{len(pending_files)} image{'s' if len(pending_files) != 1 else ''} "
+            "ready to commit"
         )
-        publish_disabled = "" if pending_count else " disabled"
+        file_options = "".join(
+            f'<label class="publish-file"><input class="publish-file-input" '
+            f'type="checkbox" name="files" value="{html.escape(path)}" checked>'
+            f'<span>{html.escape(path)}</span></label>'
+            for path in pending_files
+        )
+        ahead_options = "".join(
+            f'<div class="publish-file committed"><span class="check-mark">✓</span>'
+            f'<span>{html.escape(path)}</span><small>committed</small></div>'
+            for path in ahead_files
+        )
+        publish_disabled = "" if pending_files or ahead_files else " disabled"
     except (OSError, subprocess.CalledProcessError):
         publish_status = "Git status is unavailable"
+        pending_files = []
+        ahead_files = []
+        file_options = ""
+        ahead_options = ""
         publish_disabled = " disabled"
 
     document = f"""<!doctype html>
@@ -402,12 +512,21 @@ def page_template(
     .note {{ margin:0; color:var(--muted); font-size:12px; line-height:1.5; }}
     .notice {{ margin:0 0 18px; padding:12px 15px; border-radius:12px; color:#284b38; background:#dce9df; }}
     .notice.error {{ color:#7b2d26; background:#f2deda; }}
-    .publish-bar {{ display:flex; align-items:center; justify-content:space-between; gap:18px; margin:0 0 18px; padding:15px; border:1px solid var(--line); border-radius:16px; background:rgba(255,253,248,.7); }}
-    .publish-copy {{ min-width:0; }}
+    .publish-bar {{ display:grid; grid-template-columns:minmax(220px,.65fr) minmax(360px,1.35fr); gap:22px; margin:0 0 18px; padding:17px; border:1px solid var(--line); border-radius:16px; background:rgba(255,253,248,.7); }}
+    .publish-copy {{ min-width:0; align-self:start; }}
     .publish-copy strong {{ display:block; margin-bottom:2px; }}
     .publish-copy span {{ color:var(--muted); font-size:12px; }}
-    .publish-form {{ display:flex; flex:1; justify-content:flex-end; gap:9px; padding:0; }}
-    .publish-form input {{ max-width:260px; padding:10px 12px; }}
+    .publish-form {{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:10px; padding:0; }}
+    .publish-files {{ grid-column:1/-1; display:grid; gap:6px; max-height:190px; overflow:auto; padding:4px; }}
+    .publish-file {{ display:grid; grid-template-columns:20px minmax(0,1fr) auto; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--line); border-radius:10px; background:white; cursor:pointer; }}
+    .publish-file input {{ width:17px; height:17px; margin:0; accent-color:var(--sage); }}
+    .publish-file span {{ min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font:12px ui-monospace,SFMono-Regular,Menlo,monospace; }}
+    .publish-file small {{ color:var(--muted); }}
+    .publish-file.committed {{ cursor:default; background:#edf3ee; }}
+    .check-mark {{ color:var(--sage); font:700 15px inherit !important; }}
+    .select-all {{ display:inline-flex; align-items:center; gap:7px; margin-top:10px; color:var(--sage); font-size:12px; font-weight:700; cursor:pointer; }}
+    .select-all input {{ width:15px; height:15px; accent-color:var(--sage); }}
+    .publish-form>input {{ max-width:none; padding:10px 12px; }}
     .publish-button {{ white-space:nowrap; border:0; border-radius:11px; padding:11px 15px; color:white; background:var(--sage); font-weight:750; cursor:pointer; }}
     .publish-button:disabled {{ cursor:not-allowed; opacity:.45; }}
     .empty {{ grid-column:1/-1; min-height:520px; display:grid; place-items:center; align-content:center; text-align:center; padding:50px; }}
@@ -423,8 +542,9 @@ def page_template(
       .panel {{ grid-template-columns:1fr; }}
       .preview-wrap {{ min-height:380px; }}
       form {{ min-height:570px; }}
-      .publish-bar, .publish-form {{ align-items:stretch; flex-direction:column; }}
-      .publish-form input {{ max-width:none; }}
+      .publish-bar {{ grid-template-columns:1fr; }}
+      .publish-form {{ grid-template-columns:1fr; }}
+      .publish-button {{ width:100%; }}
     }}
   </style>
 </head>
@@ -444,14 +564,35 @@ def page_template(
       <div class="publish-copy">
         <strong>Ready to publish?</strong>
         <span>{html.escape(publish_status)}</span>
+        {f'<label class="select-all"><input id="select-all" type="checkbox" checked> Select all</label>' if pending_files else ''}
       </div>
       <form class="publish-form" method="post" action="/publish">
+        <div class="publish-files">
+          {file_options}
+          {ahead_options}
+          {'' if pending_files or ahead_files else '<span class="waiting">No unpublished images</span>'}
+        </div>
         <input name="commit_message" maxlength="120" value="Add food creations" aria-label="Commit message">
         <button class="publish-button" type="submit"{publish_disabled}>Commit &amp; push</button>
       </form>
     </aside>
     <section class="panel">{form_content}</section>
   </main>
+  <script>
+    const selectAll = document.querySelector("#select-all");
+    const fileInputs = [...document.querySelectorAll(".publish-file-input")];
+    if (selectAll) {{
+      const syncSelectAll = () => {{
+        const selected = fileInputs.filter((input) => input.checked).length;
+        selectAll.checked = selected === fileInputs.length;
+        selectAll.indeterminate = selected > 0 && selected < fileInputs.length;
+      }};
+      selectAll.addEventListener("change", () => {{
+        fileInputs.forEach((input) => {{ input.checked = selectAll.checked; }});
+      }});
+      fileInputs.forEach((input) => input.addEventListener("change", syncSelectAll));
+    }}
+  </script>
 </body>
 </html>"""
     return document.encode("utf-8")
@@ -520,7 +661,10 @@ class IntakeHandler(BaseHTTPRequestHandler):
                 keep_blank_values=True,
             )
             if route == "/publish":
-                result = publish_changes(form.get("commit_message", [""])[0])
+                result = publish_changes(
+                    form.get("commit_message", [""])[0],
+                    form.get("files", []),
+                )
                 self.redirect(f"/?message={urllib.parse.quote(result)}")
                 return
 
