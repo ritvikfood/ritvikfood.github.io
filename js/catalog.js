@@ -3313,5 +3313,19 @@ window.RITVIK_CATALOG = [
     "category": "baking",
     "width": 3024,
     "height": 2545
+  },
+  {
+    "id": 240,
+    "src": "/images/IMG_20260821_21 Aug 2026_Cookie Butter Latte_cookie butter-espresso-oat milk_3024_4032.jpeg",
+    "name": "Cookie Butter Latte",
+    "date": "21 Aug 2026",
+    "ingredients": [
+      "cookie butter",
+      "espresso",
+      "oat milk"
+    ],
+    "category": "drinks",
+    "width": 4032,
+    "height": 3024
   }
 ];
