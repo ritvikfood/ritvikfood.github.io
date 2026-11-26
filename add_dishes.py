@@ -38,7 +38,9 @@ def root_images() -> list[Path]:
     return sorted(
         (
             path for path in REPO_ROOT.iterdir()
-            if path.is_file() and path.suffix.lower() in IMAGE_EXTENSIONS
+            if path.is_file()
+            and path.suffix.lower() in IMAGE_EXTENSIONS
+            and path.stem.lower() != "favicon"
         ),
         key=lambda path: (path.stat().st_mtime, path.name.lower()),
     )
