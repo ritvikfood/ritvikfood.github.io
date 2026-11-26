@@ -3327,5 +3327,19 @@ window.RITVIK_CATALOG = [
     "category": "drinks",
     "width": 4032,
     "height": 3024
+  },
+  {
+    "id": 241,
+    "src": "/images/IMG_20261126_26 Nov 2026_Mango Pie_mango-mango cardamom jelly-graham cracker crust_1200_1600.jpeg",
+    "name": "Mango Pie",
+    "date": "26 Nov 2026",
+    "ingredients": [
+      "mango",
+      "mango cardamom jelly",
+      "graham cracker crust"
+    ],
+    "category": "baking",
+    "width": 1600,
+    "height": 1200
   }
 ];
