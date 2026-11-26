@@ -17,6 +17,7 @@
   const imagePreloads = new Map();
   let dishRequest = 0;
   let dishTransitioning = false;
+  let browseFullArchive = false;
 
   function updateDeviceMode() {
     document.documentElement.classList.toggle("is-mobile", mobileQuery.matches);
@@ -79,12 +80,12 @@
     </article>`;
   }
 
-  function filteredItems() {
+  function filteredItems(includeAll = false) {
     const terms = state.query.toLowerCase().trim().split(/\s+/).filter(Boolean);
     const result = catalog.filter((item) => {
       const categoryMatch = state.filter === "all" || item.category === state.filter;
       const haystack = `${item.name} ${item.date} ${item.ingredients.join(" ")}`.toLowerCase();
-      return categoryMatch && terms.every((term) => haystack.includes(term));
+      return includeAll || (categoryMatch && terms.every((term) => haystack.includes(term)));
     });
     return result.sort((a, b) => {
       if (state.sort === "az") return a.name.localeCompare(b.name);
@@ -132,6 +133,10 @@
       const item = featured[card.dataset.featureCard] || catalog[0];
       if (!item) return;
       const shell = card.querySelector(".image-shell");
+      card.dataset.openDish = item.id;
+      card.tabIndex = 0;
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-label", `View ${item.name} details`);
       shell.style.background = gradientFor(item);
       shell.innerHTML = imageMarkup(item, true);
       const label = card.querySelector("[data-feature-label]");
@@ -164,7 +169,7 @@
   }
 
   function preloadNeighbors(id) {
-    const items = filteredItems();
+    const items = filteredItems(browseFullArchive);
     const index = items.findIndex((item) => item.id === Number(id));
     if (index < 0 || items.length < 2) return;
     for (let offset = 1; offset <= Math.min(2, items.length - 1); offset += 1) {
@@ -222,7 +227,7 @@
 
   async function stepDialog(direction) {
     if (dishTransitioning) return;
-    const items = filteredItems();
+    const items = filteredItems(browseFullArchive);
     const index = items.findIndex((item) => item.id === state.activeId);
     if (index < 0) return;
     const next = items[(index + direction + items.length) % items.length];
@@ -326,16 +331,21 @@
     }
   });
 
+  function openFromCard(opener) {
+    browseFullArchive = opener.hasAttribute("data-feature-card");
+    openDish(opener.dataset.openDish);
+  }
+
   document.addEventListener("click", (event) => {
     const opener = event.target.closest("[data-open-dish]");
-    if (opener) openDish(opener.dataset.openDish);
+    if (opener) openFromCard(opener);
   });
 
   document.addEventListener("keydown", (event) => {
-    const opener = event.target.closest(".latest-card[data-open-dish]");
+    const opener = event.target.closest('[role="button"][data-open-dish]');
     if (opener && (event.key === "Enter" || event.key === " ")) {
       event.preventDefault();
-      openDish(opener.dataset.openDish);
+      openFromCard(opener);
     }
   });
 
