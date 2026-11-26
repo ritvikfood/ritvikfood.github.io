@@ -71,6 +71,10 @@ h1 em { color: var(--tomato); font-weight: inherit; }
 .hero-card-left { left: -1%; bottom: 14px; z-index: 1; transform: rotate(-7deg); }
 .hero-card-right { width: min(34%, 210px); right: -2%; top: 88px; z-index: 3; transform: rotate(8deg); }
 .hero-card .image-shell { box-shadow: none; border: 0; }
+@media (hover: hover) {
+  .hero-card[data-open-dish] { cursor: pointer; }
+  .hero-card[data-open-dish]:hover img { transform: scale(1.035); }
+}
 .hero-card-main .image-shell { aspect-ratio: 4 / 5; }
 .hero-card-small .image-shell { aspect-ratio: 1 / 1.15; }
 .hero-card figcaption {
