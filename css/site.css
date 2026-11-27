@@ -158,7 +158,7 @@ footer p:last-child { text-align: right; }
 .dialog-stage { min-height: 620px; display: grid; grid-template-columns: 1.05fr .95fr; background: var(--paper); touch-action: pan-y; }
 .dialog-image { min-height: 620px; touch-action: pan-y; -webkit-user-drag: none; }
 .dialog-copy { padding: clamp(35px, 6vw, 72px); display: flex; flex-direction: column; touch-action: pan-y; overscroll-behavior-x: none; }
-.dialog-details { min-height: 0; will-change: transform, opacity; }
+.dialog-details { flex-shrink: 0; padding-bottom: 20px; will-change: transform, opacity; }
 .dialog-copy h2 { font-size: clamp(45px, 6vw, 70px); }
 .dialog-close { position: absolute; z-index: 2; top: 16px; right: 16px; width: 42px; aspect-ratio: 1; border: 0; border-radius: 50%; background: rgba(255,253,248,.9); cursor: pointer; font-size: 25px; }
 .dialog-label { margin: 42px 0 12px; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; }
