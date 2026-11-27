@@ -5,6 +5,8 @@ on:
     branches: [master]
     paths:
       - "images/**"
+      - "js/catalog.js"
+      - "scripts/sync-catalog.mjs"
   workflow_dispatch:
 
 permissions:
@@ -26,12 +28,12 @@ jobs:
 
       - name: Commit the updated catalog
         run: |
-          if git diff --quiet -- js/catalog.js index.html; then
+          git add js/catalog.js index.html dish/
+          if git diff --cached --quiet; then
             echo "No catalog or social preview updates needed."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add js/catalog.js index.html
           git commit -m "Sync food catalog and social preview"
           git push

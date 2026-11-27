@@ -18,6 +18,11 @@
   let dishRequest = 0;
   let dishTransitioning = false;
   let browseFullArchive = false;
+  const shareLink = dialog.querySelector("[data-dish-share]");
+  const shareStatus = dialog.querySelector("[data-share-status]");
+  let homeUrl = new URL(location.href);
+  const linkedDish = homeUrl.searchParams.get("dish");
+  homeUrl.searchParams.delete("dish");
 
   function updateDeviceMode() {
     document.documentElement.classList.toggle("is-mobile", mobileQuery.matches);
@@ -201,6 +206,10 @@
     dialog.querySelector("[data-dialog-ingredients]").innerHTML = (item.ingredients.length ? item.ingredients : ["A kitchen experiment"])
       .map((ingredient) => `<li>${escapeHtml(ingredient)}</li>`).join("");
     state.activeId = item.id;
+    const dishPath = `/dish/${item.id}/`;
+    shareLink.href = new URL(dishPath, "https://ritvikfood.com");
+    shareStatus.textContent = "";
+    if (location.protocol !== "file:") history.replaceState(history.state, "", dishPath);
     setImageFallbacks(dialog);
     dialog.classList.remove("is-loading");
     dialog.setAttribute("aria-busy", "false");
@@ -216,8 +225,13 @@
       });
       return;
     }
+    const request = dishRequest;
     const animations = dialogAnimated.map((element) => element.animate(keyframes, options));
     await Promise.all(animations.map((animation) => animation.finished.catch(() => {})));
+    if (!dialog.open || request !== dishRequest) {
+      animations.forEach((animation) => animation.cancel());
+      return;
+    }
     dialogAnimated.forEach((element) => {
       if (finalFrame.transform) element.style.transform = finalFrame.transform;
       if (finalFrame.opacity !== undefined) element.style.opacity = finalFrame.opacity;
@@ -229,13 +243,15 @@
     if (dishTransitioning) return;
     const items = filteredItems(browseFullArchive);
     const index = items.findIndex((item) => item.id === state.activeId);
-    if (index < 0) return;
+    if (index < 0 || items.length < 2) return;
     const next = items[(index + direction + items.length) % items.length];
     dishTransitioning = true;
     dialog.classList.add("is-preparing");
     dialog.setAttribute("aria-busy", "true");
 
+    const request = dishRequest;
     await preloadDishImage(next);
+    if (!dialog.open || request !== dishRequest) return;
     dialog.classList.remove("is-preparing");
     const distance = Math.max(dialog.getBoundingClientRect().width, 320);
     const outgoingX = direction > 0 ? distance * -.26 : distance * .26;
@@ -245,12 +261,14 @@
       { transform: "translate3d(0, 0, 0) scale(1)", opacity: 1 },
       { transform: `translate3d(${outgoingX}px, 0, 0) scale(.975)`, opacity: .12 }
     ], { duration: 190, easing: "cubic-bezier(.4, 0, 1, 1)", fill: "forwards" });
+    if (!dialog.open || request !== dishRequest) return;
 
     dialogAnimated.forEach((element) => {
       element.style.opacity = "0";
       element.style.transform = `translate3d(${incomingX}px, 0, 0) scale(.985)`;
     });
     await openDish(next.id);
+    if (!dialog.open || request + 1 !== dishRequest) return;
 
     await stageAnimation([
       { transform: `translate3d(${incomingX}px, 0, 0) scale(.985)`, opacity: .12 },
@@ -332,6 +350,7 @@
   });
 
   function openFromCard(opener) {
+    homeUrl = new URL(location.href);
     browseFullArchive = opener.hasAttribute("data-feature-card");
     openDish(opener.dataset.openDish);
   }
@@ -365,14 +384,30 @@
   dialog.querySelector("[data-dialog-close]").addEventListener("click", () => dialog.close());
   dialog.querySelector("[data-dialog-prev]").addEventListener("click", () => stepDialog(-1));
   dialog.querySelector("[data-dialog-next]").addEventListener("click", () => stepDialog(1));
+  shareLink.addEventListener("click", async (event) => {
+    if ((!navigator.share && !navigator.clipboard?.writeText) || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    const url = shareLink.href;
+    try {
+      if (navigator.share) await navigator.share({ url });
+      else await navigator.clipboard.writeText(url);
+      if (!navigator.share && shareLink.href === url) shareStatus.textContent = "Link copied";
+    } catch (error) {
+      if (error.name !== "AbortError" && shareLink.href === url) {
+        shareStatus.textContent = "Couldn’t share. Copy the link from the address bar.";
+      }
+    }
+  });
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) dialog.close();
   });
   dialog.addEventListener("close", () => {
+    if (location.protocol !== "file:") history.replaceState(history.state, "", homeUrl.href);
     dishRequest += 1;
     dialog.classList.remove("is-loading", "is-preparing");
     dialog.setAttribute("aria-busy", "false");
     dialogAnimated.forEach((element) => {
+      element.getAnimations?.().forEach((animation) => animation.cancel());
       element.style.removeProperty("transform");
       element.style.removeProperty("opacity");
     });
@@ -389,4 +424,8 @@
   render();
   setImageFallbacks(gallery);
   updateHeader();
+  if (linkedDish) {
+    browseFullArchive = true;
+    openDish(linkedDish);
+  }
 })();
