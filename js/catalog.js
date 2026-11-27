@@ -3341,5 +3341,20 @@ window.RITVIK_CATALOG = [
     "category": "baking",
     "width": 1600,
     "height": 1200
+  },
+  {
+    "id": 242,
+    "src": "/images/IMG_20261127_27 Nov 2026_Thyme Puff Pastry Bites_caramelized onion-mushroom-gruyere-thyme_1600_1529.jpeg",
+    "name": "Thyme Puff Pastry Bites",
+    "date": "27 Nov 2026",
+    "ingredients": [
+      "caramelized onion",
+      "mushroom",
+      "gruyere",
+      "thyme"
+    ],
+    "category": "vegetarian",
+    "width": 1529,
+    "height": 1600
   }
 ];
