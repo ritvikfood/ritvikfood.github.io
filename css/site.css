@@ -168,6 +168,11 @@ footer p:last-child { text-align: right; }
 .dialog-nav button { min-width: 112px; min-height: 44px; border: 0; background: none; cursor: pointer; color: var(--muted); }
 .dialog-nav button:first-child { justify-self: start; text-align: left; }
 .dialog-nav button:last-child { justify-self: end; text-align: right; }
+.dish-share { display: flex; align-items: center; flex-wrap: wrap; gap: 0 12px; }
+.dish-share button { min-height: 44px; border: 0; padding: 0; background: none; cursor: pointer; }
+.dish-share button:disabled { cursor: default; opacity: .55; }
+.share-toast { position: absolute; z-index: 4; bottom: 58px; left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100% - 32px); padding: 8px 14px; border-radius: 999px; background: var(--ink); color: var(--white); font-size: 13px; text-align: center; pointer-events: none; opacity: 0; transition: opacity .2s ease; }
+.share-toast.is-visible { opacity: 1; }
 .dialog-loading { position: absolute; z-index: 3; inset: 0; display: none; place-items: center; pointer-events: none; }
 .dialog-loading > span:first-child { width: 42px; aspect-ratio: 1; border: 3px solid rgba(255,253,248,.55); border-top-color: var(--sage); border-radius: 50%; animation: dialog-spin .7s linear infinite; filter: drop-shadow(0 2px 7px rgba(20,15,12,.2)); }
 .dish-dialog.is-loading .dialog-loading, .dish-dialog.is-preparing .dialog-loading { display: grid; }

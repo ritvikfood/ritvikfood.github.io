@@ -18,8 +18,17 @@
   let dishRequest = 0;
   let dishTransitioning = false;
   let browseFullArchive = false;
-  const shareLink = dialog.querySelector("[data-dish-share]");
+  const shareButton = dialog.querySelector("[data-dish-share]");
+  const shareFallback = dialog.querySelector("[data-share-fallback]");
   const shareStatus = dialog.querySelector("[data-share-status]");
+  let shareTimer;
+
+  function resetShareFeedback() {
+    clearTimeout(shareTimer);
+    shareStatus.classList.remove("is-visible");
+    shareStatus.textContent = "";
+    shareFallback.hidden = true;
+  }
   let homeUrl = new URL(location.href);
   const linkedDish = homeUrl.searchParams.get("dish");
   homeUrl.searchParams.delete("dish");
@@ -187,6 +196,8 @@
     const item = catalog.find((entry) => entry.id === Number(id));
     if (!item) return;
     const request = ++dishRequest;
+    shareButton.disabled = true;
+    resetShareFeedback();
     dialog.classList.add("is-loading");
     dialog.setAttribute("aria-busy", "true");
     if (!dialog.open) {
@@ -207,8 +218,8 @@
       .map((ingredient) => `<li>${escapeHtml(ingredient)}</li>`).join("");
     state.activeId = item.id;
     const dishPath = `/dish/${item.slug || item.id}/`;
-    shareLink.href = new URL(dishPath, "https://ritvikfood.com");
-    shareStatus.textContent = "";
+    shareFallback.href = new URL(dishPath, "https://ritvikfood.com");
+    shareButton.disabled = false;
     if (location.protocol !== "file:") history.replaceState(history.state, "", dishPath);
     setImageFallbacks(dialog);
     dialog.classList.remove("is-loading");
@@ -384,24 +395,27 @@
   dialog.querySelector("[data-dialog-close]").addEventListener("click", () => dialog.close());
   dialog.querySelector("[data-dialog-prev]").addEventListener("click", () => stepDialog(-1));
   dialog.querySelector("[data-dialog-next]").addEventListener("click", () => stepDialog(1));
-  shareLink.addEventListener("click", async (event) => {
-    if ((!navigator.share && !navigator.clipboard?.writeText) || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    event.preventDefault();
-    const url = shareLink.href;
+  shareButton.addEventListener("click", async () => {
+    const request = dishRequest;
+    resetShareFeedback();
     try {
-      if (navigator.share) await navigator.share({ url });
-      else await navigator.clipboard.writeText(url);
-      if (!navigator.share && shareLink.href === url) shareStatus.textContent = "Link copied";
-    } catch (error) {
-      if (error.name !== "AbortError" && shareLink.href === url) {
-        shareStatus.textContent = "Couldn’t share. Copy the link from the address bar.";
-      }
+      await navigator.clipboard.writeText(shareFallback.href);
+      if (!dialog.open || request !== dishRequest) return;
+      shareStatus.textContent = "Link copied to clipboard";
+    } catch {
+      if (!dialog.open || request !== dishRequest) return;
+      shareFallback.hidden = false;
+      shareStatus.textContent = "Couldn’t copy the link";
     }
+    clearTimeout(shareTimer);
+    shareStatus.classList.add("is-visible");
+    shareTimer = setTimeout(() => shareStatus.classList.remove("is-visible"), 2600);
   });
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) dialog.close();
   });
   dialog.addEventListener("close", () => {
+    resetShareFeedback();
     if (location.protocol !== "file:") history.replaceState(history.state, "", homeUrl.href);
     dishRequest += 1;
     dialog.classList.remove("is-loading", "is-preparing");

@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/site.css?v=20261126-1">
+    <link rel="stylesheet" href="css/site.css?v=20261127-3">
     <script type="application/ld+json">
       {"@context":"https://schema.org","@type":"WebSite","name":"Ritvik Food","url":"https://ritvikfood.com/","description":"A personal culinary archive by Ritvik Kharkar","author":{"@type":"Person","name":"Ritvik Kharkar"}}
     </script>
@@ -173,13 +173,17 @@
             <button type="button" data-dialog-prev>← Previous</button>
             <button type="button" data-dialog-next>Next →</button>
           </div>
-          <div><a class="text-link" data-dish-share>Share this dish ↗</a> <span role="status" data-share-status></span></div>
+          <div class="dish-share">
+            <button class="text-link" type="button" data-dish-share disabled>Copy dish link</button>
+            <a class="text-link" data-share-fallback hidden>Open link to copy manually ↗</a>
+          </div>
         </div>
       </div>
       <div class="dialog-loading" aria-live="polite"><span></span><span class="sr-only">Loading dish</span></div>
+      <div class="share-toast" role="status" aria-atomic="true" data-share-status></div>
     </dialog>
 
     <script src="js/catalog.js?v=acf366a2d282"></script>
-    <script src="js/site.js?v=20261127-2"></script>
+    <script src="js/site.js?v=20261127-3"></script>
   </body>
 </html>
