@@ -113,11 +113,27 @@ function escapeHtml(value) {
     .replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 }
 
+function assignDishSlugs(catalog) {
+  const used = new Set(catalog.map((item) => item.slug).filter(Boolean));
+  let changed = false;
+  for (const item of catalog) {
+    if (item.slug) continue;
+    const name = item.name.toLowerCase().normalize("NFKD").replace(/\p{Mark}/gu, "")
+      .replace(/['’]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    const base = /[a-z]/.test(name) ? name : `creation-${item.id}`;
+    let slug = base;
+    for (let suffix = 2; used.has(slug); suffix += 1) slug = `${base}-${suffix}`;
+    item.slug = slug;
+    used.add(slug);
+    changed = true;
+  }
+  return changed;
+}
+
 function syncDishPages(catalog) {
   for (const item of catalog) {
     if (!Number.isSafeInteger(item.id) || item.id < 1) throw new Error("Invalid catalog dish ID");
-    const directory = `dish/${item.id}`;
-    const path = `${directory}/index.html`;
+    const directory = `dish/${item.slug}`;
     const home = `/?dish=${item.id}`;
     const url = `${SITE_ORIGIN}/${directory}/`;
     const image = escapeHtml(new URL(item.src, SITE_ORIGIN).href);
@@ -147,9 +163,12 @@ function syncDishPages(catalog) {
 </body>
 </html>
 `;
-    if (existsSync(path) && readFileSync(path, "utf8") === page) continue;
-    mkdirSync(directory, { recursive: true });
-    writeFileSync(path, page);
+    for (const route of [directory, `dish/${item.id}`]) {
+      const path = `${route}/index.html`;
+      if (existsSync(path) && readFileSync(path, "utf8") === page) continue;
+      mkdirSync(route, { recursive: true });
+      writeFileSync(path, page);
+    }
   }
 }
 
@@ -160,9 +179,12 @@ const additions = trackedImages()
   .filter((path) => !knownSources.has(`/${path}`))
   .map((path) => ({ id: nextId++, ...metadataFromPath(path) }));
 
-if (additions.length) {
-  catalog.push(...additions);
+catalog.push(...additions);
+const slugsChanged = assignDishSlugs(catalog);
+if (additions.length || slugsChanged) {
   writeFileSync(CATALOG_PATH, `window.RITVIK_CATALOG = ${JSON.stringify(catalog, null, 2)};\n`);
+}
+if (additions.length) {
   console.log(`Added ${additions.length} image${additions.length === 1 ? "" : "s"} to the catalog:`);
   for (const item of additions) console.log(`- ${item.name} (${item.src})`);
 } else {

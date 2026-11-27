@@ -11,7 +11,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2958,
     "height": 3873,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "drunken-mussels"
   },
   {
     "id": 2,
@@ -25,7 +26,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 5312,
     "height": 2988,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-patties"
   },
   {
     "id": 3,
@@ -39,7 +41,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "baking"
+    "category": "baking",
+    "slug": "peanut-butter-bars"
   },
   {
     "id": 4,
@@ -53,7 +56,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 5312,
     "height": 2988,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "fish-fry"
   },
   {
     "id": 5,
@@ -70,7 +74,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 5312,
     "height": 2988,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "fish-market-haul"
   },
   {
     "id": 6,
@@ -84,7 +89,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1269,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "clams"
   },
   {
     "id": 7,
@@ -98,7 +104,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2660,
     "height": 2967,
-    "category": "drinks"
+    "category": "drinks",
+    "slug": "dark-and-stormy"
   },
   {
     "id": 8,
@@ -112,7 +119,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 5312,
     "height": 2988,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "fish-and-chips"
   },
   {
     "id": 9,
@@ -126,7 +134,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-stuffed-peppers"
   },
   {
     "id": 10,
@@ -141,7 +150,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "pompano-croquettes"
   },
   {
     "id": 11,
@@ -154,7 +164,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "baking"
+    "category": "baking",
+    "slug": "lemon-bars"
   },
   {
     "id": 12,
@@ -169,7 +180,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-curry"
   },
   {
     "id": 13,
@@ -181,7 +193,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4730,
     "height": 2660,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon"
   },
   {
     "id": 14,
@@ -195,7 +208,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 5312,
     "height": 2988,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "shrimp-toast"
   },
   {
     "id": 15,
@@ -209,7 +223,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 5312,
     "height": 2988,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "shrimp-toast-2"
   },
   {
     "id": 16,
@@ -223,7 +238,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "calimari"
   },
   {
     "id": 17,
@@ -237,7 +253,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "lobster-mac-and-cheese"
   },
   {
     "id": 18,
@@ -251,7 +268,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "squid-stuffed-sole"
   },
   {
     "id": 19,
@@ -265,7 +283,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4730,
     "height": 2660,
-    "category": "baking"
+    "category": "baking",
+    "slug": "nutella-cupcakes"
   },
   {
     "id": 20,
@@ -280,7 +299,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "seafood-garlic-bread"
   },
   {
     "id": 21,
@@ -294,7 +314,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "shrimp-nachos-and-salmon-guac"
   },
   {
     "id": 22,
@@ -308,7 +329,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2662,
     "height": 2660,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "crab-cakes"
   },
   {
     "id": 23,
@@ -322,7 +344,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2660,
     "height": 3764,
-    "category": "other"
+    "category": "other",
+    "slug": "ribs"
   },
   {
     "id": 24,
@@ -334,7 +357,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4730,
     "height": 2660,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-2"
   },
   {
     "id": 25,
@@ -349,7 +373,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4730,
     "height": 2660,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "gravlax-with-bread"
   },
   {
     "id": 26,
@@ -364,7 +389,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2660,
     "height": 2660,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "gravlax"
   },
   {
     "id": 27,
@@ -378,7 +404,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3188,
     "height": 2575,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "seared-gravlax-salad"
   },
   {
     "id": 28,
@@ -393,7 +420,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "baking"
+    "category": "baking",
+    "slug": "truffles"
   },
   {
     "id": 29,
@@ -407,7 +435,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "black-pepper-crab"
   },
   {
     "id": 30,
@@ -422,7 +451,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4730,
     "height": 2660,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "black-pepper-crab-2"
   },
   {
     "id": 31,
@@ -434,7 +464,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3554,
     "height": 2401,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "dungeness-crab"
   },
   {
     "id": 32,
@@ -448,7 +479,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "black-pepper-shrimp-and-crab"
   },
   {
     "id": 33,
@@ -462,7 +494,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2662,
     "height": 2660,
-    "category": "baking"
+    "category": "baking",
+    "slug": "cookies"
   },
   {
     "id": 34,
@@ -476,7 +509,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "other"
+    "category": "other",
+    "slug": "lamb-arepa"
   },
   {
     "id": 35,
@@ -490,7 +524,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 5312,
     "height": 2988,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "bacon-wrapped-salmon"
   },
   {
     "id": 36,
@@ -504,7 +539,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2660,
     "height": 2888,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "fried-fish"
   },
   {
     "id": 37,
@@ -518,7 +554,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4730,
     "height": 2660,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "tuna-toast"
   },
   {
     "id": 38,
@@ -533,7 +570,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "shellfish-mac-and-cheese"
   },
   {
     "id": 39,
@@ -547,7 +585,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4010,
     "height": 1990,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "sliders"
   },
   {
     "id": 40,
@@ -561,7 +600,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "ahi-french-omlette"
   },
   {
     "id": 41,
@@ -575,7 +615,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "baking"
+    "category": "baking",
+    "slug": "pecan-pie"
   },
   {
     "id": 42,
@@ -587,7 +628,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4730,
     "height": 2660,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "blue-crab"
   },
   {
     "id": 43,
@@ -599,7 +641,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2950,
     "height": 3834,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "blue-crab-2"
   },
   {
     "id": 44,
@@ -611,7 +654,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2660,
     "height": 4730,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "argentine-red-shrimp"
   },
   {
     "id": 45,
@@ -625,7 +669,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4730,
     "height": 2660,
-    "category": "other"
+    "category": "other",
+    "slug": "mutton-plate"
   },
   {
     "id": 46,
@@ -640,7 +685,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "baking"
+    "category": "baking",
+    "slug": "truffles-2"
   },
   {
     "id": 47,
@@ -654,7 +700,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2662,
     "height": 2660,
-    "category": "other"
+    "category": "other",
+    "slug": "lamb-shank"
   },
   {
     "id": 48,
@@ -668,7 +715,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4075,
     "height": 2600,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "devilled-eggs"
   },
   {
     "id": 49,
@@ -682,7 +730,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3907,
     "height": 2660,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "mutton-and-fish-plate"
   },
   {
     "id": 50,
@@ -696,7 +745,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1440,
     "height": 810,
-    "category": "baking"
+    "category": "baking",
+    "slug": "orange-and-lemon-bars"
   },
   {
     "id": 51,
@@ -709,7 +759,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4083,
     "height": 2660,
-    "category": "baking"
+    "category": "baking",
+    "slug": "orange-brownies"
   },
   {
     "id": 52,
@@ -724,7 +775,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4245,
     "height": 2419,
-    "category": "other"
+    "category": "other",
+    "slug": "chicken-patties"
   },
   {
     "id": 53,
@@ -739,7 +791,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4030,
     "height": 2660,
-    "category": "other"
+    "category": "other",
+    "slug": "goat-curry"
   },
   {
     "id": 54,
@@ -752,7 +805,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4094,
     "height": 2660,
-    "category": "other"
+    "category": "other",
+    "slug": "lamb-steaks"
   },
   {
     "id": 55,
@@ -767,7 +821,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4730,
     "height": 2660,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "sea-haul"
   },
   {
     "id": 56,
@@ -781,7 +836,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 5312,
     "height": 2988,
-    "category": "baking"
+    "category": "baking",
+    "slug": "pecan-bars"
   },
   {
     "id": 57,
@@ -795,7 +851,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-meatballs"
   },
   {
     "id": 58,
@@ -809,7 +866,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2896,
     "height": 2896,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "squid-ink-pizza"
   },
   {
     "id": 59,
@@ -823,7 +881,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4420,
     "height": 2660,
-    "category": "other"
+    "category": "other",
+    "slug": "lamb-chop-and-fried-rice"
   },
   {
     "id": 60,
@@ -837,7 +896,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 5312,
     "height": 2988,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "catfish-marsala"
   },
   {
     "id": 61,
@@ -851,7 +911,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2560,
     "height": 1440,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-curry-2"
   },
   {
     "id": 62,
@@ -866,7 +927,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4271,
     "height": 2660,
-    "category": "other"
+    "category": "other",
+    "slug": "lamb-loin-chops"
   },
   {
     "id": 63,
@@ -880,7 +942,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 5312,
     "height": 2988,
-    "category": "other"
+    "category": "other",
+    "slug": "lamb-and-egg"
   },
   {
     "id": 64,
@@ -894,7 +957,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2560,
     "height": 1440,
-    "category": "baking"
+    "category": "baking",
+    "slug": "valentines-day-truffles"
   },
   {
     "id": 65,
@@ -908,7 +972,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4517,
     "height": 2660,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-with-bacon"
   },
   {
     "id": 66,
@@ -922,7 +987,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4730,
     "height": 2660,
-    "category": "other"
+    "category": "other",
+    "slug": "lamb-shank-2"
   },
   {
     "id": 67,
@@ -935,7 +1001,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3777,
     "height": 3264,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-plate"
   },
   {
     "id": 68,
@@ -948,7 +1015,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4352,
     "height": 3264,
-    "category": "baking"
+    "category": "baking",
+    "slug": "mango-mousse"
   },
   {
     "id": 69,
@@ -962,7 +1030,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "fish-market-haul-2"
   },
   {
     "id": 70,
@@ -976,7 +1045,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3479,
     "height": 2631,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "fish-tacos"
   },
   {
     "id": 71,
@@ -990,7 +1060,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3386,
     "height": 2896,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-plate-2"
   },
   {
     "id": 72,
@@ -1005,7 +1076,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "other"
+    "category": "other",
+    "slug": "black-pepper-chicken"
   },
   {
     "id": 73,
@@ -1019,7 +1091,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 2680,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "brunch-toast"
   },
   {
     "id": 74,
@@ -1033,7 +1106,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "shrimp-fried-rice"
   },
   {
     "id": 75,
@@ -1047,7 +1121,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3264,
     "height": 3264,
-    "category": "baking"
+    "category": "baking",
+    "slug": "pecan-bars-2"
   },
   {
     "id": 76,
@@ -1061,7 +1136,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4381,
     "height": 3132,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "dinner-party"
   },
   {
     "id": 77,
@@ -1075,7 +1151,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3456,
     "height": 3379,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "shrimp-egg-rolls"
   },
   {
     "id": 78,
@@ -1089,7 +1166,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4107,
     "height": 3167,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "gravlax-bread"
   },
   {
     "id": 79,
@@ -1105,7 +1183,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "taco-night"
   },
   {
     "id": 80,
@@ -1118,7 +1197,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3323,
     "height": 3502,
-    "category": "other"
+    "category": "other",
+    "slug": "goat-chops"
   },
   {
     "id": 81,
@@ -1132,7 +1212,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2612,
     "height": 3729,
-    "category": "other"
+    "category": "other",
+    "slug": "chicken-roll"
   },
   {
     "id": 82,
@@ -1146,7 +1227,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3456,
     "height": 4608,
-    "category": "other"
+    "category": "other",
+    "slug": "lamb-plate"
   },
   {
     "id": 83,
@@ -1160,7 +1242,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "other"
+    "category": "other",
+    "slug": "meatloaf"
   },
   {
     "id": 84,
@@ -1174,7 +1257,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "shrimp-pasta"
   },
   {
     "id": 85,
@@ -1188,7 +1272,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "shrimp-pasta-2"
   },
   {
     "id": 86,
@@ -1202,7 +1287,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3519,
     "height": 3456,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "shrimp-devilled-eggs"
   },
   {
     "id": 87,
@@ -1216,7 +1302,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3304,
-    "category": "other"
+    "category": "other",
+    "slug": "lamb-plate-2"
   },
   {
     "id": 88,
@@ -1230,7 +1317,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3282,
     "height": 3269,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "tuscan-shrimp-pasta"
   },
   {
     "id": 89,
@@ -1243,7 +1331,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "chili-salmon"
   },
   {
     "id": 90,
@@ -1256,7 +1345,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "other"
+    "category": "other",
+    "slug": "lamb-plate-3"
   },
   {
     "id": 91,
@@ -1271,7 +1361,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4021,
     "height": 3117,
-    "category": "drinks"
+    "category": "drinks",
+    "slug": "moscow-mule"
   },
   {
     "id": 92,
@@ -1285,7 +1376,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3201,
-    "category": "other"
+    "category": "other",
+    "slug": "lamb-plate-4"
   },
   {
     "id": 93,
@@ -1298,7 +1390,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "baking"
+    "category": "baking",
+    "slug": "bread"
   },
   {
     "id": 94,
@@ -1312,7 +1405,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "baking"
+    "category": "baking",
+    "slug": "rum-cake"
   },
   {
     "id": 95,
@@ -1326,7 +1420,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "lamb-and-shrimp-plate"
   },
   {
     "id": 96,
@@ -1340,7 +1435,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2508,
     "height": 1745,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "sushi"
   },
   {
     "id": 97,
@@ -1354,7 +1450,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4505,
     "height": 2625,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "french-omlette"
   },
   {
     "id": 98,
@@ -1367,7 +1464,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3456,
     "height": 0,
-    "category": "other"
+    "category": "other",
+    "slug": "black-pepper-chicken-2"
   },
   {
     "id": 99,
@@ -1380,7 +1478,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3240,
-    "category": "baking"
+    "category": "baking",
+    "slug": "cookies-2"
   },
   {
     "id": 100,
@@ -1394,7 +1493,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-cakes"
   },
   {
     "id": 101,
@@ -1408,7 +1508,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3854,
     "height": 2961,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "lemon-garlic-shrimp"
   },
   {
     "id": 102,
@@ -1421,7 +1522,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3850,
     "height": 3279,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "tilapia"
   },
   {
     "id": 103,
@@ -1435,7 +1537,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3509,
     "height": 3447,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "fish-plate"
   },
   {
     "id": 104,
@@ -1449,7 +1552,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3456,
     "height": 3456,
-    "category": "other"
+    "category": "other",
+    "slug": "brunch-toast-2"
   },
   {
     "id": 105,
@@ -1463,7 +1567,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4028,
     "height": 2891,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-cakes-2"
   },
   {
     "id": 106,
@@ -1477,7 +1582,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3456,
     "height": 3764,
-    "category": "other"
+    "category": "other",
+    "slug": "chicken-plate"
   },
   {
     "id": 107,
@@ -1491,7 +1597,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4434,
     "height": 3309,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-plate-3"
   },
   {
     "id": 108,
@@ -1505,7 +1612,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "baking"
+    "category": "baking",
+    "slug": "creme-brulee"
   },
   {
     "id": 109,
@@ -1519,7 +1627,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3032,
-    "category": "other"
+    "category": "other",
+    "slug": "dinner-plate"
   },
   {
     "id": 110,
@@ -1531,7 +1640,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3264,
     "height": 3264,
-    "category": "drinks"
+    "category": "drinks",
+    "slug": "stout"
   },
   {
     "id": 111,
@@ -1544,7 +1654,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3269,
-    "category": "other"
+    "category": "other",
+    "slug": "chicken-appetizer"
   },
   {
     "id": 112,
@@ -1558,7 +1669,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 2680,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "french-omlette-2"
   },
   {
     "id": 113,
@@ -1572,7 +1684,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 2719,
-    "category": "baking"
+    "category": "baking",
+    "slug": "coffee-cake"
   },
   {
     "id": 114,
@@ -1586,7 +1699,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1448,
-    "category": "other"
+    "category": "other",
+    "slug": "herb-butter"
   },
   {
     "id": 115,
@@ -1601,7 +1715,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 853,
-    "category": "drinks"
+    "category": "drinks",
+    "slug": "moscow-mule-2"
   },
   {
     "id": 116,
@@ -1615,7 +1730,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1675,
-    "category": "baking"
+    "category": "baking",
+    "slug": "rum-creme-brulee"
   },
   {
     "id": 117,
@@ -1630,7 +1746,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1500,
-    "category": "other"
+    "category": "other",
+    "slug": "tandoori-chicken"
   },
   {
     "id": 118,
@@ -1645,7 +1762,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 2992,
-    "category": "baking"
+    "category": "baking",
+    "slug": "banana-bread"
   },
   {
     "id": 119,
@@ -1659,7 +1777,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1153,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "egg-curry"
   },
   {
     "id": 120,
@@ -1673,7 +1792,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 2037,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "sea-bass"
   },
   {
     "id": 121,
@@ -1687,7 +1807,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1125,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "dinner-plate-2"
   },
   {
     "id": 122,
@@ -1701,7 +1822,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1500,
-    "category": "baking"
+    "category": "baking",
+    "slug": "shortbread-cookies"
   },
   {
     "id": 123,
@@ -1715,7 +1837,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1143,
-    "category": "other"
+    "category": "other",
+    "slug": "appetizer-plate"
   },
   {
     "id": 124,
@@ -1728,7 +1851,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1231,
-    "category": "other"
+    "category": "other",
+    "slug": "indian-curries"
   },
   {
     "id": 125,
@@ -1742,7 +1866,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 2128,
-    "category": "baking"
+    "category": "baking",
+    "slug": "mango-rice-pudding"
   },
   {
     "id": 126,
@@ -1757,7 +1882,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1289,
     "height": 1079,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "masala-omlette-and-fish-fry"
   },
   {
     "id": 127,
@@ -1771,7 +1897,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1149,
-    "category": "baking"
+    "category": "baking",
+    "slug": "almond-cookies"
   },
   {
     "id": 128,
@@ -1785,7 +1912,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1500,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "indian-vegie-dinner"
   },
   {
     "id": 129,
@@ -1800,7 +1928,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1826,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-cakes-3"
   },
   {
     "id": 130,
@@ -1814,7 +1943,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1219,
-    "category": "other"
+    "category": "other",
+    "slug": "chicken-burger"
   },
   {
     "id": 131,
@@ -1828,7 +1958,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 953,
-    "category": "baking"
+    "category": "baking",
+    "slug": "lava-cake"
   },
   {
     "id": 132,
@@ -1842,7 +1973,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1125,
-    "category": "other"
+    "category": "other",
+    "slug": "tandoori-chicken-2"
   },
   {
     "id": 133,
@@ -1857,7 +1989,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4042,
     "height": 3176,
-    "category": "other"
+    "category": "other",
+    "slug": "chicken-egg-rolls"
   },
   {
     "id": 134,
@@ -1869,7 +2002,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1125,
-    "category": "other"
+    "category": "other",
+    "slug": "lamb-shank-3"
   },
   {
     "id": 135,
@@ -1883,7 +2017,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1129,
-    "category": "other"
+    "category": "other",
+    "slug": "stuffed-jalapenos"
   },
   {
     "id": 136,
@@ -1895,7 +2030,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1098,
-    "category": "other"
+    "category": "other",
+    "slug": "chicken-wings"
   },
   {
     "id": 137,
@@ -1909,7 +2045,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1036,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "indian-dinner"
   },
   {
     "id": 138,
@@ -1921,7 +2058,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1125,
-    "category": "other"
+    "category": "other",
+    "slug": "spices"
   },
   {
     "id": 139,
@@ -1933,7 +2071,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 936,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-3"
   },
   {
     "id": 140,
@@ -1948,7 +2087,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1884,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "shrimp-egg-rolls-2"
   },
   {
     "id": 141,
@@ -1963,7 +2103,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 897,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "peppers"
   },
   {
     "id": 142,
@@ -1978,7 +2119,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1534,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "candied-peppers"
   },
   {
     "id": 143,
@@ -1991,7 +2133,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 2216,
-    "category": "baking"
+    "category": "baking",
+    "slug": "muffins-and-cookies"
   },
   {
     "id": 144,
@@ -2006,7 +2149,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1051,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "black-pepper-chicken-3"
   },
   {
     "id": 145,
@@ -2020,7 +2164,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1067,
-    "category": "other"
+    "category": "other",
+    "slug": "chili-chicken"
   },
   {
     "id": 146,
@@ -2035,7 +2180,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1125,
     "height": 1500,
-    "category": "baking"
+    "category": "baking",
+    "slug": "lemon-blueberry-scones"
   },
   {
     "id": 147,
@@ -2049,7 +2195,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1125,
-    "category": "other"
+    "category": "other",
+    "slug": "pepper-sandwich"
   },
   {
     "id": 148,
@@ -2064,7 +2211,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1216,
     "height": 950,
-    "category": "other"
+    "category": "other",
+    "slug": "petal-bowl"
   },
   {
     "id": 149,
@@ -2078,7 +2226,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1146,
-    "category": "other"
+    "category": "other",
+    "slug": "pulled-chicken-sliders"
   },
   {
     "id": 150,
@@ -2092,7 +2241,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1125,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "thai-fish-curry"
   },
   {
     "id": 151,
@@ -2104,7 +2254,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1125,
-    "category": "baking"
+    "category": "baking",
+    "slug": "bread-2"
   },
   {
     "id": 152,
@@ -2118,7 +2269,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 2000,
-    "category": "other"
+    "category": "other",
+    "slug": "egg-rolls"
   },
   {
     "id": 153,
@@ -2133,7 +2285,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1125,
-    "category": "other"
+    "category": "other",
+    "slug": "khow-suey"
   },
   {
     "id": 154,
@@ -2147,7 +2300,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1884,
-    "category": "other"
+    "category": "other",
+    "slug": "goat-chops-2"
   },
   {
     "id": 155,
@@ -2161,7 +2315,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1105,
-    "category": "baking"
+    "category": "baking",
+    "slug": "no-yeast-bread"
   },
   {
     "id": 156,
@@ -2173,7 +2328,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1054,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "tempura-shrimp"
   },
   {
     "id": 157,
@@ -2185,7 +2341,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1490,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "tempura-shrimp-2"
   },
   {
     "id": 158,
@@ -2199,7 +2356,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1244,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "dinner-plate-3"
   },
   {
     "id": 159,
@@ -2213,7 +2371,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 892,
-    "category": "baking"
+    "category": "baking",
+    "slug": "avocado-bread"
   },
   {
     "id": 160,
@@ -2226,7 +2385,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1517,
-    "category": "baking"
+    "category": "baking",
+    "slug": "baked-goods"
   },
   {
     "id": 161,
@@ -2239,7 +2399,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1926,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "fried-clams"
   },
   {
     "id": 162,
@@ -2253,7 +2414,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1117,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "indian-seafood-plate"
   },
   {
     "id": 163,
@@ -2267,7 +2429,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1220,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "sea-haul-2"
   },
   {
     "id": 164,
@@ -2280,7 +2443,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 828,
-    "category": "other"
+    "category": "other",
+    "slug": "rolls"
   },
   {
     "id": 165,
@@ -2292,7 +2456,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 2206,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "lobster-rolls"
   },
   {
     "id": 166,
@@ -2306,7 +2471,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1063,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "stuffed-pompano"
   },
   {
     "id": 167,
@@ -2320,7 +2486,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 849,
-    "category": "baking"
+    "category": "baking",
+    "slug": "date-cake"
   },
   {
     "id": 168,
@@ -2334,7 +2501,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1145,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "crab-cakes-2"
   },
   {
     "id": 169,
@@ -2348,7 +2516,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1299,
-    "category": "other"
+    "category": "other",
+    "slug": "chicken-feast"
   },
   {
     "id": 170,
@@ -2362,7 +2531,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1169,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "goat-rigatoni-and-shrimp"
   },
   {
     "id": 171,
@@ -2375,7 +2545,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1125,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "seafood-night"
   },
   {
     "id": 172,
@@ -2389,7 +2560,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1500,
     "height": 1095,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "tilapia-pasta"
   },
   {
     "id": 173,
@@ -2403,7 +2575,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3393,
     "height": 3126,
-    "category": "baking"
+    "category": "baking",
+    "slug": "biscotti"
   },
   {
     "id": 174,
@@ -2417,7 +2590,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3456,
     "height": 3456,
-    "category": "baking"
+    "category": "baking",
+    "slug": "naan"
   },
   {
     "id": 175,
@@ -2431,7 +2605,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4500,
     "height": 2991,
-    "category": "other"
+    "category": "other",
+    "slug": "slider-night"
   },
   {
     "id": 176,
@@ -2445,7 +2620,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3784,
     "height": 2641,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "shrimp-rice"
   },
   {
     "id": 177,
@@ -2459,7 +2635,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2316,
     "height": 3109,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "crab-stuffed-jalapenos"
   },
   {
     "id": 178,
@@ -2473,7 +2650,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2605,
     "height": 2557,
-    "category": "other"
+    "category": "other",
+    "slug": "sambal"
   },
   {
     "id": 179,
@@ -2487,7 +2665,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3389,
     "height": 2636,
-    "category": "baking"
+    "category": "baking",
+    "slug": "cinnamon-rolls"
   },
   {
     "id": 180,
@@ -2502,7 +2681,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2745,
     "height": 2178,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "black-pepper-shrimp"
   },
   {
     "id": 181,
@@ -2516,7 +2696,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "baking"
+    "category": "baking",
+    "slug": "loaf"
   },
   {
     "id": 182,
@@ -2530,7 +2711,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3456,
     "height": 3760,
-    "category": "other"
+    "category": "other",
+    "slug": "goat-burgers"
   },
   {
     "id": 183,
@@ -2544,7 +2726,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3964,
     "height": 3053,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "thanksgiving-2020"
   },
   {
     "id": 184,
@@ -2559,7 +2742,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "other"
+    "category": "other",
+    "slug": "thanksgiving-in-december"
   },
   {
     "id": 185,
@@ -2573,7 +2757,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3057,
     "height": 2495,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "birthday-breakfast"
   },
   {
     "id": 186,
@@ -2587,7 +2772,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4229,
     "height": 3200,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "seafood-feast"
   },
   {
     "id": 187,
@@ -2601,7 +2787,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "other"
+    "category": "other",
+    "slug": "indian-dinner-2"
   },
   {
     "id": 188,
@@ -2615,7 +2802,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1522,
     "height": 1028,
-    "category": "baking"
+    "category": "baking",
+    "slug": "chocolate-florentines"
   },
   {
     "id": 189,
@@ -2629,7 +2817,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1616,
     "height": 1080,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "bbq-salmon"
   },
   {
     "id": 190,
@@ -2643,7 +2832,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4500,
     "height": 3456,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "in-n-out-style-animal-fries"
   },
   {
     "id": 191,
@@ -2657,7 +2847,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1148,
     "height": 1080,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "indian-dinner-3"
   },
   {
     "id": 192,
@@ -2671,7 +2862,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1540,
     "height": 1080,
-    "category": "baking"
+    "category": "baking",
+    "slug": "lemon-bars-2"
   },
   {
     "id": 193,
@@ -2685,7 +2877,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1616,
     "height": 1080,
-    "category": "baking"
+    "category": "baking",
+    "slug": "challah"
   },
   {
     "id": 194,
@@ -2699,7 +2892,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1055,
     "height": 1571,
-    "category": "baking"
+    "category": "baking",
+    "slug": "baklava"
   },
   {
     "id": 195,
@@ -2713,7 +2907,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1616,
     "height": 1055,
-    "category": "baking"
+    "category": "baking",
+    "slug": "scones"
   },
   {
     "id": 196,
@@ -2727,7 +2922,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4215,
     "height": 2675,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-kulebyaka"
   },
   {
     "id": 197,
@@ -2740,7 +2936,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1207,
     "height": 991,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "pav-bhaji"
   },
   {
     "id": 198,
@@ -2754,7 +2951,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1277,
     "height": 1080,
-    "category": "other"
+    "category": "other",
+    "slug": "rolls-2"
   },
   {
     "id": 199,
@@ -2768,7 +2966,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3275,
     "height": 3937,
-    "category": "other"
+    "category": "other",
+    "slug": "chicken-patties-2"
   },
   {
     "id": 200,
@@ -2782,7 +2981,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3344,
     "height": 3230,
-    "category": "baking"
+    "category": "baking",
+    "slug": "mothers-day-roll"
   },
   {
     "id": 201,
@@ -2796,7 +2996,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3456,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "poke-bowl"
   },
   {
     "id": 202,
@@ -2810,7 +3011,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1512,
     "height": 1311,
-    "category": "baking"
+    "category": "baking",
+    "slug": "saffron-cake"
   },
   {
     "id": 203,
@@ -2824,7 +3026,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4480,
     "height": 3242,
-    "category": "other"
+    "category": "other",
+    "slug": "tandoori-chicken-3"
   },
   {
     "id": 204,
@@ -2838,7 +3041,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 894,
     "height": 1375,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "cheese-board"
   },
   {
     "id": 205,
@@ -2852,7 +3056,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2794,
     "height": 2794,
-    "category": "baking"
+    "category": "baking",
+    "slug": "baklava-2"
   },
   {
     "id": 206,
@@ -2867,7 +3072,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3114,
     "height": 4461,
-    "category": "other"
+    "category": "other",
+    "slug": "lamb-chops"
   },
   {
     "id": 207,
@@ -2880,7 +3086,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4122,
     "height": 3185,
-    "category": "other"
+    "category": "other",
+    "slug": "beer-braised-lamb-shank"
   },
   {
     "id": 208,
@@ -2894,7 +3101,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3456,
     "height": 3521,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-burgers"
   },
   {
     "id": 209,
@@ -2908,7 +3116,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3456,
     "height": 4608,
-    "category": "baking"
+    "category": "baking",
+    "slug": "rosemary-shortbread-cookies"
   },
   {
     "id": 210,
@@ -2923,7 +3132,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2048,
     "height": 1536,
-    "category": "other"
+    "category": "other",
+    "slug": "chicken-meatloaf"
   },
   {
     "id": 211,
@@ -2937,7 +3147,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2048,
     "height": 1536,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "devilled-eggs-2"
   },
   {
     "id": 212,
@@ -2951,7 +3162,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2556,
     "height": 3479,
-    "category": "baking"
+    "category": "baking",
+    "slug": "coffee-cake-2"
   },
   {
     "id": 213,
@@ -2963,7 +3175,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3973,
     "height": 3456,
-    "category": "other"
+    "category": "other",
+    "slug": "ping-gai"
   },
   {
     "id": 214,
@@ -2977,7 +3190,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3272,
     "height": 3342,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "tandoori-shrimp"
   },
   {
     "id": 215,
@@ -2992,7 +3206,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3931,
     "height": 3239,
-    "category": "other"
+    "category": "other",
+    "slug": "burger-night"
   },
   {
     "id": 216,
@@ -3006,7 +3221,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3035,
     "height": 4608,
-    "category": "baking"
+    "category": "baking",
+    "slug": "chocolate-cups"
   },
   {
     "id": 217,
@@ -3019,7 +3235,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3456,
     "height": 4012,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "copycat-in-n-out-animal-fries"
   },
   {
     "id": 218,
@@ -3031,7 +3248,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3456,
     "height": 3456,
-    "category": "other"
+    "category": "other",
+    "slug": "lamb-plate-5"
   },
   {
     "id": 219,
@@ -3045,7 +3263,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1144,
     "height": 1026,
-    "category": "other"
+    "category": "other",
+    "slug": "salt-and-pepper-ribs"
   },
   {
     "id": 220,
@@ -3058,7 +3277,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4608,
     "height": 3228,
-    "category": "seafood"
+    "category": "seafood",
+    "slug": "salmon-burgers-2"
   },
   {
     "id": 221,
@@ -3070,7 +3290,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3619,
     "height": 3225,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "homemade-pita"
   },
   {
     "id": 222,
@@ -3084,7 +3305,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2792,
     "height": 2792,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "spinach-soup"
   },
   {
     "id": 223,
@@ -3098,7 +3320,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1170,
     "height": 840,
-    "category": "baking"
+    "category": "baking",
+    "slug": "baklava-3"
   },
   {
     "id": 224,
@@ -3110,7 +3333,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4032,
     "height": 3024,
-    "category": "drinks"
+    "category": "drinks",
+    "slug": "drinks"
   },
   {
     "id": 225,
@@ -3124,7 +3348,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 4030,
     "height": 2906,
-    "category": "baking"
+    "category": "baking",
+    "slug": "lemon-bars-3"
   },
   {
     "id": 226,
@@ -3138,7 +3363,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1170,
     "height": 740,
-    "category": "baking"
+    "category": "baking",
+    "slug": "mango-panna-cotta"
   },
   {
     "id": 227,
@@ -3152,7 +3378,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1170,
     "height": 845,
-    "category": "baking"
+    "category": "baking",
+    "slug": "orange-truffles"
   },
   {
     "id": 228,
@@ -3165,7 +3392,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3024,
     "height": 4032,
-    "category": "drinks"
+    "category": "drinks",
+    "slug": "shots"
   },
   {
     "id": 229,
@@ -3179,7 +3407,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3656,
     "height": 2865,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "cucumber-sandwiches"
   },
   {
     "id": 230,
@@ -3193,7 +3422,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3347,
     "height": 2596,
-    "category": "baking"
+    "category": "baking",
+    "slug": "rosemary-shortbread-cookies-2"
   },
   {
     "id": 231,
@@ -3207,7 +3437,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3739,
     "height": 2493,
-    "category": "baking"
+    "category": "baking",
+    "slug": "asiago-onion-scones"
   },
   {
     "id": 232,
@@ -3219,7 +3450,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2959,
     "height": 2858,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "pizza"
   },
   {
     "id": 233,
@@ -3232,7 +3464,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3024,
     "height": 3528,
-    "category": "vegetarian"
+    "category": "vegetarian",
+    "slug": "fries"
   },
   {
     "id": 234,
@@ -3246,7 +3479,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 2932,
     "height": 3266,
-    "category": "drinks"
+    "category": "drinks",
+    "slug": "mistletoe-martini"
   },
   {
     "id": 235,
@@ -3260,7 +3494,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 1170,
     "height": 1317,
-    "category": "drinks"
+    "category": "drinks",
+    "slug": "absinthe-express"
   },
   {
     "id": 236,
@@ -3274,7 +3509,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3024,
     "height": 4032,
-    "category": "drinks"
+    "category": "drinks",
+    "slug": "winter-rose"
   },
   {
     "id": 237,
@@ -3286,7 +3522,8 @@ window.RITVIK_CATALOG = [
     ],
     "width": 3024,
     "height": 4032,
-    "category": "all"
+    "category": "all",
+    "slug": "baby-shower-cake"
   },
   {
     "id": 238,
@@ -3300,7 +3537,8 @@ window.RITVIK_CATALOG = [
     ],
     "category": "baking",
     "width": 4032,
-    "height": 3024
+    "height": 3024,
+    "slug": "pizookie"
   },
   {
     "id": 239,
@@ -3312,7 +3550,8 @@ window.RITVIK_CATALOG = [
     ],
     "category": "baking",
     "width": 3024,
-    "height": 2545
+    "height": 2545,
+    "slug": "holiday-cookie-box"
   },
   {
     "id": 240,
@@ -3326,7 +3565,8 @@ window.RITVIK_CATALOG = [
     ],
     "category": "drinks",
     "width": 4032,
-    "height": 3024
+    "height": 3024,
+    "slug": "cookie-butter-latte"
   },
   {
     "id": 241,
@@ -3340,7 +3580,8 @@ window.RITVIK_CATALOG = [
     ],
     "category": "baking",
     "width": 1600,
-    "height": 1200
+    "height": 1200,
+    "slug": "mango-pie"
   },
   {
     "id": 242,
@@ -3355,6 +3596,7 @@ window.RITVIK_CATALOG = [
     ],
     "category": "vegetarian",
     "width": 1529,
-    "height": 1600
+    "height": 1600,
+    "slug": "thyme-puff-pastry-bites"
   }
 ];

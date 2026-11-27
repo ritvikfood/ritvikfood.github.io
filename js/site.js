@@ -206,7 +206,7 @@
     dialog.querySelector("[data-dialog-ingredients]").innerHTML = (item.ingredients.length ? item.ingredients : ["A kitchen experiment"])
       .map((ingredient) => `<li>${escapeHtml(ingredient)}</li>`).join("");
     state.activeId = item.id;
-    const dishPath = `/dish/${item.id}/`;
+    const dishPath = `/dish/${item.slug || item.id}/`;
     shareLink.href = new URL(dishPath, "https://ritvikfood.com");
     shareStatus.textContent = "";
     if (location.protocol !== "file:") history.replaceState(history.state, "", dishPath);
